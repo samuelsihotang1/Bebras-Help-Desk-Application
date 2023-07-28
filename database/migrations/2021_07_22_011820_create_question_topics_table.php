@@ -15,8 +15,8 @@ class CreateQuestionTopicsTable extends Migration
     {
         Schema::create('question_topics', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('question_id')->constrained();
-            $table->foreignId('topic_id')->constrained();
+            $table->foreignId('question_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('topic_id')->constrained()->onDelete('CASCADE');
         });
     }
 

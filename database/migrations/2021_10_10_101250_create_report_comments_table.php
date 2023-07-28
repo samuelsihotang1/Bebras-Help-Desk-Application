@@ -15,8 +15,8 @@ class CreateReportCommentsTable extends Migration
     {
         Schema::create('report_comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('comment_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('comment_id')->constrained()->onDelete('CASCADE');
             $table->string('type',30);
             $table->timestamps();
         });

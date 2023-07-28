@@ -15,8 +15,8 @@ class CreateReportAnswersTable extends Migration
     {
         Schema::create('report_answers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('answer_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('answer_id')->constrained()->onDelete('CASCADE');
             $table->string('type',30);
             $table->timestamps();
         });

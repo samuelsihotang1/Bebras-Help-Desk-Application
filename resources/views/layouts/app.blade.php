@@ -64,6 +64,7 @@
             <x-admin-questions />
             <x-admin-comments />
             <x-admin-topics />
+            <x-admin-users />
             @else
             <li class="nav-item ml-5">
               <a href="{{ route('answer.index') }}"
