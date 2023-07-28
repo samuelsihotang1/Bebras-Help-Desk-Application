@@ -162,9 +162,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
-        Jcc\LaravelVote\VoteServiceProvider::class,
         Jorenvh\Share\Providers\ShareServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Samuelsihotang1\LaravelVote\VoteServiceProvider::class,
 
         /*
          * Package Service Providers...

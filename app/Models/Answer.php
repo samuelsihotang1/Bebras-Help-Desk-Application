@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Jcc\LaravelVote\Traits\Votable;
+use samuelsihotang1\LaravelVote\Traits\Votable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
@@ -11,30 +11,34 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Answer extends Model implements Viewable
 {
-    use InteractsWithViews, HasFactory, Votable, SoftDeletes;
+  use InteractsWithViews, HasFactory, Votable, SoftDeletes;
 
-    protected $removeViewsOnDelete = true;
+  protected $removeViewsOnDelete = true;
 
-    protected $guarded = [];
+  protected $guarded = [];
 
-    public function question(){
-        return $this->belongsTo(Question::class);
-    }
+  public function question()
+  {
+    return $this->belongsTo(Question::class);
+  }
 
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
+  public function user()
+  {
+    return $this->belongsTo(User::class);
+  }
 
-    public function report_users(){
-        return $this->belongsToMany(User::class,'report_answers')->withPivot('type');
-    }
+  public function report_users()
+  {
+    return $this->belongsToMany(User::class, 'report_answers')->withPivot('type');
+  }
 
-    public function comments(){
-        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
-    }
+  public function comments()
+  {
+    return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
+  }
 
-    // public function comments(){
-    //     return $this->hasMany(Comment::class);
-    // }
+  // public function comments(){
+  //     return $this->hasMany(Comment::class);
+  // }
 
 }
