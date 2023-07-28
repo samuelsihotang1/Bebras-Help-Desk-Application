@@ -132,8 +132,13 @@ class AnswerController extends Controller
 
   public function destroy(Answer $answer)
   {
-
     $reports = ReportAnswer::where('answer_id', $answer->id)->get();
+
+    if ($answer->question->pin_answer == $answer->id) {
+      $answer->question->update([
+        'pin_answer' => null
+      ]);
+    }
 
     if ($answer->image) {
       File::delete('img/' . $answer->image);
