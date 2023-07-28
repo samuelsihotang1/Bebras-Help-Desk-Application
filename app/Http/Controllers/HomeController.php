@@ -13,7 +13,7 @@ class HomeController extends Controller
     {   
         $answers = Answer::with(['user','question'])->where('user_id','!=',auth()->id())
                    ->whereNull('status')->orWhere('status','viewed_by_admin')->orWhere('status','updated_by_user')
-                   ->latest()->paginate(8);
+                   ->latest()->get();
         return view('home',compact('answers'));
     }
 

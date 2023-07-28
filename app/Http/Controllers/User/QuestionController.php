@@ -34,7 +34,7 @@ class QuestionController extends Controller
     $reported_question = false;
 
     $user_id = auth()->id();
-    $answers = Answer::with('user')->where('question_id', $question->id)->latest()->paginate(4);
+    $answers = Answer::with('user')->where('question_id', $question->id)->latest()->get();
     $answered = Answer::where('question_id', $question->id)->where('user_id', $user_id)->first();
     $report_question = ReportQuestion::where('question_id', $question->id)->where('user_id', $user_id)->first();
     $topics = Topic::select(['id', 'name'])->get();
@@ -46,7 +46,7 @@ class QuestionController extends Controller
         $topic_id = $topic->id;
         $related_questions = Question::select(['title', 'title_slug'])->where('id', '!=', $question->id)->whereHas('topics', function ($query) use ($topic_id) {
           $query->where('topic_id', $topic_id);
-        })->latest()->paginate(8);
+        })->latest()->get();
       }
     }
 

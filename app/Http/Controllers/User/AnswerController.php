@@ -26,7 +26,7 @@ class AnswerController extends Controller
 
   public function index()
   {
-    $questions = Question::where('user_id', '!=', auth()->id())->latest()->paginate(4);
+    $questions = Question::where('user_id', '!=', auth()->id())->latest()->get();
     return view('user.answer.index', compact('questions'));
   }
 

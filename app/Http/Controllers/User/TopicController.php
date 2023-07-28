@@ -34,7 +34,7 @@ class TopicController extends Controller
             $query->whereHas('topics',function($q)use($topic_id){
                 $q->where('topic_id',$topic_id);
             });
-        })->latest()->paginate(8);
+        })->latest()->get();
         
         return view('user.topic.show',compact('answers','topic'));
     }
