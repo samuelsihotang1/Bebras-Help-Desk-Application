@@ -19,16 +19,7 @@ class AnswerController extends Controller
 
     $image = $request->file('image');
     $imageName = time() . '.' . $image->extension();
-    $img_edit = Image::make($image);
-    $img_edit->resize(700, 500);
-    $img_edit->text('luora.ferdirns.com', 600, 470, function ($font) {
-      $font->file(public_path('img/coco-sharp-bold.ttf'));
-      $font->size(20);
-      $font->color('#808080');
-      $font->align('center');
-      $font->valign('top');
-      $font->angle(0);
-    })->save(public_path('/img') . '/' . $imageName);
+    Image::make($image)->save(public_path('/img') . '/' . $imageName);
 
     return $imageName;
   }
@@ -123,9 +114,11 @@ class AnswerController extends Controller
     ]);
 
     if ($request->hasFile('image')) {
+      if ($answer->image) {
+        File::delete('img/' . $answer->image);
+      }
       $imageName = $this->storeImage($request);
     } else {
-
       $imageName = $answer->image;
     }
 
@@ -142,12 +135,8 @@ class AnswerController extends Controller
 
     $reports = ReportAnswer::where('answer_id', $answer->id)->get();
 
-    if ($answer->images) {
-      $images = json_decode($answer->images);
-
-      foreach ($images as $image) {
-        File::delete('img/' . $image);
-      }
+    if ($answer->image) {
+      File::delete('img/' . $answer->image);
     }
 
     foreach ($reports as $report) {
