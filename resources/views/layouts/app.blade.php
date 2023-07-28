@@ -66,28 +66,12 @@
             <x-admin-topics />
             @else
             <li class="nav-item ml-5">
-              <a href="javascript: void(0)" class="text-dark"><i class="bi bi-newspaper"
-                  style="font-size: 1.5rem;"></i></a>
-            </li>
-
-            <li class="nav-item ml-5">
               <a href="{{ route('answer.index') }}"
                 class="{{ request()->route()->named('answer.index') || request()->route()->named('question.show')  ? 'text-danger' : 'text-dark'}}"><i
                   class="bi bi-pencil-square" style="font-size: 1.5rem;"></i></a>
             </li>
-
-            <li class="nav-item ml-5">
-              <a href="javascript: void(0)" class="text-dark"><i class="bi bi-people"
-                  style="font-size: 1.5rem;"></i></a>
-            </li>
-
-            <li class="nav-item ml-5">
-              <a href="javascript: void(0)" class="text-dark"><i class="bi bi-bell" style="font-size: 1.5rem;"></i></a>
-            </li>
-
             <li class="nav-item ml-4 mt-1">
               <select name="livesearch" class="form-control livesearch" style="width: 375px">
-
               </select>
             </li>
             @endcan
