@@ -34,8 +34,6 @@
 
                         //set share
                         $link = route('question.show',$answer->question);
-                        $facebook = \Share::page($link)->facebook()->getRawLinks();
-                        $twitter = \Share::page($link)->twitter()->getRawLinks();
 
                         //set credential
                         if($answer->user->credential){
@@ -113,8 +111,6 @@
                                                 <a href="" class="text-dark" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="bi bi-share"></i></a>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                        <a class="dropdown-item" href="{{ $facebook . '#'.$answer->user->name_slug}} '. '" target="_blank"><i class="bi bi-facebook mr-2"></i>Facebook</a>
-                                                        <a class="dropdown-item" href="{{ $twitter . '#'.$answer->user->name_slug}}'.'" target="_blank"><i class="bi bi-twitter mr-2"></i>Twitter</a>
                                                         <a class="dropdown-item" href="javascript: void(0)" onclick="copy()" id="copyLink" data-attr="{{ $answer->question->title_slug ."#". $answer->user->name_slug }}">Copy link</a>
                                                     </div>
                                                 </div>

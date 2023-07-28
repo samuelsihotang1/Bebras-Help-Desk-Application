@@ -138,10 +138,8 @@ class QuestionController extends Controller
     }
 
     $link = route('question.show', $question);
-    $facebook = \Share::page($link)->facebook()->getRawLinks();
-    $twitter = \Share::page($link)->twitter()->getRawLinks();
 
-    return view('user.question.show', compact('question', 'answers', 'answered', 'topics', 'facebook', 'twitter', 'reported_question', 'report_question_types', 'report_comment_types', 'report_answer_types', 'related_questions'));
+    return view('user.question.show', compact('question', 'answers', 'answered', 'topics', 'reported_question', 'report_question_types', 'report_comment_types', 'report_answer_types', 'related_questions'));
   }
 
   public function store(Request $request)
