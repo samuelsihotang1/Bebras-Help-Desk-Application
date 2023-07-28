@@ -162,4 +162,26 @@ class AnswerController extends Controller
 
     return back()->with('message', ['text' => 'Answer deleted successfully!', 'class' => 'success']);
   }
+
+  public function pin(Answer $answer)
+  {
+    $question = $answer->question;
+
+    $question->update([
+      'pin_answer' => $answer->id
+    ]);
+
+    return back()->with('message', ['text' => 'Answer pinned successfully!', 'class' => 'success']);
+  }
+
+  public function deletepin(Answer $answer)
+  {
+    $question = $answer->question;
+
+    $question->update([
+      'pin_answer' => null
+    ]);
+
+    return back()->with('message', ['text' => 'Answer pinned successfully!', 'class' => 'success']);
+  }
 }

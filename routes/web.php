@@ -76,7 +76,9 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('/{question:title_slug}/answer',[AnswerController::class,'store'])->name('answer.store');
     Route::get('/answer/{answer}/{vote}',[AnswerController::class,'vote'])->name('answer.vote');
     Route::post('/answer/{answer}/report',[AnswerController::class,'report'])->name('answer.report');
-
+    Route::get('/{answer:id}/pin',[AnswerController::class,'pin'])->name('answer.pin');
+    Route::get('/{answer:id}/deletepin',[AnswerController::class,'deletepin'])->name('answer.deletepin');
+    
     //profile
     Route::get('/user/{user:name_slug}/follow',[ProfileController::class,'follow'])->name('follow');
     Route::get('/profile/{user:name_slug}/show',[ProfileController::class,'show'])->name('profile.show');
