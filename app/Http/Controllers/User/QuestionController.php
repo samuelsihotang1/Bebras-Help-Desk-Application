@@ -34,7 +34,14 @@ class QuestionController extends Controller
     $reported_question = false;
 
     $user_id = auth()->id();
-    $answers = Answer::with('user')->where('question_id', $question->id)->latest()->get();
+    $answers = Answer::with('user')
+      ->where('question_id', $question->id)
+      ->where('id', '<>', $question->pin_answer)
+      ->latest()
+      ->get();
+    if ($question->pin_answer) {
+      $answers->prepend(Answer::where('id', $question->pin_answer)->first());
+    }
     $answered = Answer::where('question_id', $question->id)->where('user_id', $user_id)->first();
     $report_question = ReportQuestion::where('question_id', $question->id)->where('user_id', $user_id)->first();
     $topics = Topic::select(['id', 'name'])->get();
