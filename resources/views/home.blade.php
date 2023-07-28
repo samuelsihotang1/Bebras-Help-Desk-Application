@@ -132,11 +132,6 @@
         @endforeach
       </div>
 
-      <div class="text-center">
-        <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill" data-page="2" data-link="/home?page="
-          data-div="#answersHome">More</button>
-      </div>
-
     </div>
 
     <div class="col-4">

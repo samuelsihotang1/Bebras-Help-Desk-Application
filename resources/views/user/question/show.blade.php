@@ -460,11 +460,6 @@
 
           @if ($answers->isEmpty())
           <div class="text-center mt-4"><b>No answers</b></div>
-          @else
-          <div class="text-center">
-            <button class="btn btn-secondary btn-sm moreQuestion mt-2 rounded-pill" data-page="2"
-              data-link="/{{ $question->title_slug }}?page=" data-div="#answersQuestion">More</button>
-          </div>
           @endif
 
         </div>

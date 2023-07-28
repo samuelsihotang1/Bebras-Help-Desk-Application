@@ -56,9 +56,6 @@ Write Answers
                         @endforeach
                     </div>
                     
-                    <div class="text-center">
-                        <button class="btn btn-secondary btn-sm moreAnswer rounded-pill" data-page="2" data-link="/answer?page=" data-div="#questionsAnswer">More</button>
-                    </div>
                 </div>
             </div>
         </div>
