@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\CheckTopicController;
 use App\Http\Controllers\Admin\CheckAnswerController;
 use App\Http\Controllers\Admin\CheckCommentController;
 use App\Http\Controllers\Admin\CheckQuestionController;
+use App\Http\Controllers\Admin\CheckUserController;
+
 
 
 //api login provider
@@ -47,6 +49,10 @@ Route::group(['middleware' => 'auth'],function(){
                 //topic
                 Route::get('/topics/latest',[CheckTopicController::class,'index'])->name('topics.latest');
                 Route::get('/topic/{topic}/{status}',[CheckTopicController::class,'update_status'])->name('topic.status');
+                
+                //users
+                Route::get('/users/latest',[CheckUserController::class,'index'])->name('users.latest');
+                Route::get('/user/{user}/{status}',[CheckUserController::class,'update_status'])->name('user.status');
             });
         });
     });
