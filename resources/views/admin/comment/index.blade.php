@@ -46,7 +46,10 @@ Comments
         @forelse ($comments as $comment)
         <div class="card mt-2">
           <div class="card-body">
-            <b>{{ $comment->comment }}</b>
+            <a
+              href="/{{ App\Models\Answer::where('id',$comment->commentable_id)->first()->question->title_slug }}#{{ $comment->id }}">
+              {{ $comment->comment }}
+            </a>
             <span class="float-right">
               <a href="{{ route('admin.comment.status',['comment' => $comment->id,'status' => 'viewed_by_admin']) }}"
                 class="mr-2" onclick="return confirm('Are you sure?')"><i

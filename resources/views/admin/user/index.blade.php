@@ -37,7 +37,10 @@ Users
         @forelse ($users as $user)
         <div class="card mt-2">
           <div class="card-body">
-            <b>{{ $user->name }}</b>
+            <a
+              href="/profile/{{ $user->name_slug }}">
+              {{ $user->name }}
+            </a>
             <span class="float-right">
               <a href="{{ route('admin.user.status',['user' => $user->id,'status' => 'deleted_by_admin']) }}"
                 onclick="return confirm('Are you sure?')"><i class="bi bi-x-circle text-danger"></i></a>

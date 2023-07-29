@@ -37,7 +37,10 @@ Topics
         @forelse ($topics as $topic)
         <div class="card mt-2">
           <div class="card-body">
-            <b>{{ $topic->name }}</b>
+            <a
+              href="/topic/{{ $topic->name_slug }}">
+              {{ $topic->name }}
+            </a>
             <span class="float-right">
               <a href="{{ route('admin.topic.status',['topic' => $topic->id,'status' => 'deleted_by_admin']) }}"
                 onclick="return confirm('Are you sure?')"><i class="bi bi-x-circle text-danger"></i></a>
