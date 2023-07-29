@@ -15,6 +15,14 @@ class User extends Authenticatable
 {
   use HasFactory, Notifiable, Follower, Followable, Voter;
 
+
+  protected static function booted()
+  {
+    static::creating(function ($user) {
+      $user->name_slug = strtolower(str_replace(' ', '-', $user->name));
+      $user->avatar = 'https://ui-avatars.com/api/?name=' . $user->name . '&background=868e96&color=fff';
+    });
+  }
   protected $guarded = [];
 
   protected $hidden = [
