@@ -46,7 +46,9 @@ Answers
         @forelse ($answers as $answer)
         <div class="card mt-2">
           <div class="card-body">
-            <b>{{ $answer->text }}</b>
+            <a href="/{{ $answer->question->title_slug }}#{{ $answer->user->name_slug }}">
+              {{ $answer->text }}
+            </a>
             <span class="float-right">
               <a href="{{ route('admin.answer.status',['answer' => $answer->id,'status' => 'viewed_by_admin']) }}"
                 class="mr-2" onclick="return confirm('Are you sure?')"><i
