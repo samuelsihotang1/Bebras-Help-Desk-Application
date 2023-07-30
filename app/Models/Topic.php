@@ -8,6 +8,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Topic extends Model
 {
     use HasFactory;
+
+    //booted
+    protected static function booted()
+    {
+        static::created(function ($topic) {
+            $topic->name_slug = \Illuminate\Support\Str::slug($topic->name);
+            $topic->save();
+        });
+    }
+    
+
     
     protected $guarded = [];
 
