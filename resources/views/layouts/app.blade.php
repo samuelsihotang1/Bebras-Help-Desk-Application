@@ -4,13 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-    content="Luora is a Quora website clone. It's a platform to ask questions and connect with people who contribute quality answers">
+  <meta name="description" content="Bebras">
 
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>@yield('title','Luora')</title>
+  <title>@yield('title','Bebras')</title>
+
+  <!-- Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+  <link rel="manifest" href="/icon/site.webmanifest">
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
