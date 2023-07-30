@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\CheckAnswerController;
 use App\Http\Controllers\Admin\CheckCommentController;
 use App\Http\Controllers\Admin\CheckQuestionController;
 use App\Http\Controllers\Admin\CheckUserController;
-
+use App\Http\Controllers\Admin\EditFaqController;
 
 
 //api login provider
@@ -53,6 +53,11 @@ Route::group(['middleware' => 'auth'], function () {
         //users
         Route::get('/users/latest', [CheckUserController::class, 'index'])->name('users.latest');
         Route::get('/user/{user}/{status}', [CheckUserController::class, 'update_status'])->name('user.status');
+
+        //faq
+        Route::get('/faq', [EditFaqController::class, 'index'])->name('faqs');
+        Route::get('/faq/{faq}', [EditFaqController::class, 'delete'])->name('faqs.delete');
+        Route::post('/faq/store', [EditFaqController::class, 'store'])->name('faqs.store');
       });
     });
   });
