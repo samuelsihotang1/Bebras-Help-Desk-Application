@@ -116,7 +116,6 @@
                 <a class="dropdown-item" href="{{ route('stats.index') }}"><i class="bi bi-bar-chart mr-2"></i>Stats</a>
                 <a class="dropdown-item" href="{{ route('content.index') }}"><i class="bi bi-journals mr-2"></i>Your
                   Content</a>
-                <a class="dropdown-item" href="javascript: void(0)"><i class="bi bi-bookmark mr-2"></i>Bookmarks</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('settings.index') }}">Settings</a>
                 <a class="dropdown-item" href="javascript: void(0)">Help</a>
@@ -124,30 +123,12 @@
                                                      document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}
                 </a>
-                <div class="dropdown-divider"></div>
-                <small class="dropdown-header"><a href="https://github.com/izzanka/luora" class="text-secondary">About
-                    &#183;</a></small>
-
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf
                 </form>
               </div>
             </li>
 
-            <li class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link" href="javascript: void(0)" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false" v-pre>
-                <img src="{{ asset('img/globe2.svg') }}" alt="" class="rounded-circle" width="25px" height="25px">
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item">
-                  English
-                </a>
-                <a class="dropdown-item">
-                  Indonesia
-                </a>
-              </div>
-            </li>
             <button class="btn btn-sm btn-danger ml-2 rounded-pill" data-toggle="modal"
               data-target="#add-questionModal">Add question</button>
 
