@@ -61,6 +61,8 @@ Faq
                       <input type="hidden" name="faq" value="{{ $faq->id }}">
                       <input type="text" name="title" value="{{ $faq->title }}" class="form-control" autocomplete="off">
                       @include('layouts.error', ['name' => 'title'])
+                      <input type="text" name="text" value="{{ $faq->text }}" class="mt-2 form-control" autocomplete="off">
+                      @include('layouts.error', ['name' => 'text'])
                     </div>
                   </div>
                 </div>
