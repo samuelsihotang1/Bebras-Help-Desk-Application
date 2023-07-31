@@ -92,6 +92,7 @@
 
 @extends('auth.layouts.navbar')
 @section('content')
+<div class="flex min-h-[700px] flex-col bg-gray-50">
     <div class="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <img class="mx-auto h-20 w-auto"
@@ -173,4 +174,5 @@
         </div>
 
     </div>
+</div>
 @endsection

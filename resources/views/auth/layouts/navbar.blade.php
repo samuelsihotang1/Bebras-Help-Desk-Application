@@ -12,13 +12,11 @@
 
 <body>
     <div class="" style="">
-        <div class="flex min-h-[700px] flex-col bg-gray-50">
+        @yield('content')
 
-            @yield('content')
+    </div>
 
-        </div>
 
-  
     </div>
 </body>
 
