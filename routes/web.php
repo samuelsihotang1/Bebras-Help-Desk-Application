@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/faq', [EditFaqController::class, 'index'])->name('faqs');
         Route::get('/faq/{faq}', [EditFaqController::class, 'delete'])->name('faqs.delete');
         Route::post('/faq/store', [EditFaqController::class, 'store'])->name('faqs.store');
+        Route::post('/faq/update', [EditFaqController::class, 'update'])->name('faqs.update');
       });
     });
   });

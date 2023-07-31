@@ -29,17 +29,49 @@ Faq
               {{ $faq->title }}
             </b>
             <span class="float-right">
+              <a href="" class="mr-2" data-toggle="modal" data-target="#edit-faq{{ $loop->iteration }}Modal">Edit
+                Faq</a>
               <a href="{{ route('admin.faqs.delete',['faq' => $faq->id]) }}"
                 onclick="return confirm('Are you sure?')"><i class="bi bi-x-circle text-danger"></i></a>
-              {{-- <a href="" class="mr-2" onclick="return confirm('Are you sure?')">Edit</a> --}}
-              {{-- <a href="" onclick="return confirm('Are you sure?')"><i class="bi bi-x-circle text-danger"></i></a>
-              --}}
             </span>
           </div>
           <div class="mt-n4 card-body">
             {{ $faq->text }}
           </div>
         </div>
+
+
+
+        <!-- Modal Question-->
+        <form action="{{ route('admin.faqs.update') }}" method="POST">
+          @csrf
+          <div class="modal fade" id="edit-faq{{ $loop->iteration }}Modal" aria-labelledby="edit-faqModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="edit-faqModalLabel"><b>Edit Faq</b></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-12">
+                      <input type="hidden" name="faq" value="{{ $faq->id }}">
+                      <input type="text" name="title" value="{{ $faq->title }}" class="form-control" autocomplete="off">
+                      @include('layouts.error', ['name' => 'title'])
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-primary rounded-pill">Update</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
         @endforeach
         @if (count($faqs) == 0)
         <div class="text-center mt-2">
