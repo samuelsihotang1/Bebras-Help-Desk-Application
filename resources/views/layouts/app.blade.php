@@ -119,7 +119,9 @@
                   Content</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('settings.index') }}">Settings</a>
-                <a class="dropdown-item" href="javascript: void(0)">Help</a>
+                @if (Auth::user()->role != 'admin')
+                <a class="dropdown-item" href="{{ route('faq.index') }}">FAQ</a>
+                @endif
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}

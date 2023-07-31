@@ -11,6 +11,7 @@ use App\Http\Controllers\User\ContentController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\SettingController;
 use App\Http\Controllers\User\QuestionController;
+use App\Http\Controllers\User\FaqController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\Admin\CheckTopicController;
 use App\Http\Controllers\Admin\CheckAnswerController;
@@ -67,6 +68,9 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/', [HomeController::class, 'index']);
   Route::get('/home', [HomeController::class, 'index'])->name('home');
   Route::get('/search', [HomeController::class, 'search'])->name('search');
+
+  //faq
+  Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
   //setting
   Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
