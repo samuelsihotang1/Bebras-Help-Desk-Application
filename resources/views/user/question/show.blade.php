@@ -443,7 +443,8 @@
                               <input type="hidden" name="answer_id" value="{{ $answer->id }}" id="answer_id">
                             </div>
                             <div class="col-2">
-                              <button class="btn btn-primary rounded-pill btn-sm" type="submit">Add comment</button>
+                                <button class="btn btn-outline-primary btn-sm py-0 px-2" type="submit">Add comment</button>
+
                             </div>
                           </div>
                           @include('layouts.comment',['comments' => $answer->comments,'answer_id' => $answer->id])

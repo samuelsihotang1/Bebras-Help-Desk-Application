@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Bebras">
 
     <!-- CSRF Token -->
@@ -82,8 +83,7 @@
                                             class="bi bi-pencil-square" style="font-size: 1.5rem;"></i></a>
                                 </li>
                                 <li class="nav-item ml-4 mt-1">
-                                    <select name="livesearch" class="form-control livesearch" style="width: 500px;" >
-                                    </select>
+                                    <select name="livesearch" class="form-control livesearch" style="width: 500px;"></select>
                                 </li>
                             @endcan
 
@@ -140,7 +140,7 @@
                                     </form>
                                 </div>
                             </li>
-                           
+
                             <button class="btn btn-sm btn-outline-danger ml-2 " data-toggle="modal"
                                 data-target="#add-questionModal">Tambah Pertanyaan</button>
                         @endguest
@@ -148,7 +148,7 @@
                 </div>
             </div>
         </nav>
-        
+
 
         <main class="py-4">
             @guest
@@ -160,7 +160,7 @@
         </main>
     </div>
 
-    <script>
+    {{-- <script>
         let $q = $('.livesearch');
 
         $q.select2({
@@ -192,7 +192,45 @@
         $("#btnTopic").click(function() {
             $('#formTopic').toggle();
         })
+    </script> --}}
+
+    <script>
+        let $q = $('.livesearch');
+
+        $q.select2({
+            placeholder: 'Search question',
+            ajax: {
+                url: "/search",
+                dataType: 'json',
+                delay: 250,
+                processResults: function(data) {
+                    return {
+                        results: $.map(data, function(item) {
+                            return {
+                                id: item.title_slug, // Gunakan title_slug sebagai nilai value
+                                text: item.title // Gunakan title sebagai teks pilihan
+                            }
+                        })
+                    };
+                },
+                cache: true
+            }
+        });
+
+        $q.on('select2:select', function(e) {
+            // Cek apakah ada nilai yang dipilih sebelum melakukan redirect
+            if (e.params.data.id) {
+              //Route::get('/{question:title_slug}', [QuestionController::class, 'show'])->name('question.show');
+              window.location.href = "/"+ e.params.data.id
+            }
+        });
+
+        $('#formTopic').hide();
+        $("#btnTopic").click(function() {
+            $('#formTopic').toggle();
+        });
     </script>
+
 
     @yield('script')
 
