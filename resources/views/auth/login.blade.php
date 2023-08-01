@@ -145,9 +145,9 @@
 
                         <div class="text-sm leading-6">
                             @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}"
+                                {{-- <a href="{{ route('password.request') }}"
                                     class="font-semibold text-blue-600 hover:text-indigo-500 italic">Forgot
-                                    password?</a>
+                                    password?</a> --}}
                             @endif
                         </div>
                     </div>

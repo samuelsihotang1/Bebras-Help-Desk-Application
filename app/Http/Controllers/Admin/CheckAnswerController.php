@@ -11,7 +11,8 @@ class CheckAnswerController extends Controller
 {
     public function index(){
         $answers = Answer::doesnthave('report_users')->whereNull('status')->orWhere('status','updated_by_user')->latest()->get();
-        return view('admin.answer.index',compact('answers'));
+        return view('admin.answer.index',compact('answers'));  
+        //compact berfungsi untuk mengirim data ke view dengan format array asosiatif 
     }
 
     public function reported(){

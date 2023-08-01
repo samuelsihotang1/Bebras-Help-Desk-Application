@@ -42,11 +42,11 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md bg-white shadow-sm sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
                 <img class="mx-auto d-block mb-0"
                     src="https://github.com/Estomihi100103/HelpDesk-Applicaion/assets/89466828/e1c6b6d5-33a6-4f84-86f0-058f812c3e32"
-                    alt="Your Company" height="50">
+                    alt="Your Company" height="40">
                 <a class="navbar-brand mr-5" href="{{ route('home') }}">
                     <b class="px-3 text-danger" style="font-weight: bold; font-style: italic;">Bebras Help Desk</b>
                 </a>
@@ -76,7 +76,7 @@
                                 <x-admin-users />
                                 <x-admin-faqs />
                             @else
-                                <li class="nav-item ml-5">
+                                <li class="nav-item ml-4">
                                     <a href="{{ route('answer.index') }}"
                                         class="{{ request()->route()->named('answer.index') ||request()->route()->named('question.show')? 'text-danger': 'text-dark' }}"><i
                                             class="bi bi-pencil-square" style="font-size: 1.5rem;"></i></a>
@@ -108,7 +108,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link" href="javascript: void(0)" role="button"
+                                <a id="navbarDropdown" class="nav-link ml-4" href="javascript: void(0)" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <img src="{{ Auth::user()->avatar }}" alt="avatar" class="rounded-circle"
                                         width="25px" height="25px">
@@ -148,6 +148,7 @@
                 </div>
             </div>
         </nav>
+        
 
         <main class="py-4">
             @guest

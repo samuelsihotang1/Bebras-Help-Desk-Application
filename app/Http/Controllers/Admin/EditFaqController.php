@@ -10,8 +10,11 @@ class EditFaqController extends Controller
 {
   public function index()
   {
+   
     $faqs = Faq::get();
+    
     return view('admin.faq.index', compact('faqs'));
+
   }
 
   public function delete(Faq $faq)

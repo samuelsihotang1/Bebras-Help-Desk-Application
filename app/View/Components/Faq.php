@@ -22,7 +22,9 @@ class Faq extends Component
    */
   public function render(): View|Closure|string
   {
+    
     $topics = Topic::orderBy('name', 'asc')->get();
     return view('components.faq', compact('topics'));
+
   }
 }

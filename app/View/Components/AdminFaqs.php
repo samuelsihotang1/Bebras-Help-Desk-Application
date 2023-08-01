@@ -2,10 +2,10 @@
 
 namespace App\View\Components;
 
-use App\Models\User;
+use App\Models\Faq;
 use Illuminate\View\Component;
 
-class AdminUsers extends Component
+class AdminFaqs extends Component
 {
   /**
    * Create a new component instance.
@@ -24,9 +24,9 @@ class AdminUsers extends Component
    */
   public function render()
   {
-    $users = User::count();
-    return view('components.admin-users', [
-      'users' => $users
+    $faqs = Faq::count();
+    return view('components.admin-faqs', [
+      'faqs' => $faqs
     ]);
   }
 }
