@@ -115,30 +115,28 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right dmenu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('profile.index', Auth::user()->name_slug) }}"
-                                        class="text-dark"><b style="font-size: 15px">{{ Auth::user()->name }} <i
-                                                class="bi bi-chevron-right ml-2"></i></b> </a>
+                                    <a class="dropdown-item" href="{{ route('profile.index', Auth::user()->name_slug) }}" class="text-dark">
+                                        <img src="{{ (strpos(Auth::user()->avatar, 'https') === 0) ? Auth::user()->avatar : asset('img/' . Auth::user()->avatar) }}" alt="Profile Image" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 8px;">
+                                        <b style="font-size: 15px">{{ Auth::user()->name }} <i class="bi bi-chevron-right ml-2"></i></b>
+                                    </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('stats.index') }}"><i
-                                            class="bi bi-bar-chart mr-2"></i>Stats</a>
-                                    <a class="dropdown-item" href="{{ route('content.index') }}"><i
-                                            class="bi bi-journals mr-2"></i>Your
-                                        Content</a>
+                                    <a class="dropdown-item" href="{{ route('stats.index') }}"><i class="bi bi-bar-chart mr-2"></i>Stats</a>
+                                    <a class="dropdown-item" href="{{ route('content.index') }}"><i class="bi bi-journals mr-2"></i>Your Content</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('settings.index') }}">Settings</a>
                                     @if (Auth::user()->role != 'admin')
                                         <a class="dropdown-item" href="{{ route('faq.index') }}">FAQ</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
+                                
+                                
                             </li>
 
                             <button class="btn btn-sm btn-outline-danger ml-2 " data-toggle="modal"
