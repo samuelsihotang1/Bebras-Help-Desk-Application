@@ -8,30 +8,13 @@ Write Answers
 @include('layouts.answer')
 <div class="container">
     <div class="row">
-        <div class="col-2">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12" style="font-weight: bold; font-size: 15px;">
-                        Pertanyaan
-                    </div>                    
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-12">
-                        <a href="javascript:void(0)" class="text-danger font-weight-bold" style="background-color: rgba(255, 0, 0, 0.1); padding: 5px 10px; border-radius: 5px; display: inline-block; width: 100%;" onclick="makeRedBox(event)">
-                            <small style="font-size: 13px; font-weight: bold;">Pertanyaan untuk Anda</small>
-                        </a>
-                    </div>
-                </div>                                                
-            </div>
-        </div>
-        <div class="col-6">
+        <div class="col-8">
             @include('layouts.success')
             <div class="card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-12" style="font-size: 15px;">
-                            <i class="bi bi-star-fill text-danger"></i> Pertanyaan untuk Anda
+                            <i class=""></i> Pertanyaan untuk Anda
                             <hr>
                         </div>
                     </div>
