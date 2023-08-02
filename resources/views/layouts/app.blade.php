@@ -95,6 +95,9 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                        <li class="nav-item ml-4 mt-1">
+                            <select name="livesearch" class="form-control livesearch" style="width: 500px;"></select>
+                        </li>
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

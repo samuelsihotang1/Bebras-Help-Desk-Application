@@ -25,6 +25,14 @@ use App\Http\Controllers\Admin\EditFaqController;
 Route::get('/auth/redirect/{provider}', [SocialiteController::class, 'redirect']);
 Route::get('/auth/callback/{provider}', [SocialiteController::class, 'callback']);
 
+//route untuk home controller untuk mengakses halaman index yg tidak perlu auth
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/search', [HomeController::class, 'search'])->name('search');
+
+
+
+
+
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
@@ -65,9 +73,9 @@ Route::group(['middleware' => 'auth'], function () {
   });
 
   //home
-  Route::get('/', [HomeController::class, 'index']);
+  //  Route::get('/', [HomeController::class, 'index']);
   Route::get('/home', [HomeController::class, 'index'])->name('home');
-  Route::get('/search', [HomeController::class, 'search'])->name('search');
+  // Route::get('/search', [HomeController::class, 'search'])->name('search');
   
 
   //faq
