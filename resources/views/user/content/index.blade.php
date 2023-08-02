@@ -9,27 +9,24 @@ Your Content
 <div class="container">
     <div class="row">
         <div class="col-2">
-       
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12" style="font-weight: bold;">
                         By Content Type
                     </div>
                 </div>
                 <hr>
-                <div class="container">
                     <div class="row">
-                        <div class="col-12 mb-2">
-                            <a href="{{ route('content.index') }}" class="nav-link" style="display: inline-block; text-align: center; text-decoration: none; {{ request()->route()->named('content.index') ? 'background-color: #ffcccc; color: #dc3545; font-weight: bold; border-radius: 5px 5px 5px 5px;' : 'border-radius: 10px;' }}; padding: 2px 20px;">All Contents</a>
+                        <div class="col-12">
+                            <a href="{{ route('content.index') }}" class="nav-link" style="display: inline-block; text-decoration: none; {{ request()->route()->named('content.index') ? 'background-color: #ffdddd; color: #dc3545; font-weight: bold; border-radius: 5px 5px 5px 5px;' : 'border-radius: 10px;' }}; padding: 2px 20px;">All Contents</a>
                         </div>
-                        <div class="col-12 mb-2">
-                            <a href="{{ route('content.questions.index') }}" class="nav-link" style="display: inline-block; text-align: center; text-decoration: none; {{ request()->route()->named('content.questions.index') ? 'background-color: #ffcccc; color: #dc3545; font-weight: bold; border-radius: 5px 5px 5px 5px;' : 'border-radius: 10px;' }}; padding: 2px 20px;">Questions</a>
+                        <div class="col-12 mt-2">
+                            <a href="{{ route('content.questions.index') }}" class="nav-link" style="display: inline-block; text-decoration: none; {{ request()->route()->named('content.questions.index') ? 'background-color: #ffdddd; color: #dc3545; font-weight: bold; border-radius: 5px 5px 5px 5px;' : 'border-radius: 10px;' }}; padding: 2px 20px;">Questions</a>
                         </div>
-                        <div class="col-12 mb-2">
-                            <a href="{{ route('content.answers.index') }}" class="nav-link" style="display: inline-block; text-align: center; text-decoration: none; {{ request()->route()->named('content.answers.index') ? 'background-color: #ffcccc; color: #dc3545; font-weight: bold; border-radius: 5px 5px 5px 5px;' : 'border-radius: 10px;' }}; padding: 2px 20px;">Answers</a>
+                        <div class="col-12 mt-2">
+                            <a href="{{ route('content.answers.index') }}" class="nav-link" style="display: inline-block; text-decoration: none; {{ request()->route()->named('content.answers.index') ? 'background-color: #ffdddd; color: #dc3545; font-weight: bold; border-radius: 5px 5px 5px 5px;' : 'border-radius: 10px;' }}; padding: 2px 20px;">Answers</a>
                         </div>
-                    </div>
-                </div>
+                    </div>                    
             </div>
      
         </div>
@@ -41,7 +38,7 @@ Your Content
                 @if (request()->route()->named('content.questions.index'))
 
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12" style="font-weight: bold;">
                             Your Questions
                         </div>
                     </div>
@@ -61,7 +58,7 @@ Your Content
                 @elseif (request()->route()->named('content.answers.index'))
 
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12" style="font-weight: bold;">
                             Your Answers
                         </div>
                     </div>
@@ -81,7 +78,7 @@ Your Content
                 @elseif (request()->route()->named('content.index'))
 
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12" style="font-weight: bold;">
                             Your Content
                         </div>
                     </div>

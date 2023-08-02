@@ -14,13 +14,13 @@
       <div class="card-body">
         <div class="row mb-4">
           <div class="col-2" id="picture">
-            <img src="{{ (strpos($user->avatar, 'https') === 0) ? $user->avatar : asset('img/' . $user->avatar) }}" alt="avatar" class="rounded-circle mr-2" width="100px"
-              height="100px">
+            <div class="q-box qu-borderRadius--circle qu-borderAll qu-borderColor--darken Photo___StyledBox-sc-1x7c6d3-0" style="box-sizing: border-box; position: relative; width: 100px; height: 100px; overflow: hidden;">
+              <img src="{{ (strpos($user->avatar, 'https') === 0) ? $user->avatar : asset('img/' . $user->avatar) }}" alt="avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
             <small id="btneditPicture">
-              <a href="" class="pl-3 text-secondary" data-toggle="modal" data-target="#pictureModal">Edit Picture
-              </a>
+              <a href="" class="pl-3 text-secondary" data-toggle="modal" data-target="#pictureModal">Edit Picture</a>
             </small>
-          </div>
+          </div>          
           <div class="col-10">
             <div class="row">
               <div class="col-12" id="name" data-attr="{{ $user->name_slug }}">

@@ -109,14 +109,19 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link ml-4" href="javascript: void(0)" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{ (strpos(Auth::user()->avatar, 'https') === 0) ? Auth::user()->avatar : asset('img/' . Auth::user()->avatar) }}" alt="avatar" class="rounded-circle"
-                                        width="25px" height="25px">
-                                </a>
-
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <div class="q-box qu-borderRadius--circle qu-borderAll qu-borderColor--darken Photo___StyledBox-sc-1x7c6d3-0"
+                                    style="box-sizing: border-box; position: relative; width: 30px; height: 30px; overflow: hidden;">
+                                    <img src="{{ (strpos(Auth::user()->avatar, 'https') === 0) ? Auth::user()->avatar : asset('img/' . Auth::user()->avatar) }}"
+                                        alt="Profile Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                </div>
+                            </a>
+                            
                                 <div class="dropdown-menu dropdown-menu-right dmenu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('profile.index', Auth::user()->name_slug) }}" class="text-dark">
-                                        <img src="{{ (strpos(Auth::user()->avatar, 'https') === 0) ? Auth::user()->avatar : asset('img/' . Auth::user()->avatar) }}" alt="Profile Image" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 8px;">
+                                        <div class="q-box qu-borderRadius--circle qu-borderAll qu-borderColor--darken Photo___StyledBox-sc-1x7c6d3-0" style="box-sizing: border-box; position: relative; width: 40px; height: 40px; overflow: hidden; margin-right: 8px;">
+                                            <img src="{{ (strpos(Auth::user()->avatar, 'https') === 0) ? Auth::user()->avatar : asset('img/' . Auth::user()->avatar) }}" alt="Profile Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                        </div>
                                         <b style="font-size: 15px">{{ Auth::user()->name }} <i class="bi bi-chevron-right ml-2"></i></b>
                                     </a>
                                     <div class="dropdown-divider"></div>
@@ -135,8 +140,6 @@
                                         @csrf
                                     </form>
                                 </div>
-                                
-                                
                             </li>
 
                             <button class="btn btn-sm btn-outline-danger ml-2 " data-toggle="modal"
