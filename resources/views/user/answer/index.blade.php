@@ -53,7 +53,6 @@ Write Answers
                                 <div class="row mt-2">
                                     <div class="col-sm-6">
                                         <a href="" data-toggle="modal" data-target="#answerModal" data-attr="{{ route('answer.store',$question->title_slug) }}" id="answer"><i class="bi bi-pencil-square"></i> Answer</a>
-                                        <a href="#" class="text-danger ml-2" onclick="hideQuestion({{ $question->id }})">Hide</a>
                                     </div>
                                 </div>
                                 <hr>
@@ -110,8 +109,5 @@ Write Answers
         $(event.target).toggleClass('red-box');
     }
 
-    function hideQuestion(questionId) {
-        $("#question-" + questionId).hide();
-    }
 </script>
 @endsection
