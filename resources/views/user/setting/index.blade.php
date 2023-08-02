@@ -17,9 +17,9 @@ Account Settings
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-12 text-danger">
-                        Account
-                    </div>
+                    <a href="javascript:void(0)" class="text-danger font-weight-bold" style="background-color: rgba(255, 0, 0, 0.1); padding: 5px 10px; border-radius: 5px; display: inline-block; width: 100%;" onclick="makeRedBox(event)">
+                        <small style="font-size: 13px; font-weight: bold;">Account</small>
+                    </a>                    
                 </div>
             </div>
         </div>
