@@ -9,27 +9,31 @@ Your Content
 <div class="container">
     <div class="row">
         <div class="col-2">
-       
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12" style="font-weight: bold;">
                         By Content Type
                     </div>
                 </div>
                 <hr>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 mb-2">
-                            <a href="{{ route('content.index') }}" class="nav-link" style="display: inline-block; text-align: center; text-decoration: none; {{ request()->route()->named('content.index') ? 'background-color: #ffcccc; color: #dc3545; font-weight: bold; border-radius: 5px 5px 5px 5px;' : 'border-radius: 10px;' }}; padding: 2px 20px;">All Contents</a>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="q-text qu-color--red qu-medium" style="box-sizing: border-box;">
+                            <a href="{{ route('content.index') }}" class="{{ request()->route()->named('content.index') ? 'text-danger font-weight-bold' : 'text-dark' }}" style="{{ request()->route()->named('content.index') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px;' }}">All Contents</a>
                         </div>
-                        <div class="col-12 mb-2">
-                            <a href="{{ route('content.questions.index') }}" class="nav-link" style="display: inline-block; text-align: center; text-decoration: none; {{ request()->route()->named('content.questions.index') ? 'background-color: #ffcccc; color: #dc3545; font-weight: bold; border-radius: 5px 5px 5px 5px;' : 'border-radius: 10px;' }}; padding: 2px 20px;">Questions</a>
-                        </div>
-                        <div class="col-12 mb-2">
-                            <a href="{{ route('content.answers.index') }}" class="nav-link" style="display: inline-block; text-align: center; text-decoration: none; {{ request()->route()->named('content.answers.index') ? 'background-color: #ffcccc; color: #dc3545; font-weight: bold; border-radius: 5px 5px 5px 5px;' : 'border-radius: 10px;' }}; padding: 2px 20px;">Answers</a>
+                    </div>                          
+                    <div class="col-12">
+                        <div class="q-text qu-color--red qu-medium" style="box-sizing: border-box;">
+                            <a href="{{ route('content.questions.index') }}" class="{{ request()->route()->named('content.questions.index') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}" style="{{ request()->route()->named('content.questions.index') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px;' }}">Questions</a>
                         </div>
                     </div>
-                </div>
+                    <div class="col-12">
+                        <div class="q-text qu-color--red qu-medium" style="box-sizing: border-box;">
+                            <a href="{{ route('content.answers.index') }}" class="{{ request()->route()->named('content.answers.index') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}" style="{{ request()->route()->named('content.answers.index') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px;' }}">Answers</a>
+                        </div>
+                    </div>
+                    
+                </div>                                  
             </div>
      
         </div>
@@ -41,7 +45,7 @@ Your Content
                 @if (request()->route()->named('content.questions.index'))
 
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12" style="font-weight: bold;">
                             Your Questions
                         </div>
                     </div>
@@ -61,7 +65,7 @@ Your Content
                 @elseif (request()->route()->named('content.answers.index'))
 
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12" style="font-weight: bold;">
                             Your Answers
                         </div>
                     </div>
@@ -81,7 +85,7 @@ Your Content
                 @elseif (request()->route()->named('content.index'))
 
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12" style="font-weight: bold;">
                             Your Content
                         </div>
                     </div>
