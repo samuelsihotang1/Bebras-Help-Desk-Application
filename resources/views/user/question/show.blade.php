@@ -307,8 +307,9 @@
                     <div class="col-12">
                       <div class="row">
                         <div class="col-sm-1">
-                          <img src="{{$answer->user->avatar}}" alt="avatar" class="rounded-circle" width="45px"
-                            height="45px">
+                          <img
+                            src="{{ (strpos($answer->user->avatar, 'https') === 0) ? $answer->user->avatar : asset('img/' . $answer->user->avatar)}}"
+                            alt="avatar" class="rounded-circle" width="45px" height="45px">
                         </div>
 
                         <div class="col-sm-11">
@@ -392,12 +393,13 @@
                         <div class="col-12">
                           {{ $answer->text }}<br>
                           @if ($answer->image)
-                          <img src="{{ asset('img/' . $answer->image) }}" class="img-fluid mt-2 mb-2">
+                          <img src="{{ asset('img/' . $answer->image) }}" class="img-fluid mt-2 mb-2"
+                            style="width: 300px; height: 300px;">
                           @else
                           <div class="mb-2"></div>
                           @endif
-                          <small class="text-secondary">{{ views($answer)->count() }} views</small>
                         </div>
+                        <small class="text-secondary">{{ views($answer)->count() }} views</small>
                       </div>
 
                       <hr>
@@ -434,8 +436,9 @@
                           @csrf
                           <div class="row mt-3">
                             <div class="col-1">
-                              <img src="{{ auth()->user()->avatar }}" alt="avatar" class="rounded-circle" width="45px"
-                                height="45px">
+                              <img
+                                src="{{ (strpos(auth()->user()->avatar, 'https') === 0) ? auth()->user()->avatar : asset('img/' . auth()->user()->avatar) }}"
+                                alt="avatar" class="rounded-circle" width="45px" height="45px">
                             </div>
                             <div class="col-9">
                               <input type="text" class="form-control" placeholder="Add a comment..." name="comment"
@@ -443,7 +446,8 @@
                               <input type="hidden" name="answer_id" value="{{ $answer->id }}" id="answer_id">
                             </div>
                             <div class="col-2">
-                                <button class="btn btn-outline-primary btn-sm py-0 px-2" type="submit">Add comment</button>
+                              <button class="btn btn-outline-primary btn-sm py-0 px-2" type="submit">Add
+                                comment</button>
 
                             </div>
                           </div>

@@ -6,7 +6,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="answerModalLabel">
-                        <img src="{{ Auth::user()->avatar }}" alt="avatar" class="rounded-circle mr-2" width="42px" height="42px">
+                        <img src="{{ (strpos(Auth::user()->avatar, 'https') === 0) ? Auth::user()->avatar : asset('img/' . Auth::user()->avatar) }}" alt="avatar" class="rounded-circle mr-2" width="42px" height="42px">
                         {{ Auth::user()->name }}
                     </h5>
                 </div>

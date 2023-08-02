@@ -110,7 +110,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link ml-4" href="javascript: void(0)" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="{{ Auth::user()->avatar }}" alt="avatar" class="rounded-circle"
+                                    <img src="{{ (strpos(Auth::user()->avatar, 'https') === 0) ? Auth::user()->avatar : asset('img/' . Auth::user()->avatar) }}" alt="avatar" class="rounded-circle"
                                         width="25px" height="25px">
                                 </a>
 

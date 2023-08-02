@@ -14,7 +14,8 @@
       <div class="card-body">
         <div class="row mb-4">
           <div class="col-2">
-            <img src="{{ $user->avatar }}" alt="avatar" class="rounded-circle mr-2" width="100px" height="100px">
+            <img src="{{ (strpos($user->avatar, 'https') === 0) ? $user->avatar : asset('img/' . $user->avatar) }}" alt="avatar" class="rounded-circle mr-2" width="100px"
+              height="100px">
           </div>
           <div class="col-10">
             <div class="row">

@@ -69,8 +69,9 @@
               <div class="col-sm-12">
                 <div class="row mb-3">
                   <div class="col-sm-1">
-                    <img src="{{ $answer->user->avatar }}" alt="avatar" class="rounded-circle" width="45px"
-                      height="45px">
+                    <img
+                      src="{{ (strpos($answer->user->avatar, 'https') === 0) ? $answer->user->avatar : asset('img/' . $answer->user->avatar) }}"
+                      alt="avatar" class="rounded-circle" width="45px" height="45px">
                   </div>
 
                   <div class="col-sm-11">
@@ -93,7 +94,8 @@
                   <div class="col-12">
                     {{ $answer->text }}<br>
                     @if ($answer->image)
-                    <img src="{{ asset('img/' . $answer->image) }}" class="img-fluid mt-2 mb-2">
+                    <img src="{{ asset('img/' . $answer->image) }}" class="img-fluid mt-2 mb-2"
+                      style="width: 300px; height: 300px;">
                     @else
                     <div class="mb-2"></div>
                     @endif

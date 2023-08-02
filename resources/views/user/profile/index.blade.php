@@ -14,7 +14,8 @@
       <div class="card-body">
         <div class="row mb-4">
           <div class="col-2" id="picture">
-            <img src="{{ $user->avatar }}" alt="avatar" class="rounded-circle mr-2" width="100px" height="100px">
+            <img src="{{ (strpos($user->avatar, 'https') === 0) ? $user->avatar : asset('img/' . $user->avatar) }}" alt="avatar" class="rounded-circle mr-2" width="100px"
+              height="100px">
             <small id="btneditPicture">
               <a href="" class="pl-3 text-secondary" data-toggle="modal" data-target="#pictureModal">Edit Picture
               </a>
@@ -50,14 +51,15 @@
           </div>
 
           <!-- Picture Edit Profile -->
-          <form action="{{ route('profile.update',['user' => $user->name_slug,'profile' => 'picture']) }}" method="POST">
+          <form action="{{ route('profile.update',['user' => $user->name_slug,'profile' => 'picture']) }}"
+            enctype="multipart/form-data" method="POST">
             @csrf
             @method('PUT')
             <div class="modal fade" id="pictureModal" aria-labelledby="pictureModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="pictureModalLabel">Edit profile name</h5>
+                    <h5 class="modal-title" id="pictureModalLabel">Edit profile picture</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -65,9 +67,13 @@
                   <div class="modal-body">
                     <div class="row">
                       <div class="col-12">
-                        <input type="text" name="name" class="form-control" value="{{ $user->name }}"
-                          autocomplete="off">
-                        @include('layouts.error', ['name' => 'name'])
+                        <div id="img2">
+                          <img id="output2" class="img-fluid mt-2 rounded">
+                        </div>
+                        <input type="file" name="image" accept="image/*" class="form-control mt-2"
+                          onchange="document.getElementById('output2').src = window.URL.createObjectURL(this.files[0])"
+                          id="image2">
+                        @include('layouts.error', ['name' => 'image'])
                       </div>
                     </div>
                   </div>
@@ -626,6 +632,15 @@
     $("#btneditName").hide();
     $("#btneditCredential").hide();
     $("#btneditDesc").hide();
+
+    $('#image2').on('click',function(){
+        $('#img2').append("<img id='output2' class='img-fluid mt-2 rounded'>");
+    });
+
+    $(document).on('click', '#close2', function () {
+        $('#output2').remove();
+        $('#image2').val("");
+    });
 
     $("#name").mouseenter(function () {
         $("#btneditName").show();

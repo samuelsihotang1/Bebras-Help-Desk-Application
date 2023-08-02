@@ -3,7 +3,7 @@
     <hr>
     <div class="row mt-2">
         <div class="col-1">
-            <img src="{{ $comment->user->avatar }}" alt="avatar" class="rounded-circle" width="42px" height="42px">
+            <img src="{{ (strpos($comment->user->avatar, 'https') === 0) ? $comment->user->avatar : asset('img/' . $comment->user->avatar) }}" alt="avatar" class="rounded-circle" width="42px" height="42px">
         </div>
         <div class="col-11">
             <a href="{{ route('profile.show',$comment->user->name_slug) }}" class="text-dark"><b>{{ $comment->user->name }}</b></a>

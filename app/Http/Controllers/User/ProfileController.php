@@ -8,6 +8,8 @@ use App\Models\Location;
 use App\Models\Education;
 use App\Models\UserTopic;
 use App\Models\Employment;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -263,6 +265,14 @@ class ProfileController extends Controller
     return back()->with('message', ['text' => ucfirst($credentials) . ' credential updated successfully!', 'class' => 'success']);
   }
 
+  public function storeImage($request)
+  {
+    $image = $request->file('image');
+    $imageName = time() . '.' . $image->extension();
+    Image::make($image)->save(public_path('/img') . '/' . $imageName);
+    return $imageName;
+  }
+
   public function update_profile(Request $request, User $user, $profile)
   {
 
@@ -295,6 +305,16 @@ class ProfileController extends Controller
 
       //has own redirect because name slug
       return redirect()->route('profile.index', $name_slug)->with('message', ['text' =>  'Profile ' . '(' .  $profile . ')' . ' updated successfully!', 'class' => 'success']);
+    } else if ($profile == "picture") {
+
+      if ($user->avatar) {
+        File::delete('img/' . $user->avatar);
+      }
+      $imageName = $this->storeImage($request);
+
+      $user->update([
+        'avatar' => $imageName
+      ]);
     } else {
       return back();
     }
