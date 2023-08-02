@@ -17,21 +17,22 @@ Your Content
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-12 mb-2">
+                    <div class="col-12">
                         <div class="q-text qu-color--red qu-medium" style="box-sizing: border-box;">
-                            <a href="{{ route('content.index') }}" class="{{ request()->route()->named('content.index') ? 'text-danger' : 'text-dark' }}">All Contents</a>
+                            <a href="{{ route('content.index') }}" class="{{ request()->route()->named('content.index') ? 'text-danger font-weight-bold' : 'text-dark' }}" style="{{ request()->route()->named('content.index') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px;' }}">All Contents</a>
+                        </div>
+                    </div>                          
+                    <div class="col-12">
+                        <div class="q-text qu-color--red qu-medium" style="box-sizing: border-box;">
+                            <a href="{{ route('content.questions.index') }}" class="{{ request()->route()->named('content.questions.index') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}" style="{{ request()->route()->named('content.questions.index') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px;' }}">Questions</a>
                         </div>
                     </div>
-                    <div class="col-12 mb-2">
+                    <div class="col-12">
                         <div class="q-text qu-color--red qu-medium" style="box-sizing: border-box;">
-                            <a href="{{ route('content.questions.index') }}" class="{{ request()->route()->named('content.questions.index') ? 'text-danger' : 'text-dark' }}">Questions</a>
+                            <a href="{{ route('content.answers.index') }}" class="{{ request()->route()->named('content.answers.index') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}" style="{{ request()->route()->named('content.answers.index') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px;' }}">Answers</a>
                         </div>
                     </div>
-                    <div class="col-12 mb-2">
-                        <div class="q-text qu-color--red qu-medium" style="box-sizing: border-box;">
-                            <a href="{{ route('content.answers.index') }}" class="{{ request()->route()->named('content.answers.index') ? 'text-danger' : 'text-dark' }}">Answers</a>
-                        </div>
-                    </div>
+                    
                 </div>                                  
             </div>
      
