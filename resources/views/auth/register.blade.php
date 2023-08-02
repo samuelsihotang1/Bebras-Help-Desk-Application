@@ -169,7 +169,7 @@
                 </div>
             </form>
             <p class="mt-10 text-center text-sm text-gray-500">
-                All Ready have account?
+                Already have account?
                 <!-- space -->
                 <a href="{{ route('login') }}"
                     class="font-semibold leading-6 text-blue-600 hover:text-indigo-500 italic">Sign
