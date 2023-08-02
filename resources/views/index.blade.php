@@ -8,12 +8,11 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-           
             <div class="col-sm-12 mt-3">
-              <a href="" class="form-control text-dark" data-toggle="modal" data-target="#add-questionModal">What is
-                your question ?</a>
+                <a href="{{ route('login') }}" class="form-control text-dark">What is your question?</a>
             </div>
-          </div>
+        </div>
+        
         </div>
       </div>
       <div id="answersHome" class="">
