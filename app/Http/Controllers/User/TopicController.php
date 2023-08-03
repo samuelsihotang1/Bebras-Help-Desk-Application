@@ -8,6 +8,7 @@ use App\Models\Question;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\UserTopic;
 
 class TopicController extends Controller
 {
@@ -31,6 +32,7 @@ class TopicController extends Controller
 
   public function show(Topic $topic)
   {
+    $status = UserTopic::where('user_id', auth()->id())->where('topic_id', $topic->id)->first() ? 'Followed' : 'Follow';
     $topic_id = $topic->id;
     $answers = Answer::whereHas('question', function ($query) use ($topic_id) {
       $query->whereHas('topics', function ($q) use ($topic_id) {
@@ -38,6 +40,6 @@ class TopicController extends Controller
       });
     })->latest()->get();
 
-    return view('user.topic.show', compact('answers', 'topic'));
+    return view('user.topic.show', compact('answers', 'topic', 'status'));
   }
 }

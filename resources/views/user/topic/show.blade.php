@@ -9,12 +9,19 @@
   <div class="row">
     <div class="col-8">
       @include('layouts.success')
-
       <div class="card">
         <div class="card-body">
           <div>
-            <b>{{ $topic->name }}</b>
-            <span class="btn btn-secondary float-right btn-sm rounded-pill">
+            <b class="d-inline-block">{{ $topic->name }}</b>
+
+            <form class="d-inline-block" action="{{ route('profile.topics.update',auth()->user()->name_slug) }}" method="POST">
+              @csrf
+              @method('PUT')
+              <input type="hidden" name="{{ ($status=='Follow' ? 'topic_id[]' : '' ) }}" value="{{ $topic->id }}">
+              <button type="submit" class="btn btn-link text-primary">{{ $status }}</button>
+            </form>
+
+            <span class="btn btn-secondary float-right btn-sm rounded-pill d-inline-block">
               {{ $topic->follower }} Followers</span>
           </div>
         </div>

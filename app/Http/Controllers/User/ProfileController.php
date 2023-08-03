@@ -146,11 +146,8 @@ class ProfileController extends Controller
         $topic->follower += 1;
         $topic->update();
       }
-
-      return back()->with('message', ['text' => 'Topics updated successfully!', 'class' => 'success']);
-    } else {
-      return back()->with('message', ['text' => 'Topics deleted successfully!', 'class' => 'success']);
     }
+    return back();
   }
 
   public function update_credentials(Request $request, User $user, $credentials)
