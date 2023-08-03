@@ -399,7 +399,7 @@
                           <div class="mb-2"></div>
                           @endif
                         </div>
-                        <small class="text-secondary">{{ views($answer)->count() }} views</small>
+                        <small class="col-12 text-secondary">{{ views($answer)->count() }} views</small>
                       </div>
 
                       <hr>

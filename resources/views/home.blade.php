@@ -112,8 +112,8 @@
                     @else
                     <div class="mb-2"></div>
                     @endif
-                    <small class="text-secondary">{{ views($answer)->count() }} views</small>
                   </div>
+                  <small class="col-12 text-secondary">{{ views($answer)->count() }} views</small>
                 </div>
                 <hr>
                 <div class="row">
