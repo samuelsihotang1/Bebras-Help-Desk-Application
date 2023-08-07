@@ -6,21 +6,22 @@ use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Models\ReportQuestion;
 use App\Http\Controllers\Controller;
+use App\Models\QuestionTopic;
 
 class CheckQuestionController extends Controller
 {
   public function index()
   {
-    $questions = Question::doesnthave('report_users')->whereNull('status')->orWhere('status', 'updated_by_user')->latest()->get();
-    return view('admin.question.index', compact('questions'));
+    return view('admin.question.index', [
+      'type' => 'all'
+    ]);
   }
 
   public function reported()
   {
-    $questions = Question::has('report_users')->with(['report_users' => function ($q) {
-      $q->distinct()->get();
-    }])->withCount('report_users')->orderBy('report_users_count', 'desc')->get();
-    return view('admin.question.index', compact('questions'));
+    return view('admin.question.index', [
+      'type' => 'reported'
+    ]);
   }
 
   public function update_status(Question $question, $status)
