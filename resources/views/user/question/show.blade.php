@@ -383,6 +383,7 @@
                             @endif
                           </div>
                           <br>
+
                           <div class="text-secondary">
                             {{ $credential }} &#183; {{ $answer->created_at->format('M d Y') }}
                           </div>

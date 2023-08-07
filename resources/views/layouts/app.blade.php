@@ -39,6 +39,7 @@
             width: 250px;
         }
     </style>
+    @livewireStyles
 </head>
 
 <body>
@@ -216,6 +217,7 @@
 
 
     @yield('script')
+    @livewireScripts
 
 </body>
 

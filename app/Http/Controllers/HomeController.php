@@ -17,7 +17,7 @@ class HomeController extends Controller
         //jika user belum login
         if (!auth()->check()) {
             $answers = Answer::with(['user', 'question'])->latest()->get();
-            return view('index', compact('answers'));
+            return view('home', compact('answers'));
         }
 
 
