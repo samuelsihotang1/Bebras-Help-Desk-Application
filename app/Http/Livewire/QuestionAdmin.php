@@ -23,7 +23,7 @@ class QuestionAdmin extends Component
     } elseif ($this->type == 'reported') {
       $questions = Question::has('report_users')->with(['report_users' => function ($q) {
         $q->distinct()->get();
-      }])->withCount('report_users')->orderBy('report_users_count', 'desc')->get();
+      }])->withCount('report_users')->orderBy('report_users_count', 'desc')->take($this->total_page)->get();
 
       $count = Question::has('report_users')->with(['report_users' => function ($q) {
         $q->distinct()->get();
