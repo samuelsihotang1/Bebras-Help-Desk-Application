@@ -264,11 +264,16 @@ class ProfileController extends Controller
 
   public function storeImage($request)
   {
-    $image = $request->file('image');
-    $imageName = time() . '.' . $image->extension();
-    Image::make($image)->save(public_path('/img') . '/' . $imageName);
-    return $imageName;
+      $request->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Max 2MB
+    ]);
+
+      $image = $request->file('image');
+      $imageName = time() . '.' . $image->extension();
+      Image::make($image)->save(public_path('/img') . '/' . $imageName);
+      return $imageName;
   }
+
 
   public function update_profile(Request $request, User $user, $profile)
   {
