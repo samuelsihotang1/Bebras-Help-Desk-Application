@@ -208,6 +208,9 @@
   @foreach ($answers as $answer)
   @if(!$loop->first)
   @livewire('answered-question-item', ['answer' => $answer], key($answer->id))
+  @php
+  $page = $loop->iteration;
+  @endphp
   @endif
   @endforeach
 
