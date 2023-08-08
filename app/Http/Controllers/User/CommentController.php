@@ -55,17 +55,14 @@ class CommentController extends Controller
       return back();
     }
 
-    if ($report) {
-      return back()->with('message', ['text' => 'Comment already reported!', 'class' => 'danger']);
-    } else {
-
+    if ($request->type != NULL) {
       ReportComment::create([
         'user_id' => $user_id,
         'comment_id' => $comment->id,
         'type' => $request->type,
       ]);
-
       return back()->with('message', ['text' => 'Comment reported successfully!', 'class' => 'success']);
     }
+    return back()->with('message', ['text' => 'Please report properly', 'class' => 'danger']);
   }
 }
