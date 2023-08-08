@@ -34,14 +34,6 @@ class QuestionController extends Controller
     $reported_question = false;
 
     $user_id = auth()->id();
-    $answers = Answer::with('user')
-      ->where('question_id', $question->id)
-      ->where('id', '<>', $question->pin_answer)
-      ->latest()
-      ->get();
-    if ($question->pin_answer) {
-      $answers->prepend(Answer::where('id', $question->pin_answer)->first());
-    }
     $answered = Answer::where('question_id', $question->id)->where('user_id', $user_id)->first();
     $report_question = ReportQuestion::where('question_id', $question->id)->where('user_id', $user_id)->first();
     $topics = Topic::select(['id', 'name'])->get();
@@ -57,7 +49,7 @@ class QuestionController extends Controller
       }
     }
 
-    $report_question_types = [
+    $report_comment_types = [
       [
         'name' => 'Harrasment',
         'desc' => 'Disparaging or adversarial towards a person or group'
@@ -65,21 +57,9 @@ class QuestionController extends Controller
       [
         'name' => 'Spam',
         'desc' => 'Undisclosed promotion for a link or product'
-      ],
-      [
-        'name' => 'Insincere',
-        'desc' => 'Not seeking genuine answers'
-      ],
-      [
-        'name' => 'Poorly written',
-        'desc' => 'Not in English or has very bad formatting, grammar, and spelling'
-      ],
-      [
-        'name' => 'Incorrect topics',
-        'desc' => 'Topics are irrelevant to the content or overly broad'
       ]
     ];
-
+    
     $report_answer_types = [
       [
         'name' => 'Harrasment',
@@ -119,7 +99,7 @@ class QuestionController extends Controller
       ]
     ];
 
-    $report_comment_types = [
+    $report_question_types = [
       [
         'name' => 'Harrasment',
         'desc' => 'Disparaging or adversarial towards a person or group'
@@ -127,6 +107,18 @@ class QuestionController extends Controller
       [
         'name' => 'Spam',
         'desc' => 'Undisclosed promotion for a link or product'
+      ],
+      [
+        'name' => 'Insincere',
+        'desc' => 'Not seeking genuine answers'
+      ],
+      [
+        'name' => 'Poorly written',
+        'desc' => 'Not in English or has very bad formatting, grammar, and spelling'
+      ],
+      [
+        'name' => 'Incorrect topics',
+        'desc' => 'Topics are irrelevant to the content or overly broad'
       ]
     ];
 
@@ -138,15 +130,9 @@ class QuestionController extends Controller
       ->cooldown(86400)
       ->record();
 
-    foreach ($answers as $answer) {
-      views($answer)
-        ->cooldown(86400)
-        ->record();
-    }
-
     $link = route('question.show', $question);
 
-    return view('user.question.show', compact('question', 'answers', 'answered', 'topics', 'reported_question', 'report_question_types', 'report_comment_types', 'report_answer_types', 'related_questions'));
+    return view('user.question.show', compact('question', 'answered', 'topics', 'reported_question', 'report_question_types', 'report_answer_types', 'report_comment_types', 'related_questions'));
   }
 
   public function store(Request $request)

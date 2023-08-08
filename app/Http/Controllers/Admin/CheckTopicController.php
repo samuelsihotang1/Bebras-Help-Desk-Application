@@ -13,8 +13,9 @@ class CheckTopicController extends Controller
 {
   public function index()
   {
-    $topics = Topic::whereNull('status')->orWhere('status', 'updated_by_user')->latest()->get();
-    return view('admin.topic.index', compact('topics'));
+    return view('admin.topic.index', [
+      'type' => 'all'
+    ]);
   }
 
   public function update_status(Topic $topic, $status)

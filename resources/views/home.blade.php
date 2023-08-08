@@ -17,8 +17,13 @@
               @endif
             </div>
             <div class="col-sm-12 mt-3">
+              @if (auth()->check())
               <a href="" class="form-control text-dark" data-toggle="modal" data-target="#add-questionModal">What is
                 your question ?</a>
+              @else
+              <a href="/login" class="form-control text-dark">What is
+                your question ?</a>
+              @endif
             </div>
           </div>
         </div>

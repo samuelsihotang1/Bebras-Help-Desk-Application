@@ -10,8 +10,9 @@ class CheckUserController extends Controller
 {
   public function index()
   {
-    $users = User::latest()->get();
-    return view('admin.user.index', compact('users'));
+    return view('admin.user.index', [
+      'type' => 'all'
+    ]);
   }
 
   public function update_status(User $user, $status)

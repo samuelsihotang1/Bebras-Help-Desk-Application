@@ -11,16 +11,16 @@ class CheckAnswerController extends Controller
 {
   public function index()
   {
-    $answers = Answer::doesnthave('report_users')->whereNull('status')->orWhere('status', 'updated_by_user')->latest()->get();
-    return view('admin.answer.index', compact('answers'));
+    return view('admin.answer.index', [
+      'type' => 'all'
+    ]);
   }
 
   public function reported()
   {
-    $answers = Answer::has('report_users')->with(['report_users' => function ($q) {
-      $q->distinct()->get();
-    }])->withCount('report_users')->orderBy('report_users_count', 'desc')->get();
-    return view('admin.answer.index', compact('answers'));
+    return view('admin.answer.index', [
+      'type' => 'reported'
+    ]);
   }
 
   public function update_status(Answer $answer, $status)

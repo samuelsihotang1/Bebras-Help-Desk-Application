@@ -11,16 +11,16 @@ class CheckCommentController extends Controller
 {
   public function index()
   {
-    $comments = Comment::doesnthave('report_users')->whereNull('status')->orWhere('status', 'updated_by_user')->latest()->get();
-    return view('admin.comment.index', compact('comments'));
+    return view('admin.comment.index', [
+      'type' => 'all'
+    ]);
   }
 
   public function reported()
   {
-    $comments = Comment::has('report_users')->with(['report_users' => function ($q) {
-      $q->distinct()->get();
-    }])->withCount('report_users')->orderBy('report_users_count', 'desc')->get();
-    return view('admin.comment.index', compact('comments'));
+    return view('admin.comment.index', [
+      'type' => 'reported'
+    ]);
   }
 
   public function update_status(Comment $comment, $status)
