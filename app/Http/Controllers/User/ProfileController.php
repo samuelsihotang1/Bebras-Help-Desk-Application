@@ -270,7 +270,7 @@ class ProfileController extends Controller
 
     $image = $request->file('image');
     $imageName = time() . '.' . $image->extension();
-    Image::make($image)->save(public_path('/img') . '/' . $imageName);
+    Image::make($image)->fit(1024, 1024)->save(public_path('/img') . '/' . $imageName);
     return $imageName;
   }
 

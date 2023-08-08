@@ -92,7 +92,7 @@
                 {{ $answer->text }}<br>
                 @if ($answer->image)
                 <img src="{{ asset('img/' . $answer->image) }}" class="img-fluid mt-2 mb-2"
-                  style="width: 300px; height: 300px;" alt="image not found!">
+                  style="height: 300px;" alt="image not found!">
                 @else
                 <div class="mb-2"></div>
                 @endif
