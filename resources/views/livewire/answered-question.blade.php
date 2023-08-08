@@ -38,9 +38,12 @@
     </form>
 
     @php
+    if ($answers->count() > 0) {
     $credential = \App\Http\Controllers\User\ProfileController::set_credential($answers[0]->user);
+    }
     @endphp
 
+    @if ($answers->count() > 0) 
     <div id="{{ $answers[0]->user->name_slug }}">
       <div class="card mt-4">
         <div class="card-body">
@@ -204,6 +207,7 @@
     @php
     $page = 1;
     @endphp
+    @endif
   </div>
   @foreach ($answers as $answer)
   @if(!$loop->first)
