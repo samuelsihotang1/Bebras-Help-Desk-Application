@@ -10,6 +10,7 @@
   <div class="row">
     <div class="col-8">
       @include('layouts.success')
+      @include('layouts.profile-error', ['name' => 'image'])
 
       <div class="card-body">
         <div class="row mb-4">
@@ -76,7 +77,6 @@
                         <input type="file" name="image" accept="image/*" class="form-control mt-2"
                           onchange="document.getElementById('output2').src = window.URL.createObjectURL(this.files[0])"
                           id="image2">
-                        @include('layouts.error', ['name' => 'image'])
                       </div>
                     </div>
                   </div>
