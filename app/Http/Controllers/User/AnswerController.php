@@ -16,11 +16,13 @@ class AnswerController extends Controller
 {
   public function storeImage($request)
   {
+    $request->validate([
+      'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
 
     $image = $request->file('image');
     $imageName = time() . '.' . $image->extension();
     Image::make($image)->save(public_path('/img') . '/' . $imageName);
-
     return $imageName;
   }
 
@@ -113,10 +115,10 @@ class AnswerController extends Controller
     ]);
 
     if ($request->hasFile('image')) {
+      $imageName = $this->storeImage($request);
       if ($answer->image) {
         File::delete('img/' . $answer->image);
       }
-      $imageName = $this->storeImage($request);
     } else {
       $imageName = $answer->image;
     }

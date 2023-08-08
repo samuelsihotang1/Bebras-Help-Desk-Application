@@ -264,14 +264,14 @@ class ProfileController extends Controller
 
   public function storeImage($request)
   {
-      $request->validate([
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Max 2MB
+    $request->validate([
+      'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
 
-      $image = $request->file('image');
-      $imageName = time() . '.' . $image->extension();
-      Image::make($image)->save(public_path('/img') . '/' . $imageName);
-      return $imageName;
+    $image = $request->file('image');
+    $imageName = time() . '.' . $image->extension();
+    Image::make($image)->save(public_path('/img') . '/' . $imageName);
+    return $imageName;
   }
 
 
@@ -309,10 +309,11 @@ class ProfileController extends Controller
       return redirect()->route('profile.index', $name_slug)->with('message', ['text' =>  'Profile ' . '(' .  $profile . ')' . ' updated successfully!', 'class' => 'success']);
     } else if ($profile == "picture") {
 
+      $imageName = $this->storeImage($request);
+
       if ($user->avatar) {
         File::delete('img/' . $user->avatar);
       }
-      $imageName = $this->storeImage($request);
 
       $user->update([
         'avatar' => $imageName
