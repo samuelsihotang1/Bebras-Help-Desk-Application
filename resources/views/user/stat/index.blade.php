@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Statistik
+Stats
 @endsection
 @section('link')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -39,7 +39,7 @@ Statistik
                 type: 'bar',
                 data: {
                     datasets: [{
-                        label: 'Total Penayangan',
+                        label: 'Total Views',
                         data: data,
                         backgroundColor: '#84B1E1',
                         borderWidth: 1
