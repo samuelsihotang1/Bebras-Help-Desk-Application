@@ -2,16 +2,42 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Charts\AnswerChart;
+use App\Charts\CommentChart;
+use App\Charts\QuestionChart;
+use App\Charts\ReportChart;
+use App\Charts\TopicChart;
+use App\Charts\UsersChart;
+use App\Charts\VoteChart;
 use App\Models\Answer;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 
 class StatController extends Controller
 {
   public function index()
   {
     return view('user.stat.index');
+  }
+
+  public function admin(
+    UsersChart $chartUser,
+    QuestionChart $chartQuestion,
+    AnswerChart $chartAnswer,
+    CommentChart $chartComment,
+    TopicChart $chartTopic,
+    ReportChart $chartReport
+  ) {
+    return view('admin.stat.index', [
+      'chartUser' => $chartUser->build(),
+      'chartQuestion' => $chartQuestion->build(),
+      'chartAnswer' => $chartAnswer->build(),
+      'chartComment' => $chartComment->build(),
+      'chartTopic' => $chartTopic->build(),
+      'chartReport' => $chartReport->build()
+    ]);
   }
 
   //api get stats
