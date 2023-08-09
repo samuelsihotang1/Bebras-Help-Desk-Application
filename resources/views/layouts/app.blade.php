@@ -144,7 +144,7 @@
             </li>
 
                             <button class="btn btn-sm btn-danger mt-2 " data-toggle="modal"
-                                data-target="#add-questionModal" style="height: 36px; width:120px">Tambah Pertanyaan</button>
+                                data-target="#add-questionModal" style="height: 36px; width:140px">Tambah Pertanyaan</button>
 
                         @endguest
                     </ul>
