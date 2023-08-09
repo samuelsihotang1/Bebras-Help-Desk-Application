@@ -19,8 +19,8 @@
             <div class="col-sm-12">
               <div class="alert alert-primary alert-dismissible fade show" role="alert">
                 <div class="container">
-                  <li>Image must be less than 2MB</li>
-                  <li>Image will be placed under your answer</li>
+                  <li>Gambar harus kurang dari 2MB</li>
+                  <li>Gambar akan ditempatkan di bawah jawaban Anda</li>
                 </div>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
@@ -46,8 +46,8 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal" id="close">Close</button>
-          <button type="submit" class="btn btn-primary store rounded-pill">Add Answer</button>
+          <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal" id="close">Batal</button>
+          <button type="submit" class="btn btn-primary store rounded-pill">Tambahkan Jawaban</button>
         </div>
       </div>
     </div>
