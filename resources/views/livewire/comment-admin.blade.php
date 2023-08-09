@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="col-12">
-      Comments sorted by latest
+      Komentar diurutkan berdasarkan yang terbaru
     </div>
   </div>
   <hr>
@@ -28,7 +28,7 @@
   @endphp
   @empty
   <div class="text-center mt-2">
-    No comments
+    Tidak ada komentar
   </div>
   @endforelse
 
@@ -36,7 +36,7 @@
 
   <div class="row">
     <div class="col-12">
-      Comments sorted by most reported
+      Komentar diurutkan berdasarkan yang paling banyak dilaporkan
     </div>
   </div>
   <hr>
@@ -74,7 +74,7 @@
   @endphp
   @empty
   <div class="text-center mt-2">
-    No comments reported
+    Tidak ada komentar yang dilaporkan
   </div>
   @endforelse
 
@@ -83,7 +83,7 @@
   @if ($comments->count() > 0 )
   @if ($page != $count)
   <div class="text-center" wire:click="morePage">
-    <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill">More</button>
+    <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill">Lebih lanjut</button>
   </div>
   @endif
   @endif

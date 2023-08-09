@@ -22,7 +22,7 @@
                 alt="avatar" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
             </div>
             <small id="btneditPicture">
-              <a href="" class="pl-3 text-secondary" data-toggle="modal" data-target="#pictureModal">Edit Picture</a>
+              <a href="" class="pl-3 text-secondary" data-toggle="modal" data-target="#pictureModal">Edit Gambar</a>
             </small>
           </div>
           <div class="col-10">
@@ -34,20 +34,21 @@
             </div>
             <div class="row">
               <div class="col-12" id="credential">
-                <span style="font-size: 18px">{{ $user->credential ?? 'Add profile credential' }} </span><small
+                <span style="font-size: 18px">{{ $user->credential ?? '
+                  Tambahkan kredensial profil' }} </span><small
                   id="btneditCredential"><a href="" class="text-secondary" data-toggle="modal"
                     data-target="#profileModal">Edit</a></small>
               </div>
             </div>
             <div class="row mt-2 mb-2">
               <div class="col-12">
-                <span class="text-secondary" style="font-size: 13px">{{ $user->followers()->count() ?? 0 }} Followers<i
-                    class="bi bi-dot"></i>{{ $user->followings()->count() ?? 0 }} Followings</span><br>
+                <span class="text-secondary" style="font-size: 13px">{{ $user->followers()->count() ?? 0 }} Pengikut<i
+                    class="bi bi-dot"></i>{{ $user->followings()->count() ?? 0 }} Mengikuti</span><br>
               </div>
             </div>
             <div class="row">
               <div class="col-12" id="desc">
-                <span>{{ $user->description ?? 'Write a description about yourself' }}</span><br>
+                <span>{{ $user->description ?? 'Tulis deskripsi tentang dirimu' }}</span><br>
                 <small id="btneditDesc"><a href="" class="text-secondary" data-toggle="modal"
                     data-target="#descModal">Edit</a></small>
               </div>
@@ -63,7 +64,7 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="pictureModalLabel">Edit profile picture</h5>
+                    <h5 class="modal-title" id="pictureModalLabel">Edit foto profil</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -81,8 +82,8 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary rounded-pill">Save</button>
+                    <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary rounded-pill">Simpan</button>
                   </div>
                 </div>
               </div>
@@ -97,7 +98,7 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="nameModalLabel">Edit profile name</h5>
+                    <h5 class="modal-title" id="nameModalLabel">Edit nama profil</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -112,8 +113,8 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary rounded-pill">Save</button>
+                    <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary rounded-pill">Simpan</button>
                   </div>
                 </div>
               </div>
@@ -129,7 +130,7 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="profileModalLabel">Edit profile credentials</h5>
+                    <h5 class="modal-title" id="profileModalLabel">Edit kredensial profil</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -145,8 +146,8 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary rounded-pill">Save</button>
+                    <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary rounded-pill">Simpan</button>
                   </div>
                 </div>
               </div>
@@ -164,7 +165,7 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="descModalLabel">Edit description</h5>
+                  <h5 class="modal-title" id="descModalLabel">Edit deskripsi</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -179,8 +180,8 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Cancel</button>
-                  <button type="submit" class="btn btn-primary rounded-pill">Save</button>
+                  <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Batal</button>
+                  <button type="submit" class="btn btn-primary rounded-pill">Simpan</button>
                 </div>
               </div>
             </div>
@@ -192,27 +193,27 @@
           <div class="col-3">
             <a href="" class="text-dark" id="showAnswers"
               data-href="{{ route('profile.answers.show',$user->name_slug) }}">{{ $user->answers->count() ?? 0}}
-              Answers</a>
+              Jawaban</a>
           </div>
           <div class="col-3">
             <a href="" class="text-dark" id="showQuestions"
               data-href="{{ route('profile.questions.show',$user->name_slug) }}">{{ $user->questions->count() ?? 0}}
-              Questions</a>
+              Pertanyaan</a>
           </div>
           <div class="col-3">
-            0 Shares
+            0 bagikan
           </div>
           <div class="col-3">
             <a href="" class="text-dark" id="showTopics"
               data-href="{{ route('profile.topics.show',$user->name_slug) }}">{{ $user->topics->count() ?? 0 }}
-              Topics</a>
+              Topik</a>
           </div>
         </div>
         <hr>
         <div class="row" id="showAnswersHtml"></div>
         <div class="row" id="showQuestionsHtml"></div>
         <div class="row" id="showTopicsHtml"></div>
-        <span id="noData"><b>No Data</b></span>
+        <span id="noData"><b>Tidak Ada Data</b></span>
         <div class="text-center">
           <div class="spinner-border ajax-loading-2 mt-2 text-danger" role="status">
             <span class="sr-only">Loading...</span>
@@ -225,7 +226,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-12">
-              Credentials & Highlights
+              Kredensial & Sorotan
             </div>
           </div>
           <hr>
@@ -237,8 +238,7 @@
                 $employment_credential['credential'] }} <small class="text-secondary">{{ $employment_credential['year']
                   }}</small></a>
               @else
-              <a href="" data-toggle="modal" data-target="#employmentModal" id="btnEmployment"> Add employment
-                credential</a>
+              <a href="" data-toggle="modal" data-target="#employmentModal" id="btnEmployment"> Tambahkan kredensial pekerjaan</a>
               @endif
             </div>
           </div>
@@ -253,7 +253,7 @@
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="employmentModalLabel">Edit employment credential</h5>
+                    <h5 class="modal-title" id="employmentModalLabel">Edit kredensial pekerjaan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -267,14 +267,14 @@
                             <div class="row">
                               <div class="col-12">
                                 <a href="{{ route('profile.credentials.destroy',['user' => $user->name_slug,'credentials' => 'employment']) }}"
-                                  class="btn btn-sm btn-outline-secondary float-right">Delete</a>
+                                  class="btn btn-sm btn-outline-secondary float-right">Hapus</a>
                               </div>
                             </div>
                             @endif
 
                             <div class="row">
                               <div class="col-12">
-                                <label for="">Position</label>
+                                <label for="">Posisi</label>
                                 <input type="text" name="position" class="form-control"
                                   value="{{ $user->employment->position ?? '' }}" autocomplete="off">
                                 @include('layouts.error', ['name' => 'position'])
@@ -282,7 +282,7 @@
                             </div>
                             <div class="row mt-2">
                               <div class="col-12">
-                                <label for="">Company / Organization</label>
+                                <label for="">Perusahaan / Organisasi</label>
                                 <input type="text" name="company" class="form-control"
                                   value="{{ $user->employment->company ?? '' }}" autocomplete="off">
                                 @include('layouts.error', ['name' => 'company'])
@@ -290,7 +290,7 @@
                             </div>
                             <div class="row mt-2">
                               <div class="col-12">
-                                <label for="">Start Year</label>
+                                <label for="">Tahun Mulai</label>
                                 <select name="start_year" id="startyear-dropdown" class="form-control">
                                   @if ($user->employment->start_year ?? '')
                                   <option value="{{ $user->employment->start_year }}" selected>
@@ -303,7 +303,7 @@
                             </div>
                             <div class="row mt-2" id="endyear">
                               <div class="col-12">
-                                <label for="">End Year</label>
+                                <label for="">Tahun Berakhir</label>
                                 <select name="end_year" id="endyear-dropdown" class="form-control">
                                   @if($user->employment->end_year ?? '')
                                   <option value="{{ $user->employment->end_year }}" selected>
@@ -328,7 +328,7 @@
                                   @endif
 
                                   <label class="form-check-label">
-                                    I currently work here
+                                    Saya saat ini bekerja di sini
                                   </label>
                                 </div>
                               </div>
@@ -339,8 +339,8 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary rounded-pill">Save</button>
+                    <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary rounded-pill">Simpan</button>
                   </div>
                 </div>
               </div>
@@ -355,7 +355,7 @@
                 $education_credential['credential'] }} <small class="text-secondary">{{
                   $education_credential['year']}}</small></a>
               @else
-              <a href="" data-toggle="modal" data-target="#educationModal"> Add education credential</a>
+              <a href="" data-toggle="modal" data-target="#educationModal"> Tambahkan kredensial pendidikan</a>
               @endif
             </div>
 
@@ -369,7 +369,8 @@
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="educationModalLabel">Edit education credential</h5>
+                      <h5 class="modal-title" id="educationModalLabel">
+                        Edit kredensial pendidikan</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -381,13 +382,13 @@
                           <div class="row">
                             <div class="col-12">
                               <a href="{{ route('profile.credentials.destroy',['user' => $user->name_slug,'credentials' => 'education']) }}"
-                                class="btn btn-sm btn-outline-secondary float-right">Delete</a>
+                                class="btn btn-sm btn-outline-secondary float-right">Hapus</a>
                             </div>
                           </div>
                           @endif
                           <div class="row">
                             <div class="col-12">
-                              <label for="">School</label>
+                              <label for="">Sekolah</label>
                               <input type="text" name="school" value="{{ $user->education->school ?? '' }}"
                                 class="form-control" autocomplete="off">
                               @include('layouts.error', ['name' => 'school'])
@@ -395,7 +396,7 @@
                           </div>
                           <div class="row mt-2">
                             <div class="col-12">
-                              <label for="">Primary</label>
+                              <label for="">Sekolah Dasar</label>
                               <input type="text" name="primary" value="{{ $user->education->primary ?? '' }}"
                                 class="form-control" autocomplete="off">
                               @include('layouts.error', ['name' => 'primary'])
@@ -403,7 +404,7 @@
                           </div>
                           <div class="row mt-2">
                             <div class="col-12">
-                              <label for="">Degree Type</label>
+                              <label for="">Jenis Gelar</label>
                               <input type="text" name="degree_type" value="{{ $user->education->degree_type ?? '' }}"
                                 class="form-control" autocomplete="off">
                               @include('layouts.error', ['name' => 'degree_type'])
@@ -411,7 +412,7 @@
                           </div>
                           <div class="row mt-2">
                             <div class="col-12">
-                              <label for="">Graduation Year</label>
+                              <label for="">Tahun Kelulusan</label>
                               <select name="graduation_year" id="gradyear-dropdown" class="form-control">
                                 @if($user->education->graduation_year ?? '')
                                 <option value="{{ $user->education->graduation_year }}" selected>
@@ -427,8 +428,8 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Cancel</button>
-                      <button type="submit" class="btn btn-primary rounded-pill">Save</button>
+                      <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Batal</button>
+                      <button type="submit" class="btn btn-primary rounded-pill">Simpan</button>
                     </div>
                   </div>
                 </div>
@@ -444,7 +445,8 @@
                 $location_credential['credential'] }} <small class="text-secondary">{{
                   $location_credential['year']}}</small></a>
               @else
-              <a href="" data-toggle="modal" data-target="#locationModal"> Add location credential</a>
+              <a href="" data-toggle="modal" data-target="#locationModal"> 
+                Tambahkan kredensial lokasi</a>
               @endif
             </div>
 
@@ -458,7 +460,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="locationModalLabel">Edit location credential </h5>
+                      <h5 class="modal-title" id="locationModalLabel">Edit kredensial lokasi </h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -470,13 +472,13 @@
                           <div class="row">
                             <div class="col-12">
                               <a href="{{ route('profile.credentials.destroy',['user' => $user->name_slug,'credentials' => 'location']) }}"
-                                class="btn btn-sm btn-outline-secondary float-right">Delete</a>
+                                class="btn btn-sm btn-outline-secondary float-right">Hapus</a>
                             </div>
                           </div>
                           @endif
                           <div class="row">
                             <div class="col-12">
-                              <label for="">Location</label>
+                              <label for="">Lokasi</label>
                               <input type="text" name="location" class="form-control"
                                 value="{{ $user->location->location ?? '' }}" autocomplete="off">
                               @include('layouts.error', ['name' => 'location'])
@@ -484,7 +486,7 @@
                           </div>
                           <div class="row mt-2">
                             <div class="col-12">
-                              <label for="">Start Year</label>
+                              <label for="">Tahun Mulai</label>
                               <select name="start_year" id="startyear-dropdown2" class="form-control">
                                 @if ($user->location->start_year ?? '')
                                 <option value="{{ $user->location->start_year }}" selected>
@@ -496,7 +498,7 @@
                           </div>
                           <div class="row mt-2" id="endyear2">
                             <div class="col-12">
-                              <label for="">End Year</label>
+                              <label for="">Tahun Berakhir</label>
                               <select name="end_year" id="endyear-dropdown2" class="form-control">
                                 @if($user->location->end_year ?? '')
                                 <option value="{{ $user->location->end_year }}" selected>
@@ -519,7 +521,7 @@
                                 @endif
 
                                 <label class="form-check-label">
-                                  I currently live here
+                                  Saya saat ini tinggal di sini
                                 </label>
                               </div>
                             </div>
@@ -528,8 +530,8 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Cancel</button>
-                      <button type="submit" class="btn btn-primary rounded-pill">Save</button>
+                      <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Batal</button>
+                      <button type="submit" class="btn btn-primary rounded-pill">Simpan</button>
                     </div>
                   </div>
                 </div>
@@ -539,7 +541,7 @@
 
           <div class="row mt-2">
             <div class="col-12">
-              <i class="bi bi-calendar mr-2"></i> Joined {{ $user->created_at->format('d M Y') }}
+              <i class="bi bi-calendar mr-2"></i> Bergabung {{ $user->created_at->format('d M Y') }}
             </div>
           </div>
         </div>
@@ -548,7 +550,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-12">
-            Knows about
+            Mengetahui tentang
             <a href="" class="text-dark float-right" data-toggle="modal" data-target="#topicModal"><i
                 class="bi bi-pencil-square"></i></a>
             <!-- Modal Add Topics-->
@@ -559,13 +561,13 @@
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="topicModalLabel">Add topics</h5>
+                      <h5 class="modal-title" id="topicModalLabel">Tambah Topik</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
-                      Topics :
+                      Topik :
                       <div class="row mt-2">
                         <div class="col-md-12">
                           <div class="card">
@@ -595,8 +597,8 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Cancel</button>
-                      <button type="submit" class="btn btn-primary rounded-pill">Save</button>
+                      <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Batal</button>
+                      <button type="submit" class="btn btn-primary rounded-pill">Simpan</button>
                     </div>
                   </div>
                 </div>
@@ -615,7 +617,7 @@
             @empty
             <div class="row">
               <div class="col-sm-12">
-                You haven't added any topics yet.
+                Anda belum menambahkan topik apapun.
               </div>
             </div>
             @endforelse

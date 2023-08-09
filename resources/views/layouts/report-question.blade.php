@@ -4,7 +4,7 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="report_questionModalLabel">Report question</h5>
+            <h5 class="modal-title" id="report_questionModalLabel">Laporkan pertanyaan</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -22,8 +22,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-primary rounded-pill">Submit</button>
+                <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary rounded-pill">
+                    Kirim</button>
             </div>
         </div>
         </div>

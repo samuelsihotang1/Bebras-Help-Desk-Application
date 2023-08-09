@@ -22,7 +22,7 @@
             </form>
 
             <span class="btn btn-secondary float-right btn-sm rounded-pill d-inline-block">
-              {{ $topic->follower }} Followers</span>
+              {{ $topic->follower }} Pengikut</span>
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@
                         <i class="bi bi-share"></i></a>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="javascript: void(0)" onclick="copy()" id="copyLink"
-                          data-attr="{{ $answer->question->title_slug ." #". $answer->user->name_slug }}">Copy link</a>
+                          data-attr="{{ $answer->question->title_slug ." #". $answer->user->name_slug }}">Salin tautan</a>
                       </div>
                     </div>
                   </div>
@@ -144,7 +144,7 @@
       </div>
 
       @if ($answers->isEmpty())
-      <div class="text-center mt-4"><b>No question related to this topic</b></div>
+      <div class="text-center mt-4"><b>Tidak ada pertanyaan terkait topik ini</b></div>
       @endif
 
     </div>

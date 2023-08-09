@@ -8,7 +8,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="answer-updateModalLabel"><b>Edit Answer</b></h5>
+              <h5 class="modal-title" id="answer-updateModalLabel"><b>Edit Jawaban</b></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -29,8 +29,8 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal" id="close2">Cancel</button>
-              <button type="submit" class="btn btn-primary answer-update rounded-pill">Update</button>
+              <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal" id="close2">Batal</button>
+              <button type="submit" class="btn btn-primary answer-update rounded-pill">Perbarui</button>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@
                       d="m419-285 291-292-63-64-228 228-111-111-63 64 174 175Zm60.679 226q-86.319 0-163.646-32.604-77.328-32.603-134.577-89.852-57.249-57.249-89.852-134.57Q59-393.346 59-479.862q0-87.41 32.662-164.275 32.663-76.865 90.042-134.438 57.378-57.574 134.411-90.499Q393.147-902 479.336-902q87.55 0 164.839 32.848 77.288 32.849 134.569 90.303 57.281 57.454 90.269 134.523Q902-567.257 902-479.458q0 86.734-32.926 163.544-32.925 76.809-90.499 134.199-57.573 57.39-134.447 90.053Q567.255-59 479.679-59Z"
                       fill="green" />
                   </svg>
-                  Pinned Answer
+                  Jawaban yang dipin
                   @endif
                   <a class="text-dark float-right dropdown-toogle" id="navbarDropdown" href="" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i
@@ -87,12 +87,12 @@
                     <a href="" data-attr="{{ route('answer.update',$answers[0]->id) }}" class="dropdown-item"
                       data-toggle="modal" data-target="#answer-updateModal" id="answerUpdate"
                       data-text="{{ $answers[0]->text }}" data-img="{{ $answers[0]->image }}">
-                      Edit answer
+                      Edit jawaban
                     </a>
 
                     <a href="{{ route('answer.destroy',$answers[0]->id) }}" class="dropdown-item"
                       onclick="return confirm('Are you sure you want to delete this answer?')">
-                      Delete answer
+                      Hapus jawaban
                     </a>
                     @else
                     @php
@@ -101,28 +101,28 @@
                     @endphp
                     @if ($reported_answer)
                     <a class="dropdown-item text-danger">
-                      Reported
+                      Dilaporkan
                     </a>
                     @else
                     <a href="" class="dropdown-item text-dark" data-toggle="modal" data-target="#report_answerModal"
                       data-attr="{{ route('answer.report',$answers[0]->id) }}" id="reportAnswer">
-                      Report
+                      Laporkan
                     </a>
                     @endif
                     <a class="dropdown-item">
                       Bookmark
                     </a>
                     <a class="dropdown-item">
-                      Hide
+                      Sembunyikan
                     </a>
                     @endif
                     {{-- Admin --}}
                     @if (auth()->user()->role == 'admin' && $answers[0]->question->pin_answer != $answers[0]->id)
-                    <a href="{{ route('answer.pin',$answers[0]->id) }}" class="dropdown-item">Pin answer</a>
+                    <a href="{{ route('answer.pin',$answers[0]->id) }}" class="dropdown-item">Pin Jawaban</a>
                     @endif
 
                     @if (auth()->user()->role == 'admin' && $answers[0]->question->pin_answer == $answers[0]->id)
-                    <a href="{{ route('answer.deletepin',$answers[0]->id) }}" class="dropdown-item">Delete Pin</a>
+                    <a href="{{ route('answer.deletepin',$answers[0]->id) }}" class="dropdown-item">Hapus Pin</a>
                     @endif
                   </div>
                   <br>
@@ -143,7 +143,7 @@
                   <div class="mb-2"></div>
                   @endif
                 </div>
-                <small class="col-12 text-secondary">{{ views($answers[0])->count() }} views</small>
+                <small class="col-12 text-secondary">{{ views($answers[0])->count() }} Tampilan</small>
               </div>
 
               <hr>
@@ -169,7 +169,7 @@
                       <i class="bi bi-share"></i></a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       <a class="dropdown-item" href="javascript: void(0)" onclick="copy()"
-                        data-attr="#{{ $answers[0]->user->name_slug }}" id="copyLink">Copy link</a>
+                        data-attr="#{{ $answers[0]->user->name_slug }}" id="copyLink">Salin Tautan</a>
                     </div>
                   </div>
                 </div>
@@ -190,8 +190,7 @@
                       <input type="hidden" name="answer_id" value="{{ $answers[0]->id }}" id="answer_id">
                     </div>
                     <div class="col-2">
-                      <button class="btn btn-outline-primary btn-sm py-0 px-2" type="submit">Add
-                        comment</button>
+                      <button class="btn btn-outline-primary btn-sm py-0 px-2" type="submit">Tambahkan komentar</button>
 
                     </div>
                   </div>
@@ -219,13 +218,13 @@
   @endforeach
 
   @if ($answers->isEmpty())
-  <div class="text-center mt-4"><b>No answers</b></div>
+  <div class="text-center mt-4"><b>Tidak ada jawaban</b></div>
   @endif
 
   @if ($answers->count() > 0 )
   @if ($page != $count)
   <div class="text-center" wire:click="morePage">
-    <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill">More</button>
+    <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill">Lebih lanjut</button>
   </div>
   @endif
   @endif

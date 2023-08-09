@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Stats
+Statistik
 @endsection
 @section('link')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -13,7 +13,7 @@ Stats
     <div class="row">
        <div class="col-12">
            <div class="card">
-               <div class="card-header">Stats</div>
+               <div class="card-header">Statistik</div>
                 <div class="card-body">
                     <canvas id="canvas" height="200" width="600"></canvas>
                 </div> 
@@ -39,7 +39,7 @@ Stats
                 type: 'bar',
                 data: {
                     datasets: [{
-                        label: 'Total Views',
+                        label: 'Total Penayangan',
                         data: data,
                         backgroundColor: '#84B1E1',
                         borderWidth: 1

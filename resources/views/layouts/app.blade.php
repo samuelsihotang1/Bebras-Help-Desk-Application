@@ -128,17 +128,17 @@
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('stats.index') }}"><i
-                                            class="bi bi-bar-chart mr-2"></i>Stats</a>
+                                            class="bi bi-bar-chart mr-2"></i>Statistik</a>
                                     <a class="dropdown-item" href="{{ route('content.index') }}"><i
-                                            class="bi bi-journals mr-2"></i>Your Content</a>
+                                            class="bi bi-journals mr-2"></i>Konten Anda</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('settings.index') }}">Settings</a>
+                                    <a class="dropdown-item" href="{{ route('settings.index') }}">Pengaturan</a>
                                     @if (Auth::user()->role != 'admin')
                                         <a class="dropdown-item" href="{{ route('faq.index') }}">FAQ</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('keluar') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                         class="d-none">
@@ -148,7 +148,7 @@
                             </li>
 
                             <button class="btn btn-sm btn-danger mt-2 " data-toggle="modal"
-                                data-target="#add-questionModal" style="height: 36px; width:120px">Add Question</button>
+                                data-target="#add-questionModal" style="height: 36px; width:120px">Tambah Pertanyaan</button>
 
                         @endguest
                     </ul>

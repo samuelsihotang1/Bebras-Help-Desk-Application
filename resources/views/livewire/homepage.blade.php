@@ -97,7 +97,7 @@
                 <div class="mb-2"></div>
                 @endif
               </div>
-              <small class="col-12 text-secondary">{{ views($answer)->count() }} views</small>
+              <small class="col-12 text-secondary">{{ views($answer)->count() }} Tampilan</small>
             </div>
             <hr>
             <div class="row">
@@ -123,8 +123,7 @@
                     <i class="bi bi-share"></i></a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="javascript: void(0)" onclick="copy()" id="copyLink"
-                      data-attr="{{ $answer->question->title_slug . ' #' . $answer->user->name_slug }}">Copy
-                      link</a>
+                      data-attr="{{ $answer->question->title_slug . ' #' . $answer->user->name_slug }}">Salin tautan</a>
                   </div>
                 </div>
               </div>
@@ -140,7 +139,7 @@
   </div>
   @if ($page != $count)
   <div class="text-center" wire:click="morePage">
-    <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill">More</button>
+    <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill">Lebih lanjut</button>
   </div>
   @endif
 </div>

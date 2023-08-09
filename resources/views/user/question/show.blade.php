@@ -17,7 +17,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="report_commentModalLabel">Report comment</h5>
+          <h5 class="modal-title" id="report_commentModalLabel">Laporkan komentar</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -36,8 +36,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary rounded-pill" id="store-reportComment">Submit</button>
+          <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary rounded-pill" id="store-reportComment">Kirim</button>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="update_commentModalLabel"><b>Edit Comment</b></h5>
+          <h5 class="modal-title" id="update_commentModalLabel"><b>Edit Komentar</b></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -66,8 +66,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary rounded-pill update-comment">Update</button>
+          <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary rounded-pill update-comment">Perbarui</button>
         </div>
       </div>
     </div>
@@ -85,7 +85,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="questionModalLabel"><b>Edit Question</b></h5>
+          <h5 class="modal-title" id="questionModalLabel"><b>Edit Pertanyaan</b></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -99,7 +99,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">B</button>
           <button type="submit" class="btn btn-primary rounded-pill">Update</button>
         </div>
       </div>

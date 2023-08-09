@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Your Content
+Konten Anda
 @endsection
 
 @section('content')
@@ -12,24 +12,24 @@ Your Content
             <div class="card-body">
                 <div class="row">
                     <div class="col-12" style="font-weight: bold;">
-                        By Content Type
+                        Berdasarkan Jenis Konten
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-12">
                         <div class="q-text qu-color--red qu-medium" style="box-sizing: border-box;">
-                            <a href="{{ route('content.index') }}" class="{{ request()->route()->named('content.index') ? 'text-danger font-weight-bold' : 'text-dark' }}" style="{{ request()->route()->named('content.index') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">All Contents</a>
+                            <a href="{{ route('content.index') }}" class="{{ request()->route()->named('content.index') ? 'text-danger font-weight-bold' : 'text-dark' }}" style="{{ request()->route()->named('content.index') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">Semua Konten</a>
                         </div>
                     </div>                          
                     <div class="col-12 mt-1">
                         <div class="q-text qu-color--red qu-medium" style="box-sizing: border-box;">
-                            <a href="{{ route('content.questions.index') }}" class="{{ request()->route()->named('content.questions.index') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}" style="{{ request()->route()->named('content.questions.index') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">Questions</a>
+                            <a href="{{ route('content.questions.index') }}" class="{{ request()->route()->named('content.questions.index') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}" style="{{ request()->route()->named('content.questions.index') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">Pertanyaan</a>
                         </div>
                     </div>
                     <div class="col-12 mt-1">
                         <div class="q-text qu-color--red qu-medium" style="box-sizing: border-box;">
-                            <a href="{{ route('content.answers.index') }}" class="{{ request()->route()->named('content.answers.index') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}" style="{{ request()->route()->named('content.answers.index') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">Answers</a>
+                            <a href="{{ route('content.answers.index') }}" class="{{ request()->route()->named('content.answers.index') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}" style="{{ request()->route()->named('content.answers.index') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">Jawaban</a>
                         </div>
                     </div>
                 </div>                                                 
@@ -45,7 +45,7 @@ Your Content
 
                     <div class="row">
                         <div class="col-12">
-                            Your Questions
+                            Pertanyaan Anda
                         </div>
                     </div>
                     <hr>
@@ -53,39 +53,39 @@ Your Content
                     <div class="row">
                         <div class="col-12">
                             <a href="{{ route('question.show',$question->title_slug) }}">{{ $question->title }}</a><br>
-                            <small class="text-secondary">Asked {{ $question->created_at->format('d M Y') }}</small>
+                            <small class="text-secondary">Pertanyaan yang Diajukan {{ $question->created_at->format('d M Y') }}</small>
                         </div>
                     </div>
                     <hr>
                     @empty
-                    <div class="text-center">No Questions</div>
+                    <div class="text-center">Tidak ada pertanyaan</div>
                     @endforelse
 
                 @elseif (request()->route()->named('content.answers.index'))
 
                     <div class="row">
                         <div class="col-12" >
-                            Your Answers
+                            Jawaban Anda
                         </div>
                     </div>
                     <hr>
                     @forelse ($answers as $answer)
                     <div class="row q">
                         <div class="col-12">
-                            <span class="text-secondary">Your answer to </span><a href="{{ route('question.show',$answer->question->title_slug) }}"> {{ $answer->question->title }}</a><br>
-                            <small class="text-secondary">Answered {{ $answer->question->created_at->format('d M Y') }}</small>
+                            <span class="text-secondary">Jawaban Anda kepada </span><a href="{{ route('question.show',$answer->question->title_slug) }}"> {{ $answer->question->title }}</a><br>
+                            <small class="text-secondary">Sudah Dijawab {{ $answer->question->created_at->format('d M Y') }}</small>
                         </div>
                     </div>
                     <hr>
                     @empty
-                    <div class="text-center">No Answers</div>
+                    <div class="text-center">Tidak ada Jawaban</div>
                     @endforelse
 
                 @elseif (request()->route()->named('content.index'))
 
                     <div class="row">
                         <div class="col-12">
-                            Your Content
+                            Konten Anda
                         </div>
                     </div>
                     <hr>
@@ -94,15 +94,15 @@ Your Content
                         <div class="col-12">
                             <a href="{{ route('question.show',$content->title_slug ?? $content->question->title_slug) }}">{{ $content->title ?? $content->question->title }}</a><br>
                             @if ($content->title)
-                                <small class="text-secondary">Asked {{ $content->created_at->format('d M Y') }}</small>
+                                <small class="text-secondary">Ditanyakan {{ $content->created_at->format('d M Y') }}</small>
                             @elseif($content->question->title)
-                                <small class="text-secondary">Answered {{ $content->created_at->format('d M Y') }}</small>
+                                <small class="text-secondary">Sudah Dijawab {{ $content->created_at->format('d M Y') }}</small>
                             @endif
                         </div>
                     </div>
                     <hr>
                     @empty
-                    <div class="text-center">No Content</div>
+                    <div class="text-center">Tidak Ada Konten</div>
                     @endforelse
 
                 @endif

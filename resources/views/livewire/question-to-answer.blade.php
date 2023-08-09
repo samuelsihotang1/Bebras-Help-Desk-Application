@@ -20,7 +20,7 @@
       <div class="col-sm-6">
         <a href="" data-toggle="modal" data-target="#answerModal"
           data-attr="{{ route('answer.store',$question->title_slug) }}" id="answer"><i class="bi bi-pencil-square"></i>
-          Answer</a>
+          Jawaban</a>
       </div>
     </div>
     <hr>
@@ -31,7 +31,7 @@
   @endforeach
   @if ($page != $count)
   <div class="text-center" wire:click="morePage">
-    <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill">More</button>
+    <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill">Lebih lanjut</button>
   </div>
   @endif
 </div>

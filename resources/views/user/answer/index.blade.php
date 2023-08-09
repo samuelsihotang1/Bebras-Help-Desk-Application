@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Write Answers
+Tulis Jawaban
 @endsection
 
 @section('content')
@@ -31,7 +31,8 @@ Write Answers
                     @foreach (auth()->user()->topics as $topic)
                         <a href="{{ route('topic.show',$topic->name_slug) }}" class="text-dark">{{ $topic->name }} 
                         <div class="btn btn-secondary float-right btn-sm rounded-pill">
-                        {{ $topic->follower }} Followers</div></a><hr>
+                        {{ $topic->follower }} 
+                        Pengikut</div></a><hr>
                     @endforeach
                 </div>
             </div>

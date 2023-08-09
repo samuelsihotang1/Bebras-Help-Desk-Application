@@ -14,7 +14,7 @@
             <div class="row mt-2">
                 <div class="col-6">
                     <span>
-                        <a href="javascript: void(0)" class="text-dark" id="reply"><i class="bi bi-reply"></i> Reply</a>
+                        <a href="javascript: void(0)" class="text-dark" id="reply"><i class="bi bi-reply"></i> Balas</a>
                     </span>
                 </div>
                 <div class="col-6 dropup">
@@ -22,11 +22,11 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="editComment">
                         @if ($comment->user->id == auth()->id())
                             <a href="" data-attr="{{ route('comment.update',$comment->id) }}" data-text="{{ $comment->comment }}" class="dropdown-item" data-toggle="modal" data-target="#update_commentModal" id="updateComment">
-                                Edit comment
+                                Edit komentar
                             </a>
                             
                             <a href="{{ route('comment.destroy',$comment->id) }}" class="dropdown-item" onclick="return confirm('Are you sure you want to delete this comment?')">
-                                Delete comment
+                                Hapus komentar
                             </a>
                         @else
                             @php
@@ -34,11 +34,11 @@
                             @endphp
                             @if ($reported_comment)
                                 <a class="dropdown-item text-danger">
-                                    Reported
+                                    Dilaporkan
                                 </a>
                             @else
                                 <a href="" data-attr="{{ route('comment.report',$comment->id) }}" class="dropdown-item" data-toggle="modal" data-target="#report_commentModal" id="reportComment">
-                                    Report
+                                    Laporkan
                                 </a>
                             @endif
                  

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Account Settings
+Pengaturan Akun
 @endsection
 
 @section('content')
@@ -12,13 +12,13 @@ Account Settings
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
-                        Settings
+                        Pengaturan
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <a href="javascript:void(0)" class="text-danger font-weight-bold" style="background-color: rgba(255, 0, 0, 0.1); padding: 5px 10px; border-radius: 5px; display: inline-block; width: 100%;" onclick="makeRedBox(event)">
-                        <small style="font-size: 13px; font-weight: bold;">Account</small>
+                        <small style="font-size: 13px; font-weight: bold;">Akun</small>
                     </a>                    
                 </div>
             </div>
@@ -28,7 +28,7 @@ Account Settings
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
-                        Account Settings
+                        Pengaturan Akun
                     </div>
                 </div>
                 <hr>
@@ -49,13 +49,13 @@ Account Settings
                     <div class="col-12">
                         <div class="row">
                             <div class="col-6">
-                                Password
+                                Kata Sandi
                             </div>
                             <div class="col-6">
                                 @if (auth()->user()->provider_id)
-                                    <a href="javascript:void(0)" class="text-dark">Change Password</a>
+                                    <a href="javascript:void(0)" class="text-dark">Ubah Kata Sandi</a>
                                 @else
-                                    <a href="" data-toggle="modal" data-target="#passwordModal">Change Password</a>
+                                    <a href="" data-toggle="modal" data-target="#passwordModal">Ubah Kata Sandi</a>
                                 @endif
                             </div>
                             <!-- Modal -->
@@ -66,7 +66,7 @@ Account Settings
                                     <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h5 class="modal-title" id="passwordModalLabel">Change password</h5>
+                                        <h5 class="modal-title" id="passwordModalLabel">Ubah Kata Sandi</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -74,15 +74,15 @@ Account Settings
                                         <div class="modal-body">
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <label for="">Password</label>
+                                                    <label for="">Kata Sandi</label>
                                                     <input type="password" name="password" class="form-control">
                                                     @include('layouts.error', ['name' => 'password'])
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Cancel</button>
-                                            <button type="submit" class="btn btn-primary rounded-pill">Save</button>
+                                            <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary rounded-pill">Simpan</button>
                                         </div>
                                     </div>
                                     </div>
@@ -96,10 +96,10 @@ Account Settings
                     <div class="col-12">
                         <div class="row">
                             <div class="col-6">
-                                Country
+                                Negara
                             </div>
                             <div class="col-6">
-                                <a href="javascript:void(0)">{{ auth()->user()->country ? auth()->user()->country : 'Select Country' }}</a>
+                                <a href="javascript:void(0)">{{ auth()->user()->country ? auth()->user()->country : 'Pilih Negara   ' }}</a>
                             </div>
                         </div>
                     </div>

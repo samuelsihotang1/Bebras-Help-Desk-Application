@@ -30,8 +30,8 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <span class="text-secondary" style="font-size: 13px">{{ $user->followers()->count() ?? 0 }} Followers<i
-                    class="bi bi-dot"></i>{{ $user->followings()->count() ?? 0 }} Followings</span><br>
+                <span class="text-secondary" style="font-size: 13px">{{ $user->followers()->count() ?? 0 }} Pengikut<i
+                    class="bi bi-dot"></i>{{ $user->followings()->count() ?? 0 }} Mengikuti</span><br>
               </div>
             </div>
             <div class="row mb-2 mt-2">
@@ -49,24 +49,24 @@
                 </div>
                 <div class="btn-group mr-2" role="group">
                   <a href="javascript:void(0)" class="btn btn-secondary btn-sm rounded-pill"><i
-                      class="bi bi-bell mr-1"></i> Notify me</a>
+                      class="bi bi-bell mr-1"></i> Beritahu saya</a>
                 </div>
                 <div class="btn-group mr-2" role="group">
                   <a href="javascript:void(0)" class="btn btn-secondary btn-sm rounded-pill"><i
-                      class="bi bi-question-circle mr-1"></i> Ask Question</a>
+                      class="bi bi-question-circle mr-1"></i> Tanyakan Pertanyaan</a>
                 </div>
                 <a class="text-dark float-right dropdown-toogle" id="navbarDropdown" href="javascript:void(0)"
                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i
                     class="bi bi-three-dots" style="font-size: 20px"> </i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item">
-                    Mute {{ $user->name }}
+                    Bisukan {{ $user->name }}
                   </a>
                   <a class="dropdown-item">
-                    Block
+                    Blokir
                   </a>
                   <a class="dropdown-item">
-                    Report
+                    Laporkan
                   </a>
                 </div>
               </div>
@@ -85,27 +85,28 @@
           <div class="col-3">
             <a href="javascript:void(0)" class="text-dark" id="showAnswers"
               data-href="{{ route('profile.answers.show',$user->name_slug) }}">{{ $user->answers->count() ?? 0}}
-              Answers</a>
+              Jawaban</a>
           </div>
           <div class="col-3">
             <a href="javascript:void(0)" class="text-dark" id="showQuestions"
               data-href="{{ route('profile.questions.show',$user->name_slug) }}">{{ $user->questions->count() ?? 0}}
-              Questions</a>
+              Pertanyaan</a>
           </div>
           <div class="col-3">
-            0 Shares
+            0 Bagikan
           </div>
           <div class="col-3">
             <a href="javascript:void(0)" class="text-dark" id="showTopics"
               data-href="{{ route('profile.topics.show',$user->name_slug) }}">{{ $user->topics->count() ?? 0 }}
-              Topics</a>
+              Topik</a>
           </div>
         </div>
         <hr>
         <div class="row" id="showAnswersHtml"></div>
         <div class="row" id="showQuestionsHtml"></div>
         <div class="row" id="showTopicsHtml"></div>
-        <span id="noData"><b>No Data</b></span>
+        <span id="noData"><b>
+          Tidak Ada Data</b></span>
         <div class="text-center">
           <div class="spinner-border ajax-loading-2 mt-2 text-danger" role="status">
             <span class="sr-only">Loading...</span>
@@ -119,7 +120,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-12">
-              Credentials & Highlights
+              Kredensial & Sorotan
             </div>
           </div>
           <hr>
@@ -155,7 +156,7 @@
 
           <div class="row mt-2">
             <div class="col-12">
-              <i class="bi bi-calendar mr-2" style="font-size: 15px"></i> Joined {{ $user->created_at->format('d M Y')
+              <i class="bi bi-calendar mr-2" style="font-size: 15px"></i> Bergabung {{ $user->created_at->format('d M Y')
               }}
             </div>
           </div>
@@ -165,7 +166,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-12">
-            Knows about
+            Mengetahui tentang
           </div>
         </div>
         <hr>
@@ -179,7 +180,7 @@
             @empty
             <div class="row">
               <div class="col-sm-12">
-                This user haven't added any topics yet.
+                Pengguna ini belum menambahkan topik apapun.
               </div>
             </div>
             @endforelse

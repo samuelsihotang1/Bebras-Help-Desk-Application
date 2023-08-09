@@ -3,7 +3,7 @@
   @if ($type == 'all')
   <div class="row">
     <div class="col-12">
-      Questions sorted by latest
+      Pertanyaan diurutkan berdasarkan yang terbaru
     </div>
   </div>
   <hr>
@@ -26,7 +26,7 @@
   @endphp
   @empty
   <div class="text-center mt-2">
-    No Questions
+    Tidak ada jawaban
   </div>
   @endforelse
 
@@ -34,7 +34,7 @@
 
   <div class="row">
     <div class="col-12">
-      Questions sorted by most reported
+      Pertanyaan diurutkan berdasarkan yang paling banyak dilaporkan
     </div>
   </div>
   <hr>
@@ -71,7 +71,7 @@
   @endphp
   @empty
   <div class="text-center mt-2">
-    No Questions reported
+    Tidak ada pertanyaan yang dilaporkan
   </div>
   @endforelse
   @endif
@@ -79,7 +79,7 @@
   @if ($questions->count() > 0 )
   @if ($page != $count)
   <div class="text-center" wire:click="morePage">
-    <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill">More</button>
+    <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill">Lebih lanjut</button>
   </div>
   @endif
   @endif
