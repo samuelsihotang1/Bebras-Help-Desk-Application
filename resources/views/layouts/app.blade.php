@@ -125,7 +125,10 @@
                   <b style="font-size: 15px">{{ Auth::user()->name }} <i class="bi bi-chevron-right ml-2"></i></b>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ route('stats.index') }}"><i class="bi bi-bar-chart mr-2"></i>Stats</a>
+                @can('isAdmin')
+                <a class="dropdown-item" href="{{ route('admin.stats.admin') }}"><i
+                    class="bi bi-bar-chart mr-2"></i>Stats</a>
+                @endcan
                 <a class="dropdown-item" href="{{ route('content.index') }}"><i class="bi bi-journals mr-2"></i>Your
                   Content</a>
                 <div class="dropdown-divider"></div>
