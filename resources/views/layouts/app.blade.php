@@ -136,7 +136,8 @@
                 @if (Auth::user()->role != 'admin')
                 <a class="dropdown-item" href="{{ route('faq.index') }}">FAQ</a>
                 @endif
-                <a class="dropdown-item" href="{{ route('logout') }}"
+                <a class="dropdown-item" href="{{ route('aboutUs') }}">Developer</a>
+                <a class="dropdown-item font-weight-bold" href="{{ route('logout') }}"
                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}
                 </a>

@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\CheckCommentController;
 use App\Http\Controllers\Admin\CheckQuestionController;
 use App\Http\Controllers\Admin\CheckUserController;
 use App\Http\Controllers\Admin\EditFaqController;
+use App\Http\Controllers\DevController;
 
 
 //api login provider
@@ -28,6 +29,10 @@ Route::get('/auth/callback/{provider}', [SocialiteController::class, 'callback']
 //route untuk home controller untuk mengakses halaman index yg tidak perlu auth
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
+
+
+   //about developer
+  Route::get('/aboutUs', [DevController::class, 'index'])->name('aboutUs');
 
 
 
@@ -71,6 +76,8 @@ Route::group(['middleware' => 'auth'], function () {
 
         //stats
         Route::get('/stats', [StatController::class, 'admin'])->name('stats.admin');
+
+       
       });
     });
   });
@@ -136,4 +143,7 @@ Route::group(['middleware' => 'auth'], function () {
   Route::put('/comment/{comment}/update', [CommentController::class, 'update'])->name('comment.update');
   Route::get('/comment/{comment}/destroy', [CommentController::class, 'destroy'])->name('comment.destroy');
   Route::post('/comment/{comment}/report', [CommentController::class, 'report'])->name('comment.report');
+
+
+
 });
