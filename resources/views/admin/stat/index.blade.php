@@ -10,7 +10,11 @@ Stats
 <div class="container mx-auto">
   {{-- User --}}
   <div class="card" style="width: 48% !important; float: left !important;">
-    <div class="card-header">User</div>
+    <div class="card-header">
+      <a href="{{ route('admin.users.latest') }}">
+        User
+      </a>
+    </div>
     <div class="card-body">
       {!! $chartUser->container() !!}
     </div>
@@ -20,7 +24,11 @@ Stats
 
   {{-- Question --}}
   <div class="card" style="width: 48% !important; float: right !important;">
-    <div class="card-header">Question</div>
+    <div class="card-header">
+      <a href="{{ route('admin.questions.latest') }}">
+        Question
+      </a>
+    </div>
     <div class="card-body">
       {!! $chartQuestion->container() !!}
     </div>
@@ -33,7 +41,11 @@ Stats
 <div class="container mx-auto" style="margin-top: 25rem !important;">
   {{-- Answer --}}
   <div class="card" style="width: 48% !important; float: left !important;">
-    <div class="card-header">Answer</div>
+    <div class="card-header">
+      <a href="{{ route('admin.answers.latest') }}">
+        Answer
+      </a>
+    </div>
     <div class="card-body">
       {!! $chartAnswer->container() !!}
     </div>
@@ -43,7 +55,11 @@ Stats
 
   {{-- Comment --}}
   <div class="card" style="width: 48% !important; float: right !important;">
-    <div class="card-header">Comment</div>
+    <div class="card-header">
+      <a href="{{ route('admin.comments.latest') }}">
+        Comment
+      </a>
+    </div>
     <div class="card-body">
       {!! $chartComment->container() !!}
     </div>
@@ -56,7 +72,11 @@ Stats
 <div class="container mx-auto" style="margin-top: 50rem !important;">
   {{-- Topic --}}
   <div class="card" style="width: 48% !important; float: left !important;">
-    <div class="card-header">Topic</div>
+    <div class="card-header">
+      <a href="{{ route('admin.topics.latest') }}">
+        Topic
+      </a>
+    </div>
     <div class="card-body">
       {!! $chartTopic->container() !!}
     </div>
