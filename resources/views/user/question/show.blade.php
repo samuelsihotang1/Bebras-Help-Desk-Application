@@ -99,8 +99,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">B</button>
-          <button type="submit" class="btn btn-primary rounded-pill">Update</button>
+          <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary rounded-pill">Perbarui</button>
         </div>
       </div>
     </div>
@@ -115,13 +115,13 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="topicModalLabel">Edit Topic</h5>
+          <h5 class="modal-title" id="topicModalLabel">Edit Topik</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          Topics :
+          Topik :
           <div class="row mt-2">
             <div class="col-md-12">
               <div class="card">
@@ -151,8 +151,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary rounded-pill">Update</button>
+          <button type="button" class="btn btn-light rounded-pill" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary rounded-pill">Perbarui</button>
         </div>
       </div>
     </div>
@@ -193,7 +193,7 @@
                   @if ($answered == null)
                   <a href="" data-toggle="modal" data-target="#answerModal"
                     data-attr="{{ route('answer.store',$question->title_slug) }}" id="answer"><i
-                      class="bi bi-pencil-square"></i> Answer</a>
+                      class="bi bi-pencil-square"></i> Jawab</a>
                   @endif
                   @endif
 
@@ -204,29 +204,29 @@
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     @if ($question->user_id == auth()->id())
                     <a href="" class="dropdown-item" data-toggle="modal" data-target="#questionModal">
-                      Edit question
+                      Edit Pertanyaan
                     </a>
                     <a href="" class="dropdown-item" data-toggle="modal" data-target="#topicModal">
                       @if (count($question->topics))
-                      Edit topics
+                      Edit topik
                       @else
-                      Add topics
+                      Add topik
                       @endif
                     </a>
 
                     <a href="{{ route('question.destroy',$question->title_slug) }}" class="dropdown-item"
                       onclick="return confirm('Are you sure you want to delete this question?')">
-                      Delete question
+                      Hapus pertanyaan
                     </a>
                     @else
 
                     @if ($reported_question)
                     <a class="dropdown-item text-danger">
-                      Reported
+                      Dilaporkan
                     </a>
                     @else
                     <a href="" class="dropdown-item text-dark" data-toggle="modal" data-target="#report_questionModal">
-                      Report
+                      Laporkan
                     </a>
                     @endif
 
@@ -235,7 +235,7 @@
                     </a>
 
                     <a class="dropdown-item">
-                      Hide
+                      Sembunyikan
                     </a>
                     @endif
 
@@ -243,7 +243,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-12">
-                      {{ $question->answers->count() }} Answers
+                      {{ $question->answers->count() }} Jawaban
                     </div>
                   </div>
                 </div>
@@ -266,7 +266,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-12">
-            Related Questions
+            Pertanyaan Terkait
           </div>
         </div>
         <hr>

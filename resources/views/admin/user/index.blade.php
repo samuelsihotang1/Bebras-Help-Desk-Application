@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Users
+Pengguna
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@ Users
       <div class="card-body">
         <div class="row">
           <div class="col-12" style="font-weight: bold;">
-            Sorted by
+            Diurutkan berdasarkan
           </div>
         </div>
         <hr>

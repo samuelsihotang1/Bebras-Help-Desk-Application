@@ -1,8 +1,8 @@
 
 <div class="card">
     <div class="card-header">
-        Popular Topics
-        <button class="btn btn-sm btn-outline-primary float-right" id="btnTopic">Tambah Topic</button>
+        Topik Populer
+        <button class="btn btn-sm btn-outline-primary float-right" id="btnTopic">Tambah Topik</button>
     </div>
     <div class="card-body">
         <div id="formTopic">
@@ -26,7 +26,7 @@
         @foreach($topics as $topic)
             <a href="{{ route('topic.show',$topic->name_slug) }}" class="text-dark">{{ $topic->name }} 
                 <div class="btn btn-outline-secondary float-right btn-sm rounded-pill">
-                {{ $topic->follower }} Followers</div></a>
+                {{ $topic->follower }} Pengikut</div></a>
                 @if ($loop->last)
                 @else
                 <hr>

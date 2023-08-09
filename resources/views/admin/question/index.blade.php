@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Questions
+Pertanyaan
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@ Questions
       <div class="card-body">
         <div class="row">
           <div class="col-12" style="font-weight: bold;">
-            Sorted by
+            Diurutkan berdasarkan
           </div>
         </div>
         <hr>
@@ -20,13 +20,13 @@ Questions
           <div class="col-12">
             <a href="{{ route('admin.questions.latest') }}"
               class="{{ request()->route()->named('admin.questions.latest') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}"
-              style="{{ request()->route()->named('admin.questions.latest') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">Latest</a>
+              style="{{ request()->route()->named('admin.questions.latest') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">Terbaru</a>
           </div>
           <div class="col-12 mt-2">
             <a href="{{ route('admin.questions.most-reported') }}"
               class="{{ request()->route()->named('admin.questions.most-reported') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}"
-              style="{{ request()->route()->named('admin.questions.most-reported') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">Most
-              Reported</a>
+              style="{{ request()->route()->named('admin.questions.most-reported') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">Lebih banyak
+              dilaporkan</a>
           </div>
         </div>
       </div>

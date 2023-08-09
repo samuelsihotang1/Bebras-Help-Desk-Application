@@ -67,8 +67,8 @@ Faq
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">Cancel</button>
-                  <button type="submit" class="btn btn-primary rounded-pill">Update</button>
+                  <button type="button" class="btn btn-text rounded-pill" data-dismiss="modal">Batal</button>
+                  <button type="submit" class="btn btn-primary rounded-pill">Perbarui</button>
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@ Faq
         @endforeach
         @if (count($faqs) == 0)
         <div class="text-center mt-2">
-          No Faq
+          Tidak ada Faq
         </div>
         @endif
       </div>

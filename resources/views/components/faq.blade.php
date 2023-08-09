@@ -4,12 +4,12 @@
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="add-faqModalLabel">Add Faq</h5>
+          <h5 class="modal-title" id="add-faqModalLabel">Tambah Faq</h5>
         </div>
         <div class="modal-body">
           <div class="row">
             <div class="col-sm-12">
-              Question :
+              Pertanyaan :
             </div>
           </div>
 
@@ -20,7 +20,7 @@
             </div>
           </div>
           <hr>
-          Answer :
+          Jawaban :
           <div class="row mt-3">
             <div class="col-sm-12">
               <input type="text" name="text" class="form-control" autocomplete="off" id="q-text">
@@ -30,8 +30,8 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-light rounded-pill q-cancel" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary rounded-pill">Add Faq</button>
+          <button type="button" class="btn btn-light rounded-pill q-cancel" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary rounded-pill">Tambah Faq</button>
         </div>
       </div>
     </div>
