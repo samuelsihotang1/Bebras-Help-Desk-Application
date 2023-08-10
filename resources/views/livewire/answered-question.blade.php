@@ -185,7 +185,7 @@
                         alt="avatar" class="rounded-circle" width="45px" height="45px">
                     </div>
                     <div class="col-9">
-                      <input type="text" class="form-control" placeholder="Add a comment..." name="comment"
+                      <input type="text" class="form-control" placeholder="Tambahkan komentar anda..." name="comment"
                         autocomplete="off">
                       <input type="hidden" name="answer_id" value="{{ $answers[0]->id }}" id="answer_id">
                     </div>
