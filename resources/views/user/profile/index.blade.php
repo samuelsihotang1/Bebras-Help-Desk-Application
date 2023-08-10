@@ -32,14 +32,21 @@
                     class="text-secondary" data-toggle="modal" data-target="#nameModal">Edit</a></small>
               </div>
             </div>
-            {{-- <div class="row">
+            <div class="row">
               <div class="col-12" id="credential">
-                <span style="font-size: 18px">{{ $user->credential ?? '
-                  Tambahkan kredensial profil' }} </span><small
-                  id="btneditCredential"><a href="" class="text-secondary" data-toggle="modal"
-                    data-target="#profileModal">Edit</a></small>
+                <span style="font-size: 17px">
+                  @if ($user->marker == 'biro')
+                  Pengurus Bebras Biro
+                  @elseif ($user->marker == 'pusat')
+                  Pengurus Bebras Pusat
+                  @elseif ($user->marker == 'guru')
+                  Pengajar
+                  @elseif ($user->marker == 'super-admin')
+                  Pengurus Website
+                  @endif
+                </span>
               </div>
-            </div> --}}
+            </div>
             <div class="row mt-2 mb-2">
               <div class="col-12">
                 <span class="text-secondary" style="font-size: 13px">{{ $user->followers()->count() ?? 0 }} Pengikut<i
@@ -238,7 +245,8 @@
                 $employment_credential['credential'] }} <small class="text-secondary">{{ $employment_credential['year']
                   }}</small></a>
               @else
-              <a href="" data-toggle="modal" data-target="#employmentModal" id="btnEmployment"> Tambahkan kredensial pekerjaan</a>
+              <a href="" data-toggle="modal" data-target="#employmentModal" id="btnEmployment"> Tambahkan kredensial
+                pekerjaan</a>
               @endif
             </div>
           </div>
@@ -445,7 +453,7 @@
                 $location_credential['credential'] }} <small class="text-secondary">{{
                   $location_credential['year']}}</small></a>
               @else
-              <a href="" data-toggle="modal" data-target="#locationModal"> 
+              <a href="" data-toggle="modal" data-target="#locationModal">
                 Tambahkan kredensial lokasi</a>
               @endif
             </div>

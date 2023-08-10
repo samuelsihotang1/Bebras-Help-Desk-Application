@@ -125,12 +125,14 @@
                 <br>
 
                 <div class="text-secondary">
-                  @if ($answer->user->marker == 'super-admin' || $answer->user->marker == 'biro')
+                  @if ($answer->user->marker == 'biro')
                   Pengurus Bebras Biro
                   @elseif ($answer->user->marker == 'pusat')
                   Pengurus Bebras Pusat
                   @elseif ($answer->user->marker == 'guru')
                   Pengajar
+                  @elseif ($answer->user->marker == 'super-admin')
+                  Pengurus Website
                   @endif
                   &#183; {{ $answer->created_at->format('M d Y') }}
                 </div>

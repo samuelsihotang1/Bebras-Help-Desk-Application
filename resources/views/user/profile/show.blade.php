@@ -14,8 +14,8 @@
       <div class="card-body">
         <div class="row mb-4">
           <div class="col-2">
-            <img src="{{ (strpos($user->avatar, 'https') === 0) ? $user->avatar : asset('img/' . $user->avatar) }}" alt="avatar" class="rounded-circle mr-2" width="100px"
-              height="100px">
+            <img src="{{ (strpos($user->avatar, 'https') === 0) ? $user->avatar : asset('img/' . $user->avatar) }}"
+              alt="avatar" class="rounded-circle mr-2" width="100px" height="100px">
           </div>
           <div class="col-10">
             <div class="row">
@@ -25,7 +25,17 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <span style="font-size: 18px" class="text-dark">{{ $user->credential ?? '' }}</span>
+                <span style="font-size: 17px" class="text-dark">
+                  @if ($user->marker == 'biro')
+                  Pengurus Bebras Biro
+                  @elseif ($user->marker == 'pusat')
+                  Pengurus Bebras Pusat
+                  @elseif ($user->marker == 'guru')
+                  Pengajar
+                  @elseif ($user->marker == 'super-admin')
+                  Pengurus Website
+                  @endif
+                </span>
               </div>
             </div>
             <div class="row">
@@ -106,7 +116,7 @@
         <div class="row" id="showQuestionsHtml"></div>
         <div class="row" id="showTopicsHtml"></div>
         <span id="noData"><b>
-          Tidak Ada Data</b></span>
+            Tidak Ada Data</b></span>
         <div class="text-center">
           <div class="spinner-border ajax-loading-2 mt-2 text-danger" role="status">
             <span class="sr-only">Loading...</span>
@@ -156,7 +166,8 @@
 
           <div class="row mt-2">
             <div class="col-12">
-              <i class="bi bi-calendar mr-2" style="font-size: 15px"></i> Bergabung {{ $user->created_at->format('d M Y')
+              <i class="bi bi-calendar mr-2" style="font-size: 15px"></i> Bergabung {{ $user->created_at->format('d M
+              Y')
               }}
             </div>
           </div>

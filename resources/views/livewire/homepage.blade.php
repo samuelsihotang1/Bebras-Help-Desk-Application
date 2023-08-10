@@ -77,12 +77,14 @@
                 <a href="{{ route('follow', $answer->user->name_slug) }}">{{ $status }}</a>
                 @endif
                 <div class="text-secondary">
-                  @if ($answers[0]->user->marker == 'super-admin' || $answers[0]->user->marker == 'biro')
+                  @if ($answer->user->marker == 'biro')
                   Pengurus Bebras Biro
-                  @elseif ($answers[0]->user->marker == 'pusat')
+                  @elseif ($answer->user->marker == 'pusat')
                   Pengurus Bebras Pusat
-                  @elseif ($answers[0]->user->marker == 'guru')
+                  @elseif ($answer->user->marker == 'guru')
                   Pengajar
+                  @elseif ($answer->user->marker == 'super-admin')
+                  Pengurus Website
                   @endif
                   &#183; {{ $answers[0]->created_at->format('M d Y') }}
                 </div>
