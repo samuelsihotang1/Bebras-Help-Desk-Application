@@ -396,7 +396,7 @@
                           @endif
                           <div class="row">
                             <div class="col-12">
-                              <label for="">Sekolah</label>
+                              <label for="">Perguruan Tinggi</label>
                               <input type="text" name="school" value="{{ $user->education->school ?? '' }}"
                                 class="form-control" autocomplete="off">
                               @include('layouts.error', ['name' => 'school'])
@@ -404,7 +404,7 @@
                           </div>
                           <div class="row mt-2">
                             <div class="col-12">
-                              <label for="">Sekolah Dasar</label>
+                              <label for="">Jurusan</label>
                               <input type="text" name="primary" value="{{ $user->education->primary ?? '' }}"
                                 class="form-control" autocomplete="off">
                               @include('layouts.error', ['name' => 'primary'])
@@ -428,6 +428,9 @@
                                 <option value="" disabled>----</option>
                                 @else
                                 <option value="" selected>----</option>
+                                @for ($i = 2023; $i >= 2000; $i--)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
                                 @endif
                               </select>
                             </div>
@@ -500,6 +503,11 @@
                                 <option value="{{ $user->location->start_year }}" selected>
                                   {{ $user->location->start_year }}</option>
                                 <option value="" disabled>----</option>
+                                @else
+                                <option value="" selected>----</option>
+                                @for ($i = 2023; $i >= 2000; $i--)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
                                 @endif
                               </select>
                             </div>
@@ -514,6 +522,9 @@
                                 <option value="" disabled>----</option>
                                 @else
                                 <option value="" selected>----</option>
+                                @for ($i = 2023; $i >= 2000; $i--)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                                @endfor
                                 @endif
                               </select>
                             </div>
