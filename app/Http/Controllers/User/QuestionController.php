@@ -51,74 +51,74 @@ class QuestionController extends Controller
 
     $report_comment_types = [
       [
-        'name' => 'Harrasment',
-        'desc' => 'Disparaging or adversarial towards a person or group'
+        'name' => 'Pelecehan',
+        'desc' => 'Melecehkan atau mengancam suatu individu'
       ],
       [
         'name' => 'Spam',
-        'desc' => 'Undisclosed promotion for a link or product'
+        'desc' => 'Menjual barang ilegal, penipuan uang, dll.'
       ]
     ];
     
     $report_answer_types = [
       [
-        'name' => 'Harrasment',
-        'desc' => 'Disparaging or adversarial towards a person or group'
+        'name' => 'Pelecehan',
+        'desc' => 'Melecehkan atau mengancam suatu individu'
       ],
       [
         'name' => 'Spam',
-        'desc' => 'Undisclosed promotion for a link or product'
+        'desc' => 'Menjual barang ilegal, penipuan uang, dll.'
       ],
       [
-        'name' => 'Doesnt answer the question',
-        'desc' => 'Does not address question that was asked'
+        'name' => 'Tidak menjawab pertanyaan',
+        'desc' => 'Tidak menjawab pertanyaan yang ditanyakan'
       ],
       [
-        'name' => 'Plagiarism',
-        'desc' => 'Reusing content without attribution'
+        'name' => 'Peniruan',
+        'desc' => 'Menggunakan kembali konten tanpa atribusi'
       ],
       [
-        'name' => 'Joke answer',
-        'desc' => 'Not a sincere answer'
+        'name' => 'Jawaban seperti lelucon',
+        'desc' => 'Bukan jawaban yang tulus'
       ],
       [
-        'name' => 'Poorly written',
-        'desc' => 'Not in English or has very bad formatting, grammar, and spelling'
+        'name' => 'Penyesatan informasi yang berbahaya',
+        'desc' => 'format, tata bahasa, dan ejaan yang sangat buruk'
       ],
       [
-        'name' => 'Inappropriate credential',
-        'desc' => 'Authors credential is offensive, spam, or impersonation'
+        'name' => 'Kredensial yang tidak pantas',
+        'desc' => 'Kredensial penulis bersifat ofensif, spam, atau peniruan identitas'
       ],
       [
-        'name' => 'Factually incorrect',
-        'desc' => 'Substantially incorrect and/or incorrect primary conclusions'
+        'name' => 'Hoax',
+        'desc' => 'Beberapa jenis informasi palsu atau menyesatkan yang bisa diverifikasi'
       ],
       [
-        'name' => 'Adult content',
-        'desc' => 'Sexually explicit, pornographic or otherwise inappropriate'
+        'name' => 'Konten dewasa',
+        'desc' => 'Konten dengan unsur ketelanjangan/seksual'
       ]
     ];
 
     $report_question_types = [
       [
-        'name' => 'Harrasment',
-        'desc' => 'Disparaging or adversarial towards a person or group'
+        'name' => 'Pelecehan',
+        'desc' => 'Melecehkan atau mengancam suatu individu'
       ],
       [
         'name' => 'Spam',
-        'desc' => 'Undisclosed promotion for a link or product'
+        'desc' => 'Menjual barang ilegal, penipuan uang, dll.'
       ],
       [
-        'name' => 'Insincere',
-        'desc' => 'Not seeking genuine answers'
+        'name' => 'Jawaban seperti lelucon',
+        'desc' => 'Bukan jawaban yang tulus'
       ],
       [
-        'name' => 'Poorly written',
-        'desc' => 'Not in English or has very bad formatting, grammar, and spelling'
+        'name' => 'Penyesatan informasi yang berbahaya',
+        'desc' => 'format, tata bahasa, dan ejaan yang sangat buruk'
       ],
       [
-        'name' => 'Incorrect topics',
-        'desc' => 'Topics are irrelevant to the content or overly broad'
+        'name' => 'Topik salah',
+        'desc' => 'Topik tidak relevan dengan konten atau terlalu luas'
       ]
     ];
 
