@@ -17,7 +17,7 @@
             <form class="d-inline-block" action="{{ route('profile.topics.update',auth()->user()->name_slug) }}" method="POST">
               @csrf
               @method('PUT')
-              <input type="hidden" name="{{ ($status=='Follow' ? 'topic_id[]' : '' ) }}" value="{{ $topic->id }}">
+              <input type="hidden" name="{{ ($status=='Ikuti' ? 'topic_id[]' : '' ) }}" value="{{ $topic->id }}">
               <button type="submit" class="btn btn-link text-primary">{{ $status }}</button>
             </form>
 
