@@ -31,7 +31,7 @@ $(document).on("click", "#showTopics", function (e) {
                         value[i].name +
                         '<span class="btn btn-secondary float-right btn-sm rounded-pill">' +
                         value[i].follower +
-                        ' Followers</span>' +
+                        ' Pengikut</span>' +
                         "</a>" +
                         "</b>" + 
                         "<hr>" +
