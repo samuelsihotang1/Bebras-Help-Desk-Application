@@ -43,7 +43,7 @@
     }
     @endphp
 
-    @if ($answers->count() > 0) 
+    @if ($answers->count() > 0)
     <div id="{{ $answers[0]->user->name_slug }}">
       <div class="card mt-4">
         <div class="card-body">
@@ -58,7 +58,7 @@
 
                 <div class="col-sm-11">
                   <b><a href="{{ route('profile.show',$answers[0]->user->name_slug) }}" class="text-dark">{{
-                      $answers[0]->user->name }}</a></b> &#183;
+                      $answers[0]->user->name }}</a></b>
                   @php
                   //set follow status
                   if(auth()->user()->isFollowing($answers[0]->user)){
@@ -68,6 +68,7 @@
                   }
                   @endphp
                   @if ($answers[0]->user_id != auth()->id())
+                  &#183;
                   <a href="{{ route('follow',$answers[0]->user->name_slug) }}">{{ $status }}</a>
                   @endif
                   @if ($answers[0]->question->pin_answer == $answers[0]->id)
@@ -128,7 +129,14 @@
                   <br>
 
                   <div class="text-secondary">
-                    {{ $credential }} &#183; {{ $answers[0]->created_at->format('M d Y') }}
+                    @if ($answers[0]->user->marker == 'super-admin' || $answers[0]->user->marker == 'biro')
+                    Pengurus Bebras Biro
+                    @elseif ($answers[0]->user->marker == 'pusat')
+                    Pengurus Bebras Pusat
+                    @elseif ($answers[0]->user->marker == 'guru')
+                    Pengajar
+                    @endif
+                    &#183; {{ $answers[0]->created_at->format('M d Y') }}
                   </div>
                 </div>
               </div>

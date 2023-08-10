@@ -71,12 +71,20 @@
 
               <div class="col-11 ">
                 <a href="{{ route('profile.show', $answer->user->name_slug) }}" class="text-dark"><b>{{
-                    $answer->user->name }} </b></a> &#183;
+                    $answer->user->name }} </b></a>
                 @if (auth()->check())
+                &#183;
                 <a href="{{ route('follow', $answer->user->name_slug) }}">{{ $status }}</a>
                 @endif
                 <div class="text-secondary">
-                  {{ $credential }} &#183; {{ $answer->created_at->format('M d Y') }}
+                  @if ($answers[0]->user->marker == 'super-admin' || $answers[0]->user->marker == 'biro')
+                  Pengurus Bebras Biro
+                  @elseif ($answers[0]->user->marker == 'pusat')
+                  Pengurus Bebras Pusat
+                  @elseif ($answers[0]->user->marker == 'guru')
+                  Pengajar
+                  @endif
+                  &#183; {{ $answers[0]->created_at->format('M d Y') }}
                 </div>
               </div>
             </div>
@@ -91,8 +99,8 @@
               <div class="col-12">
                 {{ $answer->text }}<br>
                 @if ($answer->image)
-                <img src="{{ asset('img/' . $answer->image) }}" class="img-fluid mt-2 mb-2"
-                  style="height: 300px;" alt="gambar tidak tersedia!">
+                <img src="{{ asset('img/' . $answer->image) }}" class="img-fluid mt-2 mb-2" style="height: 300px;"
+                  alt="gambar tidak tersedia!">
                 @else
                 <div class="mb-2"></div>
                 @endif

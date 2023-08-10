@@ -53,17 +53,18 @@
               </div>
 
               <div class="col-sm-11">
-                <b><a href="{{ route('profile.show',$answer->user->name_slug) }}" class="text-dark">{{
-                    $answer->user->name }}</a></b> &#183;
+                <b><a href="{{ route('profile.show',$answers[0]->user->name_slug) }}" class="text-dark">{{
+                    $answers[0]->user->name }}</a></b>
                 @php
                 //set follow status
-                if(auth()->user()->isFollowing($answer->user)){
+                if(auth()->user()->isFollowing($answers[0]->user)){
                 $status = "Mengikuti";
                 }else{
                 $status = "Ikuti";
                 }
                 @endphp
                 @if ($answer->user_id != auth()->id())
+                &#183;
                 <a href="{{ route('follow',$answer->user->name_slug) }}">{{ $status }}</a>
                 @endif
                 @if ($answer->question->pin_answer == $answer->id)
@@ -124,7 +125,14 @@
                 <br>
 
                 <div class="text-secondary">
-                  {{ $credential }} &#183; {{ $answer->created_at->format('M d Y') }}
+                  @if ($answer->user->marker == 'super-admin' || $answer->user->marker == 'biro')
+                  Pengurus Bebras Biro
+                  @elseif ($answer->user->marker == 'pusat')
+                  Pengurus Bebras Pusat
+                  @elseif ($answer->user->marker == 'guru')
+                  Pengajar
+                  @endif
+                  &#183; {{ $answer->created_at->format('M d Y') }}
                 </div>
               </div>
             </div>
@@ -133,8 +141,7 @@
               <div class="col-12">
                 {{ $answer->text }}<br>
                 @if ($answer->image)
-                <img src="{{ asset('img/' . $answer->image) }}" class="img-fluid mt-2 mb-2"
-                  style="height: 300px;">
+                <img src="{{ asset('img/' . $answer->image) }}" class="img-fluid mt-2 mb-2" style="height: 300px;">
                 @else
                 <div class="mb-2"></div>
                 @endif
