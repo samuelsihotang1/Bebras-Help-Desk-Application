@@ -11,7 +11,7 @@ Pengaturan Akun
         <div class="col-2">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12" style="font-weight: bold;">
                         Pengaturan
                     </div>
                 </div>

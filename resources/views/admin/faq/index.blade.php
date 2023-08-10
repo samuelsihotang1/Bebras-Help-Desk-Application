@@ -14,7 +14,7 @@ Faq
 
       <div class="card-body">
         <div class="row">
-          <div class="col-12">
+          <div class="col-12" style="font-weight: bold;">
             Faqs
             <span class="float-right">
               <a href="" class="mr-2" data-toggle="modal" data-target="#add-faqModal">Buat baru</a>
