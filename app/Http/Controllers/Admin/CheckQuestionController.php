@@ -55,6 +55,6 @@ class CheckQuestionController extends Controller
       return back();
     }
 
-    return back()->with('message', ['text' =>  'Question status updated successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' =>  'Status pertanyaan berhasil diperbarui dengan sukses!', 'class' => 'success']);
   }
 }

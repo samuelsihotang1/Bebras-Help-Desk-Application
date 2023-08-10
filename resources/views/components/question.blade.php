@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <img src="{{ (strpos(Auth::user()->avatar, 'https') === 0) ? Auth::user()->avatar : asset('img/' . Auth::user()->avatar) }}" alt="avatar" class="rounded-circle mr-2" width="25px" height="25px">
-                        {{ Auth::user()->name }} asked (<i class="bi bi-people"></i> Public)
+                        {{ Auth::user()->name }} bertanya (<i class="bi bi-people"></i> Publik)
                     </div>
                 </div>
             

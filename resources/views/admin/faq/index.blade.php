@@ -32,7 +32,7 @@ Faq
               <a href="" class="mr-2" data-toggle="modal" data-target="#edit-faq{{ $loop->iteration }}Modal">Edit
                 Faq</a>
               <a href="{{ route('admin.faqs.delete',['faq' => $faq->id]) }}"
-                onclick="return confirm('Are you sure?')"><i class="bi bi-x-circle text-danger"></i></a>
+                onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger"></i></a>
             </span>
           </div>
           <div class="mt-n4 card-body">

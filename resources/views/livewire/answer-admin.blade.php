@@ -15,9 +15,9 @@
       </a>
       <span class="float-right">
         <a href="{{ route('admin.answer.status',['answer' => $answer->id,'status' => 'viewed_by_admin']) }}"
-          class="mr-2" onclick="return confirm('Are you sure?')"><i class="bi bi-check-circle text-success"></i></a>
+          class="mr-2" onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-check-circle text-success"></i></a>
         <a href="{{ route('admin.answer.status',['answer' => $answer->id,'status' => 'deleted_by_admin']) }}"
-          onclick="return confirm('Are you sure?')"><i class="bi bi-x-circle text-danger"></i></a>
+          onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger"></i></a>
       </span>
     </div>
   </div>
@@ -47,9 +47,9 @@
 
       <span class="float-right">
         <a href="{{ route('admin.answer.status',['answer' => $answer->id,'status' => 'viewed_by_admin']) }}"
-          class="mr-2" onclick="return confirm('Are you sure?')"><i class="bi bi-check-circle text-success"></i></a>
+          class="mr-2" onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-check-circle text-success"></i></a>
         <a href="{{ route('admin.answer.status',['answer' => $answer->id,'status' => 'deleted_by_admin']) }}"
-          onclick="return confirm('Are you sure?')"><i class="bi bi-x-circle text-danger"></i></a>
+          onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger"></i></a>
       </span>
       <br>
 

@@ -215,7 +215,7 @@
                     </a>
 
                     <a href="{{ route('question.destroy',$question->title_slug) }}" class="dropdown-item"
-                      onclick="return confirm('Are you sure you want to delete this question?')">
+                      onclick="return confirm('Apakah Anda yakin ingin menghapus pertanyaan ini?')">
                       Hapus pertanyaan
                     </a>
                     @else
@@ -375,7 +375,7 @@
         document.execCommand('copy');
         document.body.removeChild(dummy);
 
-        alert('Share link copied to clipboard');
+        alert('Tautan telah disalin ke papan klip');
     }
 
 </script>

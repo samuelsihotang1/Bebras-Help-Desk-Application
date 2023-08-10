@@ -18,7 +18,7 @@ class EditFaqController extends Controller
   {
     $faq->delete();
 
-    return back()->with('message', ['text' =>  'Faq deleted successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' =>  'FAQ berhasil dihapus dengan sukses!', 'class' => 'success']);
   }
 
   public function store(Request $request)
@@ -33,7 +33,7 @@ class EditFaqController extends Controller
       'text' => $request->text,
     ]);
 
-    return back()->with('message', ['text' =>  'Faq added successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' =>  'FAQ berhasil ditambahkan dengan sukses!', 'class' => 'success']);
   }
 
   public function update(Request $request)
@@ -60,6 +60,6 @@ class EditFaqController extends Controller
       ]);
     }
 
-    return back()->with('message', ['text' =>  'Faq updated successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' =>  'FAQ berhasil diperbarui dengan sukses!', 'class' => 'success']);
   }
 }
