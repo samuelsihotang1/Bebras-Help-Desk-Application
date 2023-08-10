@@ -62,9 +62,9 @@
                   @php
                   //set follow status
                   if(auth()->user()->isFollowing($answers[0]->user)){
-                  $status = "Following";
+                  $status = "Mengikuti";
                   }else{
-                  $status = "Follow";
+                  $status = "Ikuti";
                   }
                   @endphp
                   @if ($answers[0]->user_id != auth()->id())

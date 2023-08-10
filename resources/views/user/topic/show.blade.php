@@ -64,9 +64,9 @@
 
         //set follow status
         if(auth()->user()->isFollowing($answer->user)){
-        $status = "Following";
+        $status = "Mengikuti";
         }else{
-        $status = "Follow";
+        $status = "Ikuti";
         }
 
         @endphp
@@ -107,7 +107,7 @@
                     <div class="mb-2"></div>
                     @endif
                   </div>
-                  <small class="col-12 text-secondary">{{ views($answer)->count() }} views</small>
+                  <small class="col-12 text-secondary">{{ views($answer)->count() }} Tampila n</small>
                 </div>
 
                 <hr>

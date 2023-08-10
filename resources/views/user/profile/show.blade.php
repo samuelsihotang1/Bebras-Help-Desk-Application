@@ -40,10 +40,10 @@
                   <a href="{{ route('follow',$user->name_slug) }}" class="btn btn-primary btn-sm rounded-pill">
                     @if (auth()->user()->isFollowing($user))
                     <i class="bi bi-person-check-fill mr-1"></i>
-                    {{ 'Following ' . $user->followers()->count() ?? 0 }}
+                    {{ ' Mengikuti ' . $user->followers()->count() ?? 0 }}
                     @else
                     <i class="bi bi-person-plus mr-1"></i>
-                    {{ 'Follow ' . $user->followers()->count() ?? 0 }}
+                    {{ ' Ikuti ' . $user->followers()->count() ?? 0 }}
                     @endif
                   </a>
                 </div>
@@ -166,7 +166,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-12">
-            Mengetahui tentang
+            Tahu tentang
           </div>
         </div>
         <hr>

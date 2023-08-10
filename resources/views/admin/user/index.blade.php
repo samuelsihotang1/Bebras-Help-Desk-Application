@@ -19,7 +19,7 @@ Pengguna
           <div class="row">
             <div class="col-12">
                 <div class="q-text qu-color--red qu-medium" style="box-sizing: border-box;">
-                    <a href="{{ route('admin.users.latest') }}" class="{{ request()->route()->named('admin.users.latest') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}" style="{{ request()->route()->named('admin.users.latest') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">Latest</a>
+                    <a href="{{ route('admin.users.latest') }}" class="{{ request()->route()->named('admin.users.latest') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}" style="{{ request()->route()->named('admin.users.latest') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">Terbaru</a>
                 </div>
             </div>
         </div>

@@ -29,8 +29,7 @@ Comments
               <a href="{{ route('admin.comments.most-reported') }}"
                 class="{{ request()->route()->named('admin.comments.most-reported') ? 'text-danger font-weight-bold bg-red-trans' : 'text-dark' }}"
                 style="{{ request()->route()->named('admin.comments.most-reported') ? 'background-color: rgba(255, 0, 0, 0.1); display: inline-block; width: 100%; padding: 5px 10px; border-radius: 5px; font-size: 13px;' : 'display: inline-block; padding: 5px 10px; border-radius: 5px; font-size: 13px;' }}">
-                Yang Paling
-                Dilaporkan</a>
+                Paling Banyak Dilaporkan</a>
             </div>
           </div>
         </div>

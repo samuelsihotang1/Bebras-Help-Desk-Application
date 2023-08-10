@@ -51,9 +51,9 @@
     ->user()
     ->isFollowing($answer->user)
     ) {
-    $status = 'Following';
+    $status = 'Mengikuti';
     } else {
-    $status = 'Follow';
+    $status = 'Ikuti';
     }
     }
 

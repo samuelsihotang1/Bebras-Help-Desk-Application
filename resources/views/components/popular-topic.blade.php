@@ -19,7 +19,7 @@
                     
                 </div>
 
-                <button type="submit" class="btn btn-sm btn-primary mt-2 rounded-pill">Create</button>
+                <button type="submit" class="btn btn-sm btn-primary mt-2 rounded-pill">Tambah</button>
             </form>
             <hr>
         </div>

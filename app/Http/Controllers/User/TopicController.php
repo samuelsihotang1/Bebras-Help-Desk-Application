@@ -27,12 +27,12 @@ class TopicController extends Controller
       'name_slug' => Str::of($name)->slug('-')
     ]);
 
-    return back()->with('message', ['text' => 'Topic added successfully', 'class' => 'success']);
+    return back()->with('message', ['text' => 'Topik berhasil ditambahkan', 'class' => 'sukses']);
   }
 
   public function show(Topic $topic)
   {
-    $status = UserTopic::where('user_id', auth()->id())->where('topic_id', $topic->id)->first() ? 'Followed' : 'Follow';
+    $status = UserTopic::where('user_id', auth()->id())->where('topic_id', $topic->id)->first() ? 'Mengikuti' : 'Ikuti';
     $topic_id = $topic->id;
     $answers = Answer::whereHas('question', function ($query) use ($topic_id) {
       $query->whereHas('topics', function ($q) use ($topic_id) {

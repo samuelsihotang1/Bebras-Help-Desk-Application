@@ -201,7 +201,7 @@
               Pertanyaan</a>
           </div>
           <div class="col-3">
-            0 bagikan
+            0 Bagikan
           </div>
           <div class="col-3">
             <a href="" class="text-dark" id="showTopics"
@@ -550,7 +550,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-12">
-            Mengetahui tentang
+            Tahu tentang
             <a href="" class="text-dark float-right" data-toggle="modal" data-target="#topicModal"><i
                 class="bi bi-pencil-square"></i></a>
             <!-- Modal Add Topics-->

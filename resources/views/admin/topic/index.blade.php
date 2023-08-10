@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Topics
+Topik
 @endsection
 
 @section('content')
