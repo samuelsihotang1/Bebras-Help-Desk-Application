@@ -233,7 +233,7 @@ class ProfileController extends Controller
       if ($request->end_year != null) {
         if ($request->end_year >= $request->start_year) {
         } else {
-          return back()->with('message', ['text' => ' The end year location credential is invalid!', 'class' => 'danger']);
+          return back()->with('message', ['text' => ' Kredensial lokasi tahun akhir tidak valid!', 'class' => 'danger']);
         }
       }
 
@@ -259,7 +259,7 @@ class ProfileController extends Controller
       return back();
     }
 
-    return back()->with('message', ['text' => ucfirst($credentials) . ' credential updated successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' => ucfirst($credentials) . ' Kredensial diperbarui dengan sukses!', 'class' => 'success']);
   }
 
   public function storeImage($request)
@@ -306,7 +306,7 @@ class ProfileController extends Controller
       ]);
 
       //has own redirect because name slug
-      return redirect()->route('profile.index', $name_slug)->with('message', ['text' =>  'Profile ' . '(' .  $profile . ')' . ' updated successfully!', 'class' => 'success']);
+      return redirect()->route('profile.index', $name_slug)->with('message', ['text' =>  'Profile ' . '(' .  $profile . ')' . 'Diperbarui dengan sukses!', 'class' => 'success']);
     } else if ($profile == "picture") {
 
       $imageName = $this->storeImage($request);
@@ -322,7 +322,7 @@ class ProfileController extends Controller
       return back();
     }
 
-    return back()->with('message', ['text' =>  'Profile ' . '(' . $profile . ')' . ' updated successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' =>  'Profile ' . '(' . $profile . ')' . ' Diperbarui dengan sukses!', 'class' => 'success']);
   }
 
   public function destroy_credentials(Request $request, User $user, $credentials)
@@ -342,7 +342,7 @@ class ProfileController extends Controller
       return back();
     }
 
-    return back()->with('message', ['text' => ucfirst($credentials) . ' credential deleted successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' => ucfirst($credentials) . ' Kredensial berhasil dihapus!', 'class' => 'success']);
   }
 
   public function show(User $user)

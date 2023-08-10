@@ -171,7 +171,7 @@ class QuestionController extends Controller
       }
     }
 
-    return redirect()->route('question.show', $title_slug)->with('message', ['text' => 'Question added successfully!', 'class' => 'success']);
+    return redirect()->route('question.show', $title_slug)->with('message', ['text' => 'Pertanyaan berhasil ditambahkan!', 'class' => 'success']);
   }
 
   public function update(Question $question, Request $request)
@@ -213,7 +213,7 @@ class QuestionController extends Controller
       $title_slug = Str::of($question->title)->slug('-');
     }
 
-    return redirect()->route('question.show', $title_slug)->with('message', ['text' => 'Question updated successfully!', 'class' => 'success']);
+    return redirect()->route('question.show', $title_slug)->with('message', ['text' => 'Pertanyaan berhasil diperbarui dengan sukses!', 'class' => 'success']);
   }
 
   public function report(Request $request, Question $question)
@@ -227,7 +227,7 @@ class QuestionController extends Controller
     }
 
     if ($report) {
-      return back()->with('message', ['text' => 'Question already reported!', 'class' => 'danger']);
+      return back()->with('message', ['text' => 'Pertanyaan sudah dilaporkan sebelumnya!', 'class' => 'danger']);
     } else {
       ReportQuestion::create([
         'user_id' => $user_id,
@@ -235,7 +235,7 @@ class QuestionController extends Controller
         'type' => $request->type,
       ]);
 
-      return back()->with('message', ['text' => 'Question reported successfully!', 'class' => 'success']);
+      return back()->with('message', ['text' => 'Pertanyaan berhasil dilaporkan!', 'class' => 'success']);
     }
   }
 
@@ -262,6 +262,6 @@ class QuestionController extends Controller
 
     $question->delete();
 
-    return redirect()->route('content.index')->with('message', ['text' => 'Question deleted successfully!', 'class' => 'success']);
+    return redirect()->route('content.index')->with('message', ['text' => 'Pertanyaan berhasil dihapus dengan sukses!', 'class' => 'success']);
   }
 }

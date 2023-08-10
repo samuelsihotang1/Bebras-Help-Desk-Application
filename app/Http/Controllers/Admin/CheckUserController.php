@@ -30,12 +30,12 @@ class CheckUserController extends Controller
 
     if ($status == 'deleted_by_admin') {
       $user->delete();
-      return back()->with('message', ['text' =>  'User deleted successfully!', 'class' => 'success']);
+      return back()->with('message', ['text' =>  'Pengguna berhasil dihapus!', 'class' => 'success']);
     } elseif ($status == 'approved') {
       $user->update([
         'approved' => 'true',
       ]);
-      return back()->with('message', ['text' =>  'User approved successfully!', 'class' => 'success']);
+      return back()->with('message', ['text' =>  'Pengguna berhasil disetujui!', 'class' => 'success']);
     }
   }
 
@@ -68,7 +68,7 @@ class CheckUserController extends Controller
       'approved' => 'true',
     ]);
 
-    return back()->with('message', ['text' =>  'User Created successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' =>  'Pengguna berhasil dibuat!', 'class' => 'success']);
   }
 
   public function update(Request $request)
@@ -94,6 +94,6 @@ class CheckUserController extends Controller
       'role' => $role,
     ]);
 
-    return back()->with('message', ['text' =>  'User Updated successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' =>  'Pengguna berhasil diperbarui!', 'class' => 'success']);
   }
 }

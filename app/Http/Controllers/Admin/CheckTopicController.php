@@ -39,6 +39,6 @@ class CheckTopicController extends Controller
       return back();
     }
 
-    return back()->with('message', ['text' =>  'Topic deleted successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' =>  'Topik berhasil dihapus!', 'class' => 'success']);
   }
 }

@@ -19,7 +19,7 @@ class CommentController extends Controller
     $answer = Answer::find($request->answer_id);
     $answer->comments()->save($comment);
 
-    return back()->with('message', ['text' => 'Comment added succesfully!', 'class' => 'success']);
+    return back()->with('message', ['text' => 'Komentar berhasil ditambahkan!', 'class' => 'success']);
   }
 
   public function update(Request $request, Comment $comment)
@@ -29,7 +29,7 @@ class CommentController extends Controller
       'comment' => $request->comment
     ]);
 
-    return back()->with('message', ['text' => 'Comment updated succesfully!', 'class' => 'success']);
+    return back()->with('message', ['text' => 'Komentar berhasil diperbarui!', 'class' => 'success']);
   }
 
   public function destroy(Comment $comment)
@@ -43,7 +43,7 @@ class CommentController extends Controller
 
     $comment->delete();
 
-    return back()->with('message', ['text' => 'Comment deleted successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' => 'Komentar berhasil dihapus!', 'class' => 'success']);
   }
 
   public function report(Request $request, Comment $comment)
@@ -61,8 +61,8 @@ class CommentController extends Controller
         'comment_id' => $comment->id,
         'type' => $request->type,
       ]);
-      return back()->with('message', ['text' => 'Comment reported successfully!', 'class' => 'success']);
+      return back()->with('message', ['text' => 'Komentar berhasil dilaporkan!', 'class' => 'success']);
     }
-    return back()->with('message', ['text' => 'Please report properly', 'class' => 'danger']);
+    return back()->with('message', ['text' => 'Tolong laporkan dengan benar', 'class' => 'danger']);
   }
 }

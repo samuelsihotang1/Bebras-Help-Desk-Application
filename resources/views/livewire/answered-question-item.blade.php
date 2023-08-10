@@ -115,7 +115,7 @@
                   @endif
                   {{-- Admin --}}
                   @if (auth()->user()->role == 'admin' && $answer->question->pin_answer != $answer->id)
-                  <a href="{{ route('answer.pin',$answer->id) }}" class="dropdown-item">pin jawaban</a>
+                  <a href="{{ route('answer.pin',$answer->id) }}" class="dropdown-item">Pin jawaban</a>
                   @endif
 
                   @if (auth()->user()->role == 'admin' && $answer->question->pin_answer == $answer->id)

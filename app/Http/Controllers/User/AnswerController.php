@@ -37,7 +37,7 @@ class AnswerController extends Controller
     $imageName = null;
 
     if ($answer) {
-      return back()->with('message', ['text' => 'You already answer the question!', 'class' => 'danger']);
+      return back()->with('message', ['text' => 'Anda telah menjawab pertanyaan tersebut!', 'class' => 'danger']);
     }
 
     $request->validate([
@@ -56,7 +56,7 @@ class AnswerController extends Controller
       'image' => $imageName,
     ]);
 
-    return redirect()->route('question.show', $question->title_slug)->with('message', ['text' => 'Answer added successfully!', 'class' => 'success']);
+    return redirect()->route('question.show', $question->title_slug)->with('message', ['text' => 'Jawaban berhasil ditambahkan!', 'class' => 'success']);
   }
 
   //vote
@@ -93,7 +93,7 @@ class AnswerController extends Controller
     }
 
     if ($report) {
-      return back()->with('message', ['text' => 'Answer already reported!', 'class' => 'danger']);
+      return back()->with('message', ['text' => 'Jawaban telah dilaporkan!', 'class' => 'danger']);
     } else {
 
       ReportAnswer::create([
@@ -102,7 +102,7 @@ class AnswerController extends Controller
         'type' => $request->type,
       ]);
 
-      return back()->with('message', ['text' => 'Answer reported successfully!', 'class' => 'success']);
+      return back()->with('message', ['text' => 'Jawaban berhasil dilaporkan!', 'class' => 'success']);
     }
   }
 
@@ -128,7 +128,7 @@ class AnswerController extends Controller
       'image' => $imageName
     ]);
 
-    return back()->with('message', ['text' => 'Answer updated successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' => 'Jawaban berhasil diperbarui!', 'class' => 'success']);
   }
 
   public function destroy(Answer $answer)
@@ -155,7 +155,7 @@ class AnswerController extends Controller
 
     $answer->delete();
 
-    return back()->with('message', ['text' => 'Answer deleted successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' => 'Jawaban berhasil dihapus!', 'class' => 'success']);
   }
 
   public function pin(Answer $answer)
@@ -166,7 +166,7 @@ class AnswerController extends Controller
       'pin_answer' => $answer->id
     ]);
 
-    return back()->with('message', ['text' => 'Answer pinned successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' => 'Jawaban berhasil dipin!', 'class' => 'success']);
   }
 
   public function deletepin(Answer $answer)
@@ -177,6 +177,6 @@ class AnswerController extends Controller
       'pin_answer' => null
     ]);
 
-    return back()->with('message', ['text' => 'Answer pinned successfully!', 'class' => 'success']);
+    return back()->with('message', ['text' => 'Jawaban berhasil dipin!', 'class' => 'success']);
   }
 }

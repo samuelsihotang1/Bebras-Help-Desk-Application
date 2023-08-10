@@ -27,7 +27,7 @@ class SettingController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return back()->with('message',['text' =>  'Profile password updated successfully!', 'class' => 'success']);
+        return back()->with('message',['text' =>  'Kata sandi profil berhasil diperbarui dengan sukses!', 'class' => 'success']);
        
     }
 }
