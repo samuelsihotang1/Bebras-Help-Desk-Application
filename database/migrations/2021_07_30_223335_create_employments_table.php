@@ -17,7 +17,7 @@ class CreateEmploymentsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
             $table->string('position',60);
-            $table->string('company',12);
+            $table->string('company',60);
             $table->string('start_year',4);
             $table->string('end_year',4)->nullable();
             $table->boolean('currently')->nullable();

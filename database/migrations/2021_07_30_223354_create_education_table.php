@@ -17,8 +17,8 @@ class CreateEducationTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
             $table->string('school',60);
-            $table->string('primary',30);
-            $table->string('degree_type',12)->nullable();
+            $table->string('primary',60);
+            $table->string('degree_type',60)->nullable();
             $table->string('graduation_year',4)->nullable();
             $table->timestamps();
         });

@@ -24,7 +24,7 @@ class AdminUsers extends Component
    */
   public function render()
   {
-    $users = User::count();
+    $users = User::where('approved', '=', 'false')->count();
     return view('components.admin-users', [
       'users' => $users
     ]);

@@ -24,9 +24,6 @@ class AdminFaqs extends Component
    */
   public function render()
   {
-    $faqs = Faq::count();
-    return view('components.admin-faqs', [
-      'faqs' => $faqs
-    ]);
+    return view('components.admin-faqs');
   }
 }

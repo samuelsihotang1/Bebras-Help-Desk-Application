@@ -26,18 +26,6 @@ use App\Http\Controllers\DevController;
 Route::get('/auth/redirect/{provider}', [SocialiteController::class, 'redirect']);
 Route::get('/auth/callback/{provider}', [SocialiteController::class, 'callback']);
 
-//route untuk home controller untuk mengakses halaman index yg tidak perlu auth
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/search', [HomeController::class, 'search'])->name('search');
-
-
-   //about developer
-  Route::get('/aboutUs', [DevController::class, 'index'])->name('aboutUs');
-
-
-
-
-
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
@@ -66,7 +54,10 @@ Route::group(['middleware' => 'auth'], function () {
 
         //users
         Route::get('/users/latest', [CheckUserController::class, 'index'])->name('users.latest');
+        Route::get('/users/unapproved', [CheckUserController::class, 'unapproved'])->name('users.unapproved');
         Route::get('/user/{user}/{status}', [CheckUserController::class, 'update_status'])->name('user.status');
+        Route::post('/users/register', [CheckUserController::class, 'register'])->name('users.register');
+        Route::post('/users/update', [CheckUserController::class, 'update'])->name('users.update');
 
         //faq
         Route::get('/faq', [EditFaqController::class, 'index'])->name('faqs');
@@ -76,11 +67,17 @@ Route::group(['middleware' => 'auth'], function () {
 
         //stats
         Route::get('/stats', [StatController::class, 'admin'])->name('stats.admin');
-
-       
       });
     });
   });
+
+  //route untuk home controller untuk mengakses halaman index yg tidak perlu auth
+  Route::get('/', [HomeController::class, 'index'])->name('home');
+  Route::get('/search', [HomeController::class, 'search'])->name('search');
+  
+  //about developer
+  Route::get('/aboutUs', [DevController::class, 'index'])->name('aboutUs');
+  
 
   //home
   //  Route::get('/', [HomeController::class, 'index']);
@@ -143,7 +140,4 @@ Route::group(['middleware' => 'auth'], function () {
   Route::put('/comment/{comment}/update', [CommentController::class, 'update'])->name('comment.update');
   Route::get('/comment/{comment}/destroy', [CommentController::class, 'destroy'])->name('comment.destroy');
   Route::post('/comment/{comment}/report', [CommentController::class, 'report'])->name('comment.report');
-
-
-
 });

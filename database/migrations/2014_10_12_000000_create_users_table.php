@@ -26,6 +26,8 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('country')->nullable();
             $table->enum('role',['user','admin'])->default('user');
+            $table->enum('marker',['guru','biro', 'pusat', 'super-admin'])->default('guru');
+            $table->enum('approved',['true','false'])->default('false');
             $table->rememberToken();
             $table->timestamps();
         });

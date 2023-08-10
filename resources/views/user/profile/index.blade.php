@@ -32,14 +32,14 @@
                     class="text-secondary" data-toggle="modal" data-target="#nameModal">Edit</a></small>
               </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
               <div class="col-12" id="credential">
                 <span style="font-size: 18px">{{ $user->credential ?? '
                   Tambahkan kredensial profil' }} </span><small
                   id="btneditCredential"><a href="" class="text-secondary" data-toggle="modal"
                     data-target="#profileModal">Edit</a></small>
               </div>
-            </div>
+            </div> --}}
             <div class="row mt-2 mb-2">
               <div class="col-12">
                 <span class="text-secondary" style="font-size: 13px">{{ $user->followers()->count() ?? 0 }} Pengikut<i
@@ -230,7 +230,7 @@
             </div>
           </div>
           <hr>
-          <div class="row">
+          {{-- <div class="row">
             <div class="col-12">
               <i class="bi bi-briefcase mr-2"></i>
               @if ($employment_credential)
@@ -345,7 +345,7 @@
                 </div>
               </div>
             </div>
-          </form>
+          </form> --}}
 
           <div class="row mt-2">
             <div class="col-12">
@@ -635,7 +635,7 @@
 <script>
   //script for hide & show button edit profile name
     $("#btneditName").hide();
-    $("#btneditCredential").hide();
+    // $("#btneditCredential").hide();
     $("#btneditDesc").hide();
 
     $('#image2').on('click',function(){
@@ -653,12 +653,12 @@
     $("#name").mouseleave(function () {
         $("#btneditName").hide();
     });
-    $("#credential").mouseenter(function () {
-        $("#btneditCredential").show();
-    });
-    $("#credential").mouseleave(function () {
-        $("#btneditCredential").hide();
-    });
+    // $("#credential").mouseenter(function () {
+    //     $("#btneditCredential").show();
+    // });
+    // $("#credential").mouseleave(function () {
+    //     $("#btneditCredential").hide();
+    // });
     $("#desc").mouseenter(function () {
         $("#btneditDesc").show();
     });
