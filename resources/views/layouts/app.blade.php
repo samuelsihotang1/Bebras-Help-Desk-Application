@@ -35,6 +35,14 @@
 
     @yield('link')
     <style>
+
+@media (max-width: 767px) {
+    .custom-navbar {
+        background-image: none !important; 
+        background-color: white !important; 
+    }
+}
+
         .dmenu a {
             width: 250px;
         }
@@ -44,7 +52,8 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top custom-navbar" style="background-image: url('https://github.com/Estomihi100103/forimg/assets/89466828/4a98eb4c-140d-4213-af27-55396823f8fb'); background-size: cover; background-repeat: no-repeat; background-position: center center;">
+
             <div class="container">
                 <a href="{{ route('home') }}">
                     <img class="mx-auto d-block mb-0"
