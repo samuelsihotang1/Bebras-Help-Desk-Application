@@ -31,7 +31,7 @@
 
           <div class="row">
             <div class="col-12">
-              <textarea name="text" cols="30" rows="10" class="form-control" placeholder="Write your answer"
+              <textarea name="text" cols="30" rows="10" class="form-control" placeholder="Tulis jawaban anda"
                 autocomplete="off" autofocus id="text"></textarea>
               @include('layouts.error', ['name' => 'text'])
               <div id="img">

@@ -11,8 +11,8 @@
     <div class="row">
       <div class="col-sm-12">
         <a href="{{ route('question.show',$question->title_slug) }}"><b class="text-secondary">{{
-            $question->answers->count() ? $question->answers->count() . ' Answer' : 'No answer yet'}} </b></a> &#183;
-        <small>{{ 'last updated ' . $question->updated_at->diffForHumans() }}</small>
+            $question->answers->count() ? $question->answers->count() . ' Jawaban' : 'No answer yet'}} </b></a> &#183;
+        <small>{{ 'Diperbarui terakhir ' . $question->updated_at->diffForHumans() }}</small>
       </div>
     </div>
 
