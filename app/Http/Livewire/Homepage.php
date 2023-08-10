@@ -10,7 +10,7 @@ use App\Models\Question;
 
 class Homepage extends Component
 {
-  public $total_page = 1;
+  public $total_page = 10;
 
   public function render(Request $request)
   {
@@ -47,6 +47,6 @@ class Homepage extends Component
 
   public function morePage()
   {
-    $this->total_page += 1;
+    $this->total_page += 10;
   }
 }

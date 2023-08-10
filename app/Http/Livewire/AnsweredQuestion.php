@@ -7,7 +7,7 @@ use App\Models\Answer;
 
 class AnsweredQuestion extends Component
 {
-  public $total_page = 1;
+  public $total_page = 10;
   public $question;
 
   public function mount($question)
@@ -41,6 +41,6 @@ class AnsweredQuestion extends Component
 
   public function morePage()
   {
-    $this->total_page += 1;
+    $this->total_page += 10;
   }
 }

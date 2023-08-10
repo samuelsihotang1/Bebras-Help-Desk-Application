@@ -8,7 +8,7 @@ use App\Models\Question;
 class QuestionAdmin extends Component
 {
   public $type;
-  public $total_page = 1;
+  public $total_page = 10;
 
   public function mount($type)
   {
@@ -34,6 +34,6 @@ class QuestionAdmin extends Component
 
   public function morePage()
   {
-    $this->total_page += 1;
+    $this->total_page += 10;
   }
 }

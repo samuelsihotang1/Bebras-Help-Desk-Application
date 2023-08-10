@@ -29,12 +29,11 @@
   @endforelse
 
   @if ($topics->count() > 0 )
-  @if ($page != $count)
-  <div class="text-center" wire:click="morePage">
+  @if ($page < $count) <div class="text-center" wire:click="morePage">
     <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill">Lebih lanjut</button>
-  </div>
-  @endif
-  @endif
+</div>
+@endif
+@endif
 
-  @endif
+@endif
 </div>
