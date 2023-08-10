@@ -170,7 +170,7 @@
         let $q = $('.livesearch');
 
         $q.select2({
-            placeholder: 'Search question',
+            placeholder: 'Pertanyaan Pencarian',
             ajax: {
                 url: "/search",
                 dataType: 'json',
