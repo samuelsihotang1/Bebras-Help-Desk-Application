@@ -39,7 +39,7 @@
       <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="edit-user{{ $loop->iteration }}ModalLabel">Tambah User</h5>
+            <h5 class="modal-title" id="edit-user{{ $loop->iteration }}ModalLabel">Update User</h5>
           </div>
           <div class="modal-body">
             <div class="row">

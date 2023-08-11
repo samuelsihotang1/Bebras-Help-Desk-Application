@@ -73,12 +73,22 @@ class CheckUserController extends Controller
 
   public function update(Request $request)
   {
-    $request->validate([
-      'name' => ['required', 'string', 'max:255'],
-      'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-      'password' => ['required', 'string', 'min:8', 'confirmed'],
-      'marker' => ['required'],
-    ]);
+    if ($request->password) {
+      $request->validate([
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+      ]);
+    }
+    $userr = User::where('id', $request['user_id'])->first();
+    if ($request->email == $userr->email) {
+      $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'marker' => ['required'],
+      ]);
+    } else {
+      $request->validate([
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+      ]);
+    }
 
     if ($request['marker'] == 'guru') {
       $role = 'user';
@@ -86,7 +96,7 @@ class CheckUserController extends Controller
       $role = 'admin';
     }
 
-    User::where('id', $request['user_id'])->update([
+    $userr->update([
       'name' => $request['name'],
       'email' => $request['email'],
       'password' => Hash::make($request['password']),
