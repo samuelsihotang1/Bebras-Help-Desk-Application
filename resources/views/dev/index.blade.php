@@ -1,129 +1,118 @@
 @extends('layouts.app')
-
 @section('content')
-    <div class="container">
-        <section class="jumbotron text-center">
+
+    <body class="mt-n4">
+        <div class="container-fluid bg-white py-5">
             <div class="container">
-                <h1 class="jumbotron-heading">Tentang Kami</h1>
-                <p class="lead text-muted">Di balik layar sistem ini, kami adalah tim yang berdedikasi untuk memberikan solusi terbaik bagi Anda. Bertemu dengan kami:</p>
-                {{-- <p>
-                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-                </p> --}}
+                <div class="text-center">
+                    <h2 class="display-4">Tentang Kami</h2>
+                    <p class="lead mt-4">Di balik layar sistem ini, kami adalah tim yang berdedikasi untuk memberikan
+                        solusi terbaik bagi Anda. <br> Bertemu dengan kami:</p>
+                </div>
+                <div class="row mt-5">
+                    <!-- Start of card item -->
+                    <div class="col-lg-6 mb-5">
+                        <div class="d-flex flex-column flex-lg-row">
+                            <img src="https://github.com/Estomihi100103/forimg/assets/89466828/c3157209-a349-4a89-a4bf-9bec36306dc7"
+                                alt="Estomihi Pangaribuan" class="img-fluid rounded mr-lg-4 mb-4 mb-lg-0"
+                                style="width: 200px;">
+                            <div>
+                                <h3 class="font-weight-semibold">Estomihi Pangaribuan</h3>
+                                {{-- <p class="text-muted">Senior Designer</p> --}}
+                                <p>Sebagai seorang developer,Saya selalu berfokus pada inovasi dan
+                                    kesempurnaan dalam setiap kode yang saya tulis. Saya percaya bahwa teknologi adalah alat
+                                    untuk menciptakan perubahan positif.</p>
+                                <div class="mt-2">
+                                    <a href="https://github.com/Estomihi100103" class="text-muted me-2"><i
+                                            class="bi bi-github"></i></a>
+
+                                    <a href="https://www.linkedin.com/in/estomihi/" class="text-muted px-2"><i
+                                            class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-6 mb-5">
+                        <div class="d-flex flex-column flex-lg-row">
+                            <img src="https://github.com/Estomihi100103/forimg/assets/89466828/901e9a9e-87db-4ab4-bcda-80dfcc7126c5"
+                                alt="Samuel Sihotang" class="img-fluid rounded mr-lg-4 mb-4 mb-lg-0" style="width: 200px;">
+                            <div>
+                                <h3 class="font-weight-semibold">Samuel Sihotang</h3>
+                                {{-- <p class="text-muted">Senior Designer</p> --}}
+                                <p>Saya memiliki semangat yang tak pernah padam dalam mengejar kesempurnaan.
+                                    Setiap baris kode yang saya tulis adalah representasi dari dedikasi dan komitmennya
+                                    terhadap
+                                    kualitas.</p>
+                                <div class="mt-2">
+                                    <a href="https://github.com/samuelsihotang1" class="text-muted me-2"><i
+                                            class="bi bi-github"></i></a>
+
+                                    <a href="https://www.linkedin.com/in/samuelsihotang1/" class="text-muted px-2"><i
+                                            class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- More people... -->
+                </div>
+                <div class="row mt-5">
+                    <!-- Start of card item -->
+
+
+                    <!-- End of card item -->
+                    <div class="col-lg-6 mb-5">
+                        <div class="d-flex flex-column flex-lg-row">
+                            <img src="https://github.com/Estomihi100103/forimg/assets/89466828/2d2b9986-7a1c-416a-9f90-7f9ccfb85724"
+                                alt="Samuel Siagian" class="img-fluid rounded mr-lg-4 mb-4 mb-lg-0" style="width: 200px;">
+                            <div>
+                                <h3 class="font-weight-semibold">Samuel Siagian</h3>
+                                {{-- <p class="text-muted">Senior Designer</p> --}}
+                                <p>Saya selalu berusaha untuk berada di garis depan inovasi. Dengan rasa ingin
+                                    tahu yang besar, saya selalu mencari cara baru untuk meningkatkan dan memperbaiki
+                                    sistem.</p>
+                                <div class="mt-2">
+                                    <a href="https://github.com/SamuelSiagian835" class="text-muted me-2"><i
+                                            class="bi bi-github"></i></a>
+
+                                    <a href="https://id.linkedin.com/in/samuel-siagian-a21328273" class="text-muted px-2"><i
+                                            class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of card item -->
+                    <div class="col-lg-6 mb-5">
+                        <div class="d-flex flex-column flex-lg-row">
+                            <img src="https://github.com/Estomihi100103/forimg/assets/89466828/c4000e07-d316-46dc-b582-62c612497ee1"
+                                alt="Lile Manalu<" class="img-fluid rounded mr-lg-4 mb-4 mb-lg-0" style="width: 200px;">
+                            <div>
+                                <h3 class="font-weight-semibold">Lile Manalu</h3>
+                                {{-- <p class="text-muted">Senior Designer</p> --}}
+                                <p>Saya menghadapi setiap tantangan dengan tekad dan ketekunan. Bagi saya,
+                                    setiap masalah adalah kesempatan untuk belajar dan tumbuh, mendorong diri saya untuk
+                                    selalu
+                                    memberikan yang terbaik.</p>
+                                <div class="mt-2">
+                                    <a href="https://github.com/Lilemanalu" class="text-muted me-2"><i
+                                            class="bi bi-github"></i></a>
+
+                                    <a href="linkedin.com/in/lile-manalu" class="text-muted px-2"><i
+                                            class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More people... -->
+                </div>
+
             </div>
-        </section>
-    </div>
 
-
-
-    <div class="album py-5 bg-light">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                            alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
-                            src="https://source.unsplash.com/featured/?man"
-                            data-holder-rendered="true">
-                        <div class="card-body">
-                           <h4 class="card-text" >Samuel Sihotang</h4>
-                            <p class="card-text">Saya memiliki semangat yang tak pernah padam dalam mengejar kesempurnaan. Setiap baris kode yang saya tulis adalah representasi dari dedikasi dan komitmennya terhadap kualitas.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="#" class="text-decoration-none">LinkedIn</a></button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="#" class="text-decoration-none">Github</a></button>
-                                    
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                            alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
-                            src="https://source.unsplash.com/featured/?man"
-                            data-holder-rendered="true">
-                        <div class="card-body">
-                            <h4 class="card-text" >Estomihi Pangaribuan</h4>
-                            <p class="card-text">Sebagai seorang developer,Saya selalu berfokus pada inovasi dan kesempurnaan dalam setiap kode yang saya tulis. Saya percaya bahwa teknologi adalah alat untuk menciptakan perubahan positif.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://www.linkedin.com/in/estomihi/" class="text-decoration-none" >LinkedIn</a></button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="https://github.com/Estomihi100103" class="text-decoration-none">Github</a></button>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                            alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
-                            src="https://source.unsplash.com/featured/?man"
-                            data-holder-rendered="true">
-                        <div class="card-body">
-                            <h4 class="card-text" >Samuel Siagian</h4>
-                            <p class="card-text">Saya selalu berusaha untuk berada di garis depan inovasi. Dengan rasa ingin tahu yang besar, saya selalu mencari cara baru untuk meningkatkan dan memperbaiki sistem.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="#" class="text-decoration-none">LinkedIn</a></button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="#" class="text-decoration-none">Github</a></button>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-                            alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;"
-                            src="https://source.unsplash.com/featured/?girl"
-                            data-holder-rendered="true">
-                        <div class="card-body">
-                            <h4 class="card-text" >Lile Manalu</h4>
-                            <p class="card-text">Saya menghadapi setiap tantangan dengan tekad dan ketekunan. Bagi saya, setiap masalah adalah kesempatan untuk belajar dan tumbuh, mendorong diri saya untuk selalu memberikan yang terbaik.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="#" class="text-decoration-none">LinkedIn</a></button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="#" class="text-decoration-none">Github</a></button>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-
-
-{{-- 
-    <footer class="text-muted">
-        <div class="container">
-            
-            <p>Dalam dunia teknologi, satu hal yang tidak pernah berubah: tekad kami untuk melayani Anda.</p>
-            <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a
-                    href="../../getting-started/">getting started guide</a>.</p>
-        </div>
-    </footer> --}}
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="208" height="225" viewBox="0 0 208 225" preserveAspectRatio="none"
-        style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;">
-        <defs>
-            <style type="text/css"></style>
-        </defs><text x="0" y="11"
-            style="font-weight:bold;font-size:11pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text>
-    </svg>
-
-
+    </body>
 @endsection
