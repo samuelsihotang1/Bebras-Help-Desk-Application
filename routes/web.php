@@ -124,8 +124,8 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/profile/{user:name_slug}/answers', [ProfileController::class, 'show_answers'])->name('profile.answers.show');
 
   //stats
-  Route::get('/stats', [StatController::class, 'index'])->name('stats.index');
-  Route::get('/stats/show', [StatController::class, 'getStats'])->name('stats.show');
+  // Route::get('/stats', [StatController::class, 'index'])->name('stats.index');
+  // Route::get('/stats/show', [StatController::class, 'getStats'])->name('stats.show');
 
   //question
   Route::post('/add-question', [QuestionController::class, 'store'])->name('question.store');
