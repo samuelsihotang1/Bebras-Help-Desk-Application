@@ -73,12 +73,16 @@ class CheckUserController extends Controller
 
   public function update(Request $request)
   {
-    if ($request->password) {
+    $userr = User::where('id', $request['user_id'])->first();
+    if ($request->password != null) {
       $request->validate([
         'password' => ['required', 'string', 'min:8', 'confirmed'],
       ]);
+
+      $userr->update([
+        'password' => Hash::make($request['password']),
+      ]);
     }
-    $userr = User::where('id', $request['user_id'])->first();
     if ($request->email == $userr->email) {
       $request->validate([
         'name' => ['required', 'string', 'max:255'],
@@ -99,7 +103,6 @@ class CheckUserController extends Controller
     $userr->update([
       'name' => $request['name'],
       'email' => $request['email'],
-      'password' => Hash::make($request['password']),
       'marker' => $request['marker'],
       'role' => $role,
     ]);

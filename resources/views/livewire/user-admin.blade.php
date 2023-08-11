@@ -258,7 +258,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-light rounded-pill q-cancel" data-dismiss="modal">Batal</button>
-          <button type="submit" class="btn btn-primary rounded-pill">Tambah User</button>
+          <button type="submit" class="btn btn-primary rounded-pill">Update User</button>
         </div>
       </div>
     </div>

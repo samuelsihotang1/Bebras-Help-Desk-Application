@@ -24,6 +24,14 @@ class AnsweredQuestion extends Component
       ->latest()
       ->take($this->total_page)
       ->get();
+
+    // $answers = Answer::with('user');
+    // foreach $tokens as token 
+    // {
+    //   $answers->OrWhere('title', $this->question->id);
+    // }
+    // $answers->get
+
     if ($this->question->pin_answer) {
       $answers->prepend(Answer::where('id', $this->question->pin_answer)->first());
     }
