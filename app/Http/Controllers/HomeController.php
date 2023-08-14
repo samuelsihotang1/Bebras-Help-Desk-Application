@@ -17,7 +17,7 @@ class HomeController extends Controller
     //jika user belum disetujui
     if (auth()->check() && auth()->user()->approved == 'false') {
       auth()->logout();
-      return redirect()->route('login')->with('message', ['text' =>  'Akun anda belum disetujui', 'class' => 'danger']);
+      return redirect()->route('login')->with('message', ['text' => 'Akun anda belum disetujui', 'class' => 'danger']);
     } elseif (auth()->check() && auth()->user()->approved == 'true') {
       $answers = Answer::with(['user', 'question'])->where('user_id', '!=', auth()->id())
         ->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
@@ -36,16 +36,22 @@ class HomeController extends Controller
   //api search
 
 
-
   public function search(Request $request)
   {
-    $question = [];
+    $questions = [];
 
     if ($request->has('q')) {
-      $search = $request->q;
-      $question = Question::select('title', 'title_slug')->where('title', 'LIKE', "%$search%")->get();
+      $searchTerms = explode(' ', $request->q); // pecah inputnbya berdasarkan spasi
+
+      $query = Question::select('title', 'title_slug');
+      foreach ($searchTerms as $term) {
+        $query->orWhere('title', 'LIKE', "%{$term}%"); // cari setiap kata dalam title
+      }
+
+      $questions = $query->get();
     }
 
-    return response()->json($question);
+    return response()->json($questions);
   }
+
 }
