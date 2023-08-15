@@ -74,6 +74,8 @@ Route::group(['middleware' => 'auth'], function () {
   //route untuk home controller untuk mengakses halaman index yg tidak perlu auth
   Route::get('/', [HomeController::class, 'index'])->name('home');
   Route::get('/search', [HomeController::class, 'search'])->name('search');
+  Route::get('/search-results', [HomeController::class, 'searchResults'])->name('search.results');
+
   
   //about developer
   Route::get('/aboutUs', [DevController::class, 'index'])->name('aboutUs');

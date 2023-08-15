@@ -73,26 +73,12 @@ class CheckUserController extends Controller
 
   public function update(Request $request)
   {
-    $userr = User::where('id', $request['user_id'])->first();
-    if ($request->password != null) {
-      $request->validate([
-        'password' => ['required', 'string', 'min:8', 'confirmed'],
-      ]);
-
-      $userr->update([
-        'password' => Hash::make($request['password']),
-      ]);
-    }
-    if ($request->email == $userr->email) {
-      $request->validate([
-        'name' => ['required', 'string', 'max:255'],
-        'marker' => ['required'],
-      ]);
-    } else {
-      $request->validate([
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-      ]);
-    }
+    $request->validate([
+      'name' => ['required', 'string', 'max:255'],
+      'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+      'password' => ['required', 'string', 'min:8', 'confirmed'],
+      'marker' => ['required'],
+    ]);
 
     if ($request['marker'] == 'guru') {
       $role = 'user';
@@ -100,9 +86,10 @@ class CheckUserController extends Controller
       $role = 'admin';
     }
 
-    $userr->update([
+    User::where('id', $request['user_id'])->update([
       'name' => $request['name'],
       'email' => $request['email'],
+      'password' => Hash::make($request['password']),
       'marker' => $request['marker'],
       'role' => $role,
     ]);

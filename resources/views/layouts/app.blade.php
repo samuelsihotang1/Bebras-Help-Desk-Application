@@ -225,6 +225,52 @@
         });
   </script>
 
+{{-- <script>
+  let $q = $('.livesearch');
+
+  $q.select2({
+      placeholder: 'Pertanyaan Pencarian',
+      ajax: {
+          url: "/search",
+          dataType: 'json',
+          delay: 250,
+          processResults: function(data) {
+              return {
+                  results: $.map(data, function(item) {
+                      return {
+                          id: item.title_slug, // Gunakan title_slug sebagai nilai value
+                          text: item.title // Gunakan title sebagai teks pilihan
+                      }
+                  })
+              };
+          },
+          cache: true
+      }
+  });
+
+  $q.on('select2:select', function(e) {
+      if (e.params.data.id) {
+          window.location.href = "/" + e.params.data.id;
+      }
+  });
+
+  $q.on('select2:selecting', function(e) {
+      e.preventDefault(); 
+      const searchTerm = $q.val();
+      window.location.href = "/search-results?q=" + encodeURIComponent(searchTerm);
+  });
+
+  $('#formTopic').hide();
+  $("#btnTopic").click(function() {
+      $('#formTopic').toggle();
+  });
+
+  // Menghilangkan tanda panah dropdown setelah inisialisasi Select2
+  $('.select2-container .select2-selection--single .select2-selection__arrow').hide();
+</script> --}}
+
+
+
 
   @yield('script')
   @livewireScripts

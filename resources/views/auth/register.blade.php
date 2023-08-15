@@ -1,83 +1,4 @@
-{{-- @extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection --}}
-
-
-
+{{-- 
 
 @extends('auth.layouts.navbar')
 @section('content')
@@ -180,4 +101,137 @@
     </div>
 </div>
 </div>
-@endsection
+@endsection --}}
+
+
+
+
+
+
+
+
+
+@extends('auth.layouts.navbar')
+@section('content')
+    <div class="bg-white ">
+        <div class="flex justify-center h-screen">
+            <div class="hidden bg-cover lg:block lg:w-2/3"
+                style="background-image: url(https://github.com/Estomihi100103/forimg/assets/89466828/a458e258-7bb0-4169-b271-7445b52f40fb)">
+                <div class="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white sm:text-3xl">Bebras Help Desk Application</h2>
+
+                        <p class="max-w-xl mt-3 text-gray-300">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
+                            autem ipsa, nulla laboriosam dolores, repellendus perferendis libero suscipit nam temporibus
+                            molestiae
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
+                <div class="flex-1">
+                    <div class="text-center">
+                        <div class="flex justify-center mx-auto">
+                            <img class="w-auto h-18 sm:h-20"
+                                src="https://github.com/Estomihi100103/forimg/assets/89466828/263f2e09-97c8-4e06-a01e-5699398d2a6e"
+                                alt="">
+                        </div>
+
+                        <p class="mt-3 font-bold italic leading-9 tracking-tight text-gray-900 ">Masuk ke Aplikasi Help Desk
+                            Bebras</p>
+                    </div>
+                    <div class="mb-4 sm:mx-auto sm:w-full sm:max-w-[480px]">
+                      
+                            <form class="space-y-6" action="{{ route('register') }}" method="POST">
+                                @csrf
+                                <div>
+                                    <label for="name"
+                                        class="block text-sm font-medium leading-6 text-gray-900 italic">Nama</label>
+                                    <div class="mt-2">
+                                        <input id="name" name="name" type="text" required autocomplete="name"
+                                            autofocus
+                                            class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 @error('name') is-invalid @enderror"
+                                            value="">
+
+
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="email"
+                                        class="block text-sm font-medium leading-6 text-gray-900 italic">Email
+                                    </label>
+                                    <div class="mt-2">
+                                        <input id="email" name="email" type="email" required autocomplete="email"
+                                            autofocus
+                                            class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 @error('email') is-invalid @enderror"
+                                            value="">
+
+
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="password"
+                                        class="block text-sm font-medium leading-6 text-gray-900 italic">Kata Sandi</label>
+                                    <div class="mt-2">
+                                        <input id="password" name="password" type="password" required
+                                            autocomplete="current-password"
+                                            class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 @error('password') is-invalid @enderror ">
+
+
+                                        @error('password')
+                                            <span class="invalid-feedback block mt-1 text-xs text-red-600 " role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="password_confirmation"
+                                        class="block text-sm font-medium leading-6 text-gray-900 italic">Konfirmasi
+                                        Kata Sandi</label>
+                                    <div class="mt-2">
+                                        <input id="password_confirmation" name="password_confirmation" type="password"
+                                            required autocomplete="current-password"
+                                            class="form-control block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 @error('password') is-invalid @enderror">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <button type="submit"
+                                        class="italic flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                        Daftar
+                                    </button>
+
+                                </div>
+                            </form>
+                            <p class="mt-10 text-center text-sm text-gray-500">
+                                Sudah memiliki akun?
+                                <!-- space -->
+                                <a href="{{ route('login') }}"
+                                    class="font-semibold leading-6 text-blue-600 hover:text-indigo-500 italic">Masuk</a>
+                            </p>
+
+                            <div>
+                            </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endsection
