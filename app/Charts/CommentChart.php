@@ -16,23 +16,42 @@ class CommentChart
 
   public function build(): \ArielMejiaDev\LarapexCharts\LineChart
   {
+    $dayLabels = [];
     $data = [];
-    for ($i = 1; $i <= 4; $i++) {
-      $startDate = date('Y-m-d', strtotime('-' . $i . ' weeks'));
-      $endDate = date('Y-m-d', strtotime('-' . ($i - 1) . ' weeks'));
 
-      $total = Comment::where('created_at', '>=', $startDate)
-        ->where('created_at', '<', $endDate)
-        ->count();
+    for ($i = 6; $i >= 0; $i--) {
+      $dayDate = date('Y-m-d', strtotime('-' . $i . ' days'));
 
+      $dayName = date('l', strtotime($dayDate));
+      $dayLabels[] = $dayName;
+      if ($i == 0) {
+        $total = Comment::count();
+      } else {
+        $currentDate = date('Y-m-d', strtotime('-' . ($i - 1) . ' days'));
+        $total = Comment::where('created_at', '<', $currentDate)->count();
+      }
       $data[] = $total;
     }
+
+    $dayLabels = array_map(function ($day) {
+      $daysInIndonesian = [
+        'Sunday' => 'Minggu',
+        'Monday' => 'Senin',
+        'Tuesday' => 'Selasa',
+        'Wednesday' => 'Rabu',
+        'Thursday' => 'Kamis',
+        'Friday' => 'Jumat',
+        'Saturday' => 'Sabtu'
+      ];
+
+      return $daysInIndonesian[$day];
+    }, $dayLabels);
 
     return $this->chart->lineChart()
       ->addData('Total Comments', $data)
       ->setHeight(250)
       ->setFontFamily('Nunito')
-      ->setXAxis(['1 Week ago', '2 Weeks ago', '3 Weeks ago', '4 Weeks ago'])
+      ->setXAxis($dayLabels)
       ->setColors(['#FFC107', '#303F9F'])
       ->setMarkers(['#FF5722', '#E040FB'], 7, 10);
   }

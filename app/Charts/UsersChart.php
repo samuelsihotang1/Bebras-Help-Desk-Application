@@ -19,13 +19,17 @@ class UsersChart
     $dayLabels = [];
     $data = [];
 
-    for ($i = 7 - 1; $i >= 0; $i--) {
-      $currentDate = date('Y-m-d', strtotime('-' . $i . ' days'));
+    for ($i = 6; $i >= 0; $i--) {
+      $dayDate = date('Y-m-d', strtotime('-' . $i . ' days'));
 
-      $dayName = date('l', strtotime($currentDate));
+      $dayName = date('l', strtotime($dayDate));
       $dayLabels[] = $dayName;
-
-      $total = User::where('created_at', '<', $currentDate)->count();
+      if ($i == 0) {
+        $total = User::count();
+      } else {
+        $currentDate = date('Y-m-d', strtotime('-' . ($i - 1) . ' days'));
+        $total = User::where('created_at', '<', $currentDate)->count();
+      }
       $data[] = $total;
     }
 
