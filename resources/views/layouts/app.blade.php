@@ -52,13 +52,13 @@
 <body>
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top custom-navbar py-4"
-      style="background-image: url('https://github.com/Estomihi100103/forimg/assets/89466828/4a98eb4c-140d-4213-af27-55396823f8fb'); background-size: cover; background-repeat: no-repeat; background-position: center center;">
+      style="background-image: url('https://github.com/Estomihi100103/forimg/assets/89466828/72f9ee8c-6a46-4c28-af9b-886354c6c89c'); background-size: cover; background-repeat: no-repeat; background-position: center center;">
 
       <div class="container">
         <a href="{{ route('home') }}">
           <img class="mx-auto d-block mb-0"
-            src="https://github.com/Estomihi100103/HelpDesk-Applicaion/assets/89466828/e1c6b6d5-33a6-4f84-86f0-058f812c3e32"
-            alt="Your Company" height="50"></a>
+            src="https://github.com/Estomihi100103/forimg/assets/89466828/7e45cf25-d755-4191-81b6-ebc0739042e6"
+            alt="Bebras" height="60"></a>
 
         <a class="navbar-brand mr-5" href="{{ route('home') }}">
           <b class="px-3 text-danger" style="font-weight: bold;">Bebras Help Desk</b>
