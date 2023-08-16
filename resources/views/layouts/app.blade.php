@@ -51,10 +51,10 @@
 
 <body>
   <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top custom-navbar py-4"
+    <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top custom-navbar pt-4"
       style="background-image: url('https://github.com/Estomihi100103/forimg/assets/89466828/72f9ee8c-6a46-4c28-af9b-886354c6c89c'); background-size: cover; background-repeat: no-repeat; background-position: center center;">
 
-      <div class="container">
+      <div class="container d-flex justify-content-center align-items-end" style="height: 70px;">
         <a href="{{ route('home') }}">
           <img class="mx-auto d-block mb-0"
             src="https://github.com/Estomihi100103/forimg/assets/89466828/7e45cf25-d755-4191-81b6-ebc0739042e6"
@@ -225,8 +225,8 @@
         });
   </script>
 
-{{-- <script>
-  let $q = $('.livesearch');
+  {{-- <script>
+    let $q = $('.livesearch');
 
   $q.select2({
       placeholder: 'Pertanyaan Pencarian',
@@ -267,7 +267,7 @@
 
   // Menghilangkan tanda panah dropdown setelah inisialisasi Select2
   $('.select2-container .select2-selection--single .select2-selection__arrow').hide();
-</script> --}}
+  </script> --}}
 
 
 
