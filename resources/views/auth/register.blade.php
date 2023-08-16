@@ -116,15 +116,13 @@
     <div class="bg-white ">
         <div class="flex justify-center h-screen">
             <div class="hidden bg-cover lg:block lg:w-2/3"
-                style="background-image: url(https://github.com/Estomihi100103/forimg/assets/89466828/a458e258-7bb0-4169-b271-7445b52f40fb)">
-                <div class="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
-                    <div>
-                        <h2 class="text-2xl font-bold text-white sm:text-3xl">Bebras Help Desk Application</h2>
+                style="background-image: url(https://github.com/Estomihi100103/forimg/assets/89466828/58f838c9-a873-4585-8373-b99c288023e4)">
+                <div class="flex items-center h-full px-20 ">
+                    <div class="p-10 rounded-xl border border-white border-opacity-20 bg-white bg-opacity-50">
+                        <h2 class="text-2xl font-bold text-red-600  sm:text-3xl">Bebras Help Desk Application</h2>
 
-                        <p class="max-w-xl mt-3 text-gray-300">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
-                            autem ipsa, nulla laboriosam dolores, repellendus perferendis libero suscipit nam temporibus
-                            molestiae
+                        <p class="text-xl font-bold text-gray-700 mt-3">
+                            Sambutannya telah ditunggu-tunggu: menjadi bagian dari Bebras Help Desk sekarang! Ayo daftar dan berkontribusi.
                         </p>
                     </div>
                 </div>
@@ -139,12 +137,12 @@
                                 alt="">
                         </div>
 
-                        <p class="mt-3 font-bold italic leading-9 tracking-tight text-gray-900 ">Masuk ke Aplikasi Help Desk
+                        <p class="font-bold italic leading-9 tracking-tight text-gray-900 ">Masuk ke Aplikasi Help Desk
                             Bebras</p>
                     </div>
-                    <div class="mb-4 sm:mx-auto sm:w-full sm:max-w-[480px]">
+                    <div class=" sm:mx-auto sm:w-full sm:max-w-[480px]">
                       
-                            <form class="space-y-6" action="{{ route('register') }}" method="POST">
+                            <form class="space-y-3" action="{{ route('register') }}" method="POST">
                                 @csrf
                                 <div>
                                     <label for="name"
