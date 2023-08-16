@@ -18,26 +18,42 @@ class ReportChart
 
   public function build(): \ArielMejiaDev\LarapexCharts\LineChart
   {
-    for ($i = 1; $i <= 4; $i++) {
-      $startDate = date('Y-m-d', strtotime('-' . $i . ' weeks'));
-      $endDate = date('Y-m-d', strtotime('-' . ($i - 1) . ' weeks'));
+    $dayLabels = [];
 
-      $totalAnswer = ReportAnswer::where('created_at', '>=', $startDate)
-        ->where('created_at', '<', $endDate)
-        ->count();
+    for ($i = 6; $i >= 0; $i--) {
+      $dayDate = date('Y-m-d', strtotime('-' . $i . ' days'));
 
-      $totalQuestion = ReportQuestion::where('created_at', '>=', $startDate)
-        ->where('created_at', '<', $endDate)
-        ->count();
-
-      $totalComment = ReportComment::where('created_at', '>=', $startDate)
-        ->where('created_at', '<', $endDate)
-        ->count();
+      $dayName = date('l', strtotime($dayDate));
+      $dayLabels[] = $dayName;
+      if ($i == 0) {
+        $totalAnswer = ReportAnswer::count();
+        $totalQuestion = ReportQuestion::count();
+        $totalComment = ReportComment::count();
+      } else {
+        $currentDate = date('Y-m-d', strtotime('-' . ($i - 1) . ' days'));
+        $totalAnswer = ReportAnswer::where('created_at', '<', $currentDate)->count();
+        $totalQuestion = ReportQuestion::where('created_at', '<', $currentDate)->count();
+        $totalComment = ReportComment::where('created_at', '<', $currentDate)->count();
+      }
 
       $dataAnswer[] = $totalAnswer;
       $dataQuestion[] = $totalQuestion;
       $dataComment[] = $totalComment;
     }
+
+    $dayLabels = array_map(function ($day) {
+      $daysInIndonesian = [
+        'Sunday' => 'Minggu',
+        'Monday' => 'Senin',
+        'Tuesday' => 'Selasa',
+        'Wednesday' => 'Rabu',
+        'Thursday' => 'Kamis',
+        'Friday' => 'Jumat',
+        'Saturday' => 'Sabtu'
+      ];
+
+      return $daysInIndonesian[$day];
+    }, $dayLabels);
 
     return $this->chart->lineChart()
       ->addData('Report Answer', $dataAnswer)
@@ -45,7 +61,7 @@ class ReportChart
       ->addData('Report Comment', $dataComment)
       ->setHeight(250)
       ->setFontFamily('Nunito')
-      ->setXAxis(['1 Week ago', '2 Weeks ago', '3 Weeks ago', '4 Weeks ago'])
+      ->setXAxis($dayLabels)
       ->setMarkers(['#FF5722', '#E040FB'], 7, 10);
   }
 }
