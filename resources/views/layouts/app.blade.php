@@ -23,6 +23,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="{{ asset('js/share.js') }}"></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
 
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -54,7 +55,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top custom-navbar pt-4"
       style="background-image: url('https://github.com/Estomihi100103/forimg/assets/89466828/72f9ee8c-6a46-4c28-af9b-886354c6c89c'); background-size: cover; background-repeat: no-repeat; background-position: center center;">
 
-      <div class="container d-flex justify-content-center align-items-end" style="height: 70px;">
+      <div class="container d-flex justify-content-center" style="height: 70px;">
         <a href="{{ route('home') }}">
           <img class="mx-auto d-block mb-0"
             src="https://github.com/Estomihi100103/forimg/assets/89466828/7e45cf25-d755-4191-81b6-ebc0739042e6"
@@ -93,8 +94,12 @@
                 class="{{ request()->route()->named('answer.index') ||request()->route()->named('question.show')? 'text-danger': 'text-dark' }}"><i
                   class="bi bi-pencil-square" style="font-size: 1.5rem;"></i></a>
             </li>
-            <li class="nav-item ml-4 mt-1">
-              <select name="livesearch" class="form-control livesearch" style="width: 450px;"></select>
+            <li class="nav-item ml-4">
+
+              @livewire('search-question')
+
+              {{-- <input type="text" name="livesearch" class="form-control livesearch" style="width: 450px;"></input>
+              --}}
             </li>
             @endcan
 
@@ -198,7 +203,7 @@
                         })
                     };
                 },
-                cache: true
+                cache: false
             }
         });
 

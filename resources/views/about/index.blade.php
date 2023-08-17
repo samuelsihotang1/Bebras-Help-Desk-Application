@@ -11,14 +11,18 @@
           <div
             style="font-size: 1.875rem; font-weight: bold; letter-spacing: -0.025em; color: #374151; margin-top: 0.75rem; font-size: 2.25rem;">
             {{ $title }}</div>
+          @can('isAdmin')
           <small id="btneditTitle"><a href="" class="text-secondary" data-toggle="modal" data-target="#titleModal">Edit
               Judul</a></small>
+          @endcan
         </div>
         <div id="desc">
           <p style="margin-top: 1.5rem; font-size: 1.125rem; line-height: 1.75rem; color: #6B7280;">
             {{ $desc }}</p>
+          @can('isAdmin')
           <small id="btneditDesc"><a href="" class="text-secondary" data-toggle="modal" data-target="#descModal">Edit
               Deskripsi</a></small>
+          @endcan
         </div>
       </div>
     </div>
@@ -27,9 +31,11 @@
       style="margin-top: 2rem; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; display: flex; flex-direction: column;justify-content: center;align-items: center;">
       <img src="{{ asset('img/' . $img) }}" alt=""
         style="aspect-ratio: 5/2; width: 75%; object-fit: cover; border-radius: 1.5rem;">
+      @can('isAdmin')
       <small id="btneditPicture">
         <a href="" class="pl-3 text-secondary" data-toggle="modal" data-target="#pictureModal">Edit Gambar</a>
       </small>
+      @endcan
     </div>
   </div>
 
