@@ -32,26 +32,23 @@ class HomeController extends Controller
     // }
   }
 
-
-  //api search
-
-
   public function search(Request $request)
   {
-    $questions = [];
-
-    if ($request->has('q')) {
-      $searchTerms = explode(' ', $request->q); // pecah inputnbya berdasarkan spasi
-
-      $query = Question::select('title', 'title_slug');
-      foreach ($searchTerms as $term) {
-        $query->orWhere('title', 'LIKE', "%{$term}%"); // cari setiap kata dalam title
-      }
-
-      $questions = $query->get();
+    if ($request->search == null) {
+      return view('search-results');
+    } else {
+      $searchArray = explode(' ', $request->search);
+      $questions = Question::where(function ($query) use ($searchArray) {
+        foreach ($searchArray as $search) {
+          if ($search != null) {
+            $query->orWhere('title', 'like', '%' . $search . '%')
+              ->orWhere('title_slug', 'like', '%' . $search . '%');
+          }
+        }
+      })->latest()->take(5)->get();
+      return view('search-results', [
+        'questions' => $questions,
+      ]);
     }
-
-    return response()->json($questions);
   }
-
 }

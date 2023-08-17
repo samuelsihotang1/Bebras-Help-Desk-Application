@@ -1,4 +1,4 @@
-@extends('layouts.app') {{-- Gantilah dengan layout yang Anda gunakan --}}
+@extends('layouts.app')
 
 @section('content')
 

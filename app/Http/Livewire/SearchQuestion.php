@@ -14,9 +14,15 @@ class SearchQuestion extends Component
     if ($this->search == null) {
       return view('livewire.search-question');
     } else {
-      $questions = Question::where('title', 'like', '%' . $this->search . '%')
-        ->orWhere('title_slug', 'like', '%' . $this->search . '%')
-        ->latest()->take(5)->get();
+      $searchArray = explode(' ', $this->search);
+      $questions = Question::where(function ($query) use ($searchArray) {
+        foreach ($searchArray as $search) {
+          if ($search != null) {
+            $query->orWhere('title', 'like', '%' . $search . '%')
+              ->orWhere('title_slug', 'like', '%' . $search . '%');
+          }
+        }
+      })->latest()->take(5)->get();
       return view('livewire.search-question', [
         'questions' => $questions,
       ]);

@@ -9,26 +9,17 @@
       @if (isset($questions))
       @foreach ($questions as $question)
       <a href="/{{ $question->title_slug }}"
-        style="position: relative; padding-left: 0.75rem !important; padding-right: 2.25rem; color: #1F2937;"
-        id="option-0">
+        style="position: relative; padding-left: 0.75rem !important; padding-right: 2.25rem; color: #1F2937;">
         <span style="display: block; line-height: 1 !important;">
           {{ $question->title }}</span>
       </a>
       @endforeach
       @else
-      <a style="position: relative; padding-left: 0.75rem !important; padding-right: 2.25rem; color: #1F2937;"
-        id="option-0">
-        <span style="display: block; margin: 0 !important; padding: 0 !important; line-height: 1 !important;">
+      <a style="position: relative; padding-left: 0.75rem !important; padding-right: 2.25rem; color: #1F2937;">
+        <span style="display: block; line-height: 1 !important;">
           Tidak ada pertanyaan</span>
       </a>
       @endif
-
-      {{-- <a href="/"
-        style="position: relative; cursor: default; user-select: none; padding-left: 0.75rem !important; padding-right: 2.25rem; color: #1F2937;"
-        id="option-0" role="option" tabindex="-1">
-        <span style="display: block; margin: 0 !important; padding: 0 !important; line-height: 0.1 !important;">Leslie
-          Alexander</span>
-      </a> --}}
     </div>
   </div>
 </div>
