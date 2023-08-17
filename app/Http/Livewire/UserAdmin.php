@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserAdmin extends Component
 {
+  public $search;
   public $type;
   public $total_page = 10;
 
@@ -20,15 +21,15 @@ class UserAdmin extends Component
   {
     if ($this->type == 'all') {
       if (Auth::user()->marker == 'super-admin') {
-        $users = User::latest()->take($this->total_page)->get();
-        $count = User::count();
+        $users = User::where('name', 'like', '%' . $this->search . '%')->latest()->take($this->total_page)->get();
+        $count = User::where('name', 'like', '%' . $this->search . '%')->count();
       } else {
-        $users = User::where('marker', '!=', 'super-admin')->latest()->take($this->total_page)->get();
-        $count = User::where('marker', '!=', 'super-admin')->count();
+        $users = User::where('name', 'like', '%' . $this->search . '%')->where('marker', '!=', 'super-admin')->latest()->take($this->total_page)->get();
+        $count = User::where('name', 'like', '%' . $this->search . '%')->where('marker', '!=', 'super-admin')->count();
       }
     } elseif ($this->type == 'unapproved') {
-      $users = User::where('approved', '=', 'false')->latest()->take($this->total_page)->get();
-      $count = User::where('approved', '=', 'false')->count();
+      $users = User::where('name', 'like', '%' . $this->search . '%')->where('approved', '=', 'false')->latest()->take($this->total_page)->get();
+      $count = User::where('name', 'like', '%' . $this->search . '%')->where('approved', '=', 'false')->count();
     }
     return view('livewire.user-admin', compact('users', 'count'));
   }

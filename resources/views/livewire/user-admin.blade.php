@@ -1,4 +1,11 @@
 <div class="card-body">
+  <div class="row col-3">
+    <span>
+      Cari Pengguna
+      <input type="text" name="search" class="form-control" wire:model="search">
+    </span>
+  </div>
+  <br>
   @if ($type == 'all')
   <div class="row">
     <div class="col-12">
