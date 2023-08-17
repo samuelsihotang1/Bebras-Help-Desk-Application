@@ -145,7 +145,7 @@
                 @if (Auth::user()->role != 'admin')
                 <a class="dropdown-item" href="{{ route('faq.index') }}">FAQ</a>
                 @endif
-                <a class="dropdown-item" href="{{ route('aboutUs') }}">Tentang Kami</a>
+                <a class="dropdown-item" href="{{ route('about') }}">Tentang Kami</a>
                 <a class="dropdown-item font-weight-bold" href="{{ route('logout') }}"
                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   {{ __('Keluar') }}

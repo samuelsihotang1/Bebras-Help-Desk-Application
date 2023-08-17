@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\CheckCommentController;
 use App\Http\Controllers\Admin\CheckQuestionController;
 use App\Http\Controllers\Admin\CheckUserController;
 use App\Http\Controllers\Admin\EditFaqController;
-use App\Http\Controllers\DevController;
+use App\Http\Controllers\User\AboutController;
 
 
 //api login provider
@@ -59,6 +59,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/users/register', [CheckUserController::class, 'register'])->name('users.register');
         Route::post('/users/update', [CheckUserController::class, 'update'])->name('users.update');
 
+        //about
+        Route::put('/about/update', [AboutController::class, 'updateAbout'])->name('about.update');
+
         //faq
         Route::get('/faq', [EditFaqController::class, 'index'])->name('faqs');
         Route::get('/faq/{faq}', [EditFaqController::class, 'delete'])->name('faqs.delete');
@@ -76,10 +79,10 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/search', [HomeController::class, 'search'])->name('search');
   Route::get('/search-results', [HomeController::class, 'searchResults'])->name('search.results');
 
-  
+
   //about developer
-  Route::get('/aboutUs', [DevController::class, 'index'])->name('aboutUs');
-  
+  Route::get('/about', [AboutController::class, 'index'])->name('about');
+
 
   //home
   //  Route::get('/', [HomeController::class, 'index']);

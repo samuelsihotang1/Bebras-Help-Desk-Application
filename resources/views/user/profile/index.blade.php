@@ -656,6 +656,7 @@
     $("#btneditName").hide();
     // $("#btneditCredential").hide();
     $("#btneditDesc").hide();
+    $("#btneditPicture").hide();
 
     $('#image2').on('click',function(){
         $('#img2').append("<img id='output2' class='img-fluid mt-2 rounded'>");
