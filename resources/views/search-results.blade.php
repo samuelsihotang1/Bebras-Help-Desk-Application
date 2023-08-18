@@ -6,7 +6,7 @@
     <h2>Hasil Pencarian</h2>
     
     @if($questions->isEmpty())
-        <p class="text-muted">Tidak ada hasil untuk pencarian "{{ request('q') }}"</p>
+        <p class="text-muted">Tidak ada hasil untuk pencarian "{{ $search }}"</p>
     @else
         <ul class="list-group mt-4">
             @foreach($questions as $question)

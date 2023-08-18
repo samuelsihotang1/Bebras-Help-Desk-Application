@@ -48,6 +48,7 @@ class HomeController extends Controller
       })->latest()->take(5)->get();
       return view('search-results', [
         'questions' => $questions,
+        'search' => $request->search
       ]);
     }
   }
