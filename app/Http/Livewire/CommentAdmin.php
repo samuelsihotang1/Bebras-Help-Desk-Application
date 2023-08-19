@@ -23,10 +23,10 @@ class CommentAdmin extends Component
     } elseif ($this->type == 'reported') {
       $comments = Comment::has('report_users')->with(['report_users' => function ($q) {
         $q->distinct()->get();
-      }])->withCount('report_users')->orderBy('report_users_count', 'desc')->take($this->total_page)->get();
+      }])->whereNull('status')->withCount('report_users')->orderBy('report_users_count', 'desc')->take($this->total_page)->get();
       $count = Comment::has('report_users')->with(['report_users' => function ($q) {
         $q->distinct()->get();
-      }])->withCount('report_users')->orderBy('report_users_count', 'desc')->count();
+      }])->whereNull('status')->withCount('report_users')->orderBy('report_users_count', 'desc')->count();
     }
     return view('livewire.comment-admin', compact('comments', 'count'));
   }
