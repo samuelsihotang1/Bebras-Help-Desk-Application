@@ -109,7 +109,7 @@
             <div class="row mt-3">
               <div class="col-sm-12">
                 <select name="marker" id="marker-dropdown" class="form-control">
-                  <option value="guru" {{ $user->marker == 'guru' ? 'selected' : '' }}>Guru</option>
+                  <option value="guru" {{ $user->marker == 'guru' ? 'selected' : '' }}>Pengajar</option>
                   <option value="biro" {{ $user->marker == 'biro' ? 'selected' : '' }}>Pengurus Bebras Biro</option>
                   <option value="pusat" {{ $user->marker == 'pusat' ? 'selected' : '' }}>Pengurus Bebras Pusat</option>
                   @if (Auth::user()->marker == 'super-admin')
@@ -248,7 +248,7 @@
           <div class="row mt-3">
             <div class="col-sm-12">
               <select name="marker" id="marker-dropdown" class="form-control">
-                <option value="guru" {{ $user->marker == 'guru' ? 'selected' : '' }}>Guru</option>
+                <option value="guru" {{ $user->marker == 'guru' ? 'selected' : '' }}>Pengajar</option>
                 <option value="biro" {{ $user->marker == 'biro' ? 'selected' : '' }}>Pengurus Bebras Biro</option>
                 <option value="pusat" {{ $user->marker == 'pusat' ? 'selected' : '' }}>Pengurus Bebras Pusat</option>
                 @if (Auth::user()->marker == 'super-admin')
@@ -359,7 +359,7 @@ $page = $loop->iteration;
               <div class="col-sm-12">
                 <select name="marker" id="marker-dropdown" class="form-control">
                   <option value="">---</option>
-                  <option value="guru">Guru</option>
+                  <option value="guru">Pengajar</option>
                   <option value="biro">Pengurus Bebras Biro</option>
                   <option value="pusat">Pengurus Bebras Pusat</option>
                   @if (Auth::user()->marker == 'super-admin')
