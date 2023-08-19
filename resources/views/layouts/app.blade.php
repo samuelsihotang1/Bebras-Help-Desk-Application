@@ -73,22 +73,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
-            @guest
-            @else
             <li class="nav-item ">
               <a href="{{ route('home') }}"
                 class="{{ request()->route()->named('home')? 'text-danger': 'text-dark' }} "><i class="bi bi-house-door"
                   style="font-size: 1.5rem;"></i></a>
             </li>
-
-            @can('isAdmin')
-            <x-admin-answers />
-            <x-admin-questions />
-            <x-admin-comments />
-            <x-admin-topics />
-            <x-admin-users />
-            <x-admin-faqs />
-            @else
             <li class="nav-item ml-4 mr-4">
               <a href="{{ route('answer.index') }}"
                 class="{{ request()->route()->named('answer.index') ||request()->route()->named('question.show')? 'text-danger': 'text-dark' }}"><i
@@ -101,9 +90,6 @@
               {{-- <input type="text" name="livesearch" class="form-control livesearch" style="width: 450px;"></input>
               --}}
             </li>
-            @endcan
-
-            @endguest
 
           </ul>
 
@@ -138,26 +124,175 @@
                     alt="Profile Image" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 8px;">
                   <b style="font-size: 15px">{{ Auth::user()->name }} <i class="bi bi-chevron-right ml-2"></i></b>
                 </a>
-                <div class="dropdown-divider"></div>
                 @can('isAdmin')
+                <div class="dropdown-divider"></div>
+                @php
+                $answers =
+                App\Models\Answer::whereNull('status')->orWhere('status','updated_by_user')->orWhereHas('report_users')->count();
+
+                $questions =
+                App\Models\Question::whereNull('status')->orWhere('status','updated_by_user')->orWhereHas('report_users')->count();
+
+                $comments =
+                App\Models\Comment::whereNull('status')->orWhere('status','updated_by_user')->orWhereHas('report_users')->count();
+
+                $topics = App\Models\Topic::whereNull('status')->count();
+
+                $users = App\Models\User::where('approved', '=', 'false')->count();
+                @endphp
+                @if (request()->route()->named('admin.stats.admin'))
+                <a class="dropdown-item" href="{{ route('admin.stats.admin') }}"><i
+                    class="bi bi-bar-chart mr-2 text-danger"></i>Statistik</a>
+                @else
                 <a class="dropdown-item" href="{{ route('admin.stats.admin') }}"><i
                     class="bi bi-bar-chart mr-2"></i>Statistik</a>
-                @endcan
-                <a class="dropdown-item" href="{{ route('content.index') }}"><i class="bi bi-journals mr-2"></i>Konten
-                  Anda</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ route('settings.index') }}">Pengaturan</a>
-                @if (Auth::user()->role != 'admin')
-                <a class="dropdown-item" href="{{ route('faq.index') }}">FAQ</a>
                 @endif
-                <a class="dropdown-item" href="{{ route('about') }}">Tentang Kami</a>
-                <a class="dropdown-item font-weight-bold" href="{{ route('logout') }}"
-                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                  {{ __('Keluar') }}
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                  @csrf
-                </form>
+                @if (request()->route()->named('admin.answers.latest') ||
+                request()->route()->named('admin.answers.most-reported'))
+                <a href="{{ route('admin.answers.latest') }}" class="dropdown-item">
+                  <i class="bi bi-pencil-square mr-2 text-danger"></i>
+                  @else
+                  <a href="{{ route('admin.answers.latest') }}" class="dropdown-item">
+                    <i class="bi bi-pencil-square mr-2 text-dark"></i>
+                    @endif
+                    List Jawaban
+                    @if (!$answers == 0)
+                    <span class="badge badge-danger badge-pill">
+                      @if ($answers)
+                      @if ($answers > 9)
+                      9+
+                      @else
+                      {{ $answers }}
+                      @endif
+                      @else
+                      0
+                      @endif
+                    </span>
+                    @endif
+                  </a>
+
+                  @if (request()->route()->named('admin.questions.latest') ||
+                  request()->route()->named('admin.questions.most-reported'))
+                  <a href="{{ route('admin.questions.latest') }}" class="dropdown-item">
+                    <i class="bi bi-newspaper mr-2 text-danger"></i>
+                    @else
+                    <a href="{{ route('admin.questions.latest') }}" class="dropdown-item">
+                      <i class="bi bi-newspaper mr-2 text-dark"></i>
+                      @endif
+                      List Pertanyaan
+                      @if (!$questions == 0)
+                      <span class="badge badge-danger badge-pill">
+                        @if ($questions)
+                        @if ($questions > 9)
+                        9+
+                        @else
+                        {{ $questions }}
+                        @endif
+                        @else
+                        0
+                        @endif
+                      </span>
+                      @endif
+                    </a>
+
+                    @if (request()->route()->named('admin.comments.latest') ||
+                    request()->route()->named('admin.comments.most-reported'))
+                    <a href="{{ route('admin.comments.latest') }}" class="dropdown-item">
+                      <i class="bi bi-chat mr-2 text-danger"></i>
+                      @else
+                      <a href="{{ route('admin.comments.latest') }}" class="dropdown-item">
+                        <i class="bi bi-chat mr-2 text-dark"></i>
+                        @endif
+                        List Komentar
+                        @if (!$comments == 0)
+                        <span class="badge badge-danger badge-pill">
+                          @if ($comments)
+                          @if ($comments > 9)
+                          9+
+                          @else
+                          {{ $comments }}
+                          @endif
+                          @else
+                          0
+                          @endif
+                        </span>
+                        @endif
+                      </a>
+
+                      @if (request()->route()->named('admin.topics.latest'))
+                      <a href="{{ route('admin.topics.latest') }}" class="dropdown-item">
+                        <i class="bi bi-journal mr-2 text-danger"></i>
+                        @else
+                        <a href="{{ route('admin.topics.latest') }}" class="dropdown-item">
+                          <i class="bi bi-journal mr-2 text-dark"></i>
+                          @endif
+                          List Topik
+                          @if (!$topics == 0)
+                          <span class="badge badge-danger badge-pill">
+                            @if ($topics)
+                            @if ($topics > 9)
+                            9+
+                            @else
+                            {{ $topics }}
+                            @endif
+                            @else
+                            0
+                            @endif
+                          </span>
+                          @endif
+                        </a>
+
+                        @if (request()->route()->named('admin.users.latest') ||
+                        request()->route()->named('admin.users.unapproved'))
+                        <a href="{{ route('admin.users.unapproved') }}" class="dropdown-item">
+                          <i class="bi bi-people mr-2 text-danger"></i>
+                          @else
+                          <a href="{{ route('admin.users.unapproved') }}" class="dropdown-item">
+                            <i class="bi bi-people mr-2 text-dark"></i>
+                            @endif
+                            List Pengguna
+                            @if (!$users == 0)
+                            <span class="badge badge-danger badge-pill">
+                              @if ($users)
+                              @if ($users > 9)
+                              9+
+                              @else
+                              {{ $users }}
+                              @endif
+                              @else
+                              0
+                              @endif
+                            </span>
+                            @endif
+                          </a>
+
+                          @if (request()->route()->named('admin.faqs'))
+                          <a href="{{ route('admin.faqs') }}" class="dropdown-item">
+                            <i class="bi bi-question-circle mr-2 text-danger"></i>
+                            @else
+                            <a href="{{ route('admin.faqs') }}" class="dropdown-item">
+                              <i class="bi bi-question-circle mr-2 text-dark"></i>
+                              @endif
+                              List FAQ
+                            </a>
+                            @endcan
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('content.index') }}"><i
+                                class="bi bi-journals mr-2"></i>Konten
+                              Anda</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('settings.index') }}">Pengaturan</a>
+                            @if (Auth::user()->role != 'admin')
+                            <a class="dropdown-item" href="{{ route('faq.index') }}">FAQ</a>
+                            @endif
+                            <a class="dropdown-item" href="{{ route('about') }}">Tentang Kami</a>
+                            <a class="dropdown-item font-weight-bold" href="{{ route('logout') }}"
+                              onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                              {{ __('Keluar') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                              @csrf
+                            </form>
               </div>
             </li>
 
