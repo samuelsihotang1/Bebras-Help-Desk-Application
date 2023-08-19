@@ -13,9 +13,9 @@
             {{ $comment->comment }}
             <div class="row mt-2">
                 <div class="col-6">
-                    <span>
+                    {{-- <span>
                         <a href="javascript: void(0)" class="text-dark" id="reply"><i class="bi bi-reply"></i> Balas</a>
-                    </span>
+                    </span> --}}
                 </div>
                 <div class="col-6 dropup">
                     <a class="text-dark float-right dropdown-toogle" id="editComment" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i class="bi bi-three-dots"></i></a>

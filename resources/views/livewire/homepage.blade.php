@@ -127,7 +127,7 @@
                 </div>
               </div>
               <div class="col-sm-6">
-                <div class="btn-group float-right" role="group">
+                {{-- <div class="btn-group float-right" role="group">
                   <a href="" class="text-dark" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     <i class="bi bi-share"></i></a>
@@ -135,7 +135,7 @@
                     <a class="dropdown-item" href="javascript: void(0)" onclick="copy()" id="copyLink"
                       data-attr="{{ $answer->question->title_slug . ' #' . $answer->user->name_slug }}">Salin tautan</a>
                   </div>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>

@@ -110,12 +110,12 @@
                       Laporkan
                     </a>
                     @endif
-                    <a class="dropdown-item">
+                    {{-- <a class="dropdown-item">
                       Bookmark
                     </a>
                     <a class="dropdown-item">
                       Sembunyikan
-                    </a>
+                    </a> --}}
                     @endif
                     {{-- Admin --}}
                     @if (auth()->user()->role == 'admin' && $answers[0]->question->pin_answer != $answers[0]->id)
@@ -173,7 +173,7 @@
                   </div>
                 </div>
                 <div class="col-sm-6">
-                  <div class="btn-group float-right" role="group">
+                  {{-- <div class="btn-group float-right" role="group">
                     <a href="" class="text-dark" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">
                       <i class="bi bi-share"></i></a>
@@ -181,7 +181,7 @@
                       <a class="dropdown-item" href="javascript: void(0)" onclick="copy()"
                         data-attr="#{{ $answers[0]->user->name_slug }}" id="copyLink">Salin Tautan</a>
                     </div>
-                  </div>
+                  </div> --}}
                 </div>
               </div>
 

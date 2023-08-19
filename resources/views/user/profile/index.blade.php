@@ -197,20 +197,20 @@
 
         <hr>
         <div class="row">
-          <div class="col-3">
+          <div class="col-4">
             <a href="" class="text-dark" id="showAnswers"
               data-href="{{ route('profile.answers.show',$user->name_slug) }}">{{ $user->answers->count() ?? 0}}
               Jawaban</a>
           </div>
-          <div class="col-3">
+          <div class="col-4">
             <a href="" class="text-dark" id="showQuestions"
               data-href="{{ route('profile.questions.show',$user->name_slug) }}">{{ $user->questions->count() ?? 0}}
               Pertanyaan</a>
           </div>
-          <div class="col-3">
+          {{-- <div class="col-3">
             0 Bagikan
-          </div>
-          <div class="col-3">
+          </div> --}}
+          <div class="col-4">
             <a href="" class="text-dark" id="showTopics"
               data-href="{{ route('profile.topics.show',$user->name_slug) }}">{{ $user->topics->count() ?? 0 }}
               Topik</a>
@@ -569,7 +569,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-12">
-            Tahu tentang
+            Memahami Topik tentang
             <a href="" class="text-dark float-right" data-toggle="modal" data-target="#topicModal"><i
                 class="bi bi-pencil-square"></i></a>
             <!-- Modal Add Topics-->

@@ -57,15 +57,15 @@
                     @endif
                   </a>
                 </div>
-                <div class="btn-group mr-2" role="group">
+                {{-- <div class="btn-group mr-2" role="group">
                   <a href="javascript:void(0)" class="btn btn-secondary btn-sm rounded-pill"><i
                       class="bi bi-bell mr-1"></i> Beritahu saya</a>
                 </div>
                 <div class="btn-group mr-2" role="group">
                   <a href="javascript:void(0)" class="btn btn-secondary btn-sm rounded-pill"><i
                       class="bi bi-question-circle mr-1"></i> Tanyakan Pertanyaan</a>
-                </div>
-                <a class="text-dark float-right dropdown-toogle" id="navbarDropdown" href="javascript:void(0)"
+                </div> --}}
+                {{-- <a class="text-dark float-right dropdown-toogle" id="navbarDropdown" href="javascript:void(0)"
                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><i
                     class="bi bi-three-dots" style="font-size: 20px"> </i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -78,7 +78,7 @@
                   <a class="dropdown-item">
                     Laporkan
                   </a>
-                </div>
+                </div> --}}
               </div>
             </div>
 
@@ -92,20 +92,20 @@
         </div>
         <hr>
         <div class="row">
-          <div class="col-3">
+          <div class="col-4">
             <a href="javascript:void(0)" class="text-dark" id="showAnswers"
               data-href="{{ route('profile.answers.show',$user->name_slug) }}">{{ $user->answers->count() ?? 0}}
               Jawaban</a>
           </div>
-          <div class="col-3">
+          <div class="col-4">
             <a href="javascript:void(0)" class="text-dark" id="showQuestions"
               data-href="{{ route('profile.questions.show',$user->name_slug) }}">{{ $user->questions->count() ?? 0}}
               Pertanyaan</a>
           </div>
-          <div class="col-3">
+          {{-- <div class="col-3">
             0 Bagikan
-          </div>
-          <div class="col-3">
+          </div> --}}
+          <div class="col-4">
             <a href="javascript:void(0)" class="text-dark" id="showTopics"
               data-href="{{ route('profile.topics.show',$user->name_slug) }}">{{ $user->topics->count() ?? 0 }}
               Topik</a>
@@ -177,7 +177,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-12">
-            Tahu tentang
+            Memahami Topik tentang
           </div>
         </div>
         <hr>

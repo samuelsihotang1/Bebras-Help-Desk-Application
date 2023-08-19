@@ -230,13 +230,13 @@
                     </a>
                     @endif
 
-                    <a class="dropdown-item">
+                    {{-- <a class="dropdown-item">
                       Bookmark
                     </a>
 
                     <a class="dropdown-item">
                       Sembunyikan
-                    </a>
+                    </a> --}}
                     @endif
 
                   </div>
