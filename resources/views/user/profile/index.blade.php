@@ -423,12 +423,16 @@
                               <label for="">Tahun Kelulusan</label>
                               <select name="graduation_year" id="gradyear-dropdown" class="form-control">
                                 @if($user->education->graduation_year ?? '')
-                                <option value="{{ $user->education->graduation_year }}" selected>
-                                  {{ $user->education->graduation_year}}</option>
-                                <option value="" disabled>----</option>
+                                @for ($i = 2023; $i >= 1945; $i--)
+                                @if ($user->education->graduation_year == $i)
+                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                @else
+                                <option value="{{ $i }}">{{ $i }}</option>
+                                @endif
+                                @endfor
                                 @else
                                 <option value="" selected>----</option>
-                                @for ($i = 2023; $i >= 2000; $i--)
+                                @for ($i = 2023; $i >= 1945; $i--)
                                 <option value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                                 @endif
@@ -499,13 +503,17 @@
                             <div class="col-12">
                               <label for="">Tahun Mulai</label>
                               <select name="start_year" id="startyear-dropdown2" class="form-control">
-                                @if ($user->location->start_year ?? '')
-                                <option value="{{ $user->location->start_year }}" selected>
-                                  {{ $user->location->start_year }}</option>
-                                <option value="" disabled>----</option>
+                                @if($user->location->start_year ?? '')
+                                @for ($i = 2023; $i >= 1945; $i--)
+                                @if ($user->location->start_year == $i)
+                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                @else
+                                <option value="{{ $i }}">{{ $i }}</option>
+                                @endif
+                                @endfor
                                 @else
                                 <option value="" selected>----</option>
-                                @for ($i = 2023; $i >= 2000; $i--)
+                                @for ($i = 2023; $i >= 1945; $i--)
                                 <option value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                                 @endif
@@ -517,12 +525,16 @@
                               <label for="">Tahun Berakhir</label>
                               <select name="end_year" id="endyear-dropdown2" class="form-control">
                                 @if($user->location->end_year ?? '')
-                                <option value="{{ $user->location->end_year }}" selected>
-                                  {{ $user->location->end_year}}</option>
-                                <option value="" disabled>----</option>
+                                @for ($i = 2023; $i >= 1945; $i--)
+                                @if ($user->location->end_year == $i)
+                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                @else
+                                <option value="{{ $i }}">{{ $i }}</option>
+                                @endif
+                                @endfor
                                 @else
                                 <option value="" selected>----</option>
-                                @for ($i = 2023; $i >= 2000; $i--)
+                                @for ($i = 2023; $i >= 1945; $i--)
                                 <option value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                                 @endif
