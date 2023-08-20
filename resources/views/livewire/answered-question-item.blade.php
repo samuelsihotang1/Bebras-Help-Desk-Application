@@ -53,11 +53,11 @@
               </div>
 
               <div class="col-sm-11">
-                <b><a href="{{ route('profile.show',$answers[0]->user->name_slug) }}" class="text-dark">{{
-                    $answers[0]->user->name }}</a></b>
+                <b><a href="{{ route('profile.show',$answer->user->name_slug) }}" class="text-dark">{{
+                    $answer->user->name }}</a></b>
                 @php
                 //set follow status
-                if(auth()->user()->isFollowing($answers[0]->user)){
+                if(auth()->user()->isFollowing($answer->user)){
                 $status = "Mengikuti";
                 }else{
                 $status = "Ikuti";
