@@ -158,10 +158,10 @@ class DatabaseSeeder extends Seeder
     }
 
     // Topik User
-    for ($i = 1; $i <= 33; $i++) {
+    for ($i = 1; $i <= 165; $i++) {
       DB::table('user_topics')->insert([
         'user_id' => ($i % 10 == 0) ? 10 : $i % 10,
-        'topic_id' => $i,
+        'topic_id' => ($i % 33 == 0) ? 33 : $i % 33,
       ]);
     }
 
@@ -230,10 +230,10 @@ class DatabaseSeeder extends Seeder
     }
 
     // Pertanyaan Topik
-    for ($i = 1; $i <= 50; $i++) {
+    for ($i = 1; $i <= 165; $i++) {
       DB::table('question_topics')->insert([
-        'question_id' => $i,
-        'topic_id' => ($i % 10 == 0) ? 10 : $i % 10,
+        'question_id' => ($i % 50 == 0) ? 50 : $i % 50,
+        'topic_id' => ($i % 33 == 0) ? 33 : $i % 33,
       ]);
     }
 
@@ -372,7 +372,6 @@ class DatabaseSeeder extends Seeder
     }
 
     // Report
-    // Topik
     $report_comment_types = [
       'Pelecehan',
       'Spam',
