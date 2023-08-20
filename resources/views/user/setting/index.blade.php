@@ -91,7 +91,7 @@ Pengaturan Akun
                         </div>
                     </div>
                 </div>
-                <hr>
+                {{-- <hr>
                 <div class="row">
                     <div class="col-12">
                         <div class="row">
@@ -103,7 +103,7 @@ Pengaturan Akun
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
      

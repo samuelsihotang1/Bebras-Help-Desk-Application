@@ -10,7 +10,7 @@ class EditFaqController extends Controller
 {
   public function index()
   {
-    $faqs = Faq::get();
+    $faqs = Faq::latest()->get();
     return view('admin.faq.index', compact('faqs'));
   }
 
