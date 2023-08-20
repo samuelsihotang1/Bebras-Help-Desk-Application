@@ -45,7 +45,7 @@ class HomeController extends Controller
               ->orWhere('title_slug', 'like', '%' . $search . '%');
           }
         }
-      })->latest()->take(5)->get();
+      })->latest()->get();
       return view('search-results', [
         'questions' => $questions,
         'search' => $request->search

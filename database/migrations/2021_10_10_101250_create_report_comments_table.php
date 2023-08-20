@@ -17,7 +17,7 @@ class CreateReportCommentsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
             $table->foreignId('comment_id')->constrained()->onDelete('CASCADE');
-            $table->string('type',30);
+            $table->string('type',100);
             $table->timestamps();
         });
     }

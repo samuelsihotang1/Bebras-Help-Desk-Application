@@ -17,7 +17,7 @@ class CreateReportAnswersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
             $table->foreignId('answer_id')->constrained()->onDelete('CASCADE');
-            $table->string('type',30);
+            $table->string('type',100);
             $table->timestamps();
         });
     }
