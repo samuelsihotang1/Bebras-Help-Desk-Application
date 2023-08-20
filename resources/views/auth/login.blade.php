@@ -3,7 +3,7 @@
     <div class="bg-white ">
         <div class="flex justify-center h-screen">
             <div class="hidden bg-cover lg:block lg:w-2/3 "
-                style="background-image: url(https://github.com/Estomihi100103/forimg/assets/89466828/58f838c9-a873-4585-8373-b99c288023e4)">
+                style="background-image: url({{ asset('reglog.png') }})">
                 <div class="flex items-center h-full px-20 ">
                     <div class="p-10 rounded-xl border border-white border-opacity-20 bg-white bg-opacity-50 ">
                         <h2 class="text-2xl font-bold text-red-600  sm:text-3xl">Bebras Help Desk Application</h2>
@@ -61,7 +61,7 @@
                                 </div>
                             </div>
 
-                            <div class="flex items-center justify-between">
+                            {{-- <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <input id="remember" name="remember" type="checkbox"
                                         class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600 {{ old('remember') ? 'checked' : '' }}">
@@ -70,13 +70,13 @@
                                 </div>
 
                                 <div class="text-sm leading-6">
-                                    @if (Route::has('password.request'))
+                                    @if (Route::has('password.request')) --}}
                                         {{-- <a href="{{ route('password.request') }}"
                           class="font-semibold text-blue-600 hover:text-indigo-500 italic">Forgot
                           password?</a> --}}
-                                    @endif
+                                    {{-- @endif
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div>
                                 <button type="submit"
