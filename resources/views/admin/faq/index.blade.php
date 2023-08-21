@@ -29,8 +29,7 @@ Faq
               {{ $faq->title }}
             </b>
             <span class="float-right">
-              <a href="" class="mr-2" data-toggle="modal" data-target="#edit-faq{{ $loop->iteration }}Modal">Edit
-                Faq</a>
+              <a href="" class="mr-2" data-toggle="modal" data-target="#edit-faq{{ $loop->iteration }}Modal"><i class="bi bi-pencil"></i></a>
               <a href="{{ route('admin.faqs.delete',['faq' => $faq->id]) }}"
                 onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger"></i></a>
             </span>

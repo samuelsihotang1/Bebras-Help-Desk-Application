@@ -30,7 +30,7 @@
         <a href="{{ route('admin.user.status',['user' => $user->id,'status' => 'approved']) }}"
           onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-check-circle text-success"></i></a>
         @endif
-        <a href="" class="mr-2" data-toggle="modal" data-target="#edit-user{{ $loop->iteration }}Modal"><i class="bi bi-pencil-square"></i></a>
+        <a href="" class="mr-2" data-toggle="modal" data-target="#edit-user{{ $loop->iteration }}Modal"><i class="bi bi-pencil"></i></a>
         <a href="{{ route('admin.user.status',['user' => $user->id,'status' => 'deleted_by_admin']) }}"
           onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger"></i></a>
       </span>
@@ -169,7 +169,7 @@
       <a href="{{ route('admin.user.status',['user' => $user->id,'status' => 'approved']) }}"
         onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-check-circle text-success"></i></a>
       @endif
-      <a href="" class="mr-2" data-toggle="modal" data-target="#edit-user{{ $loop->iteration }}Modal"><i class="bi bi-pencil-square"></i></a>
+      <a href="" class="mr-2" data-toggle="modal" data-target="#edit-user{{ $loop->iteration }}Modal"><i class="bi bi-pencil"></i></a>
       <a href="{{ route('admin.user.status',['user' => $user->id,'status' => 'deleted_by_admin']) }}"
         onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger"></i></a>
     </span>
