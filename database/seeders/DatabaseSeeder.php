@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\about;
+use App\Models\Topic;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -163,6 +164,10 @@ class DatabaseSeeder extends Seeder
         'user_id' => ($i % 10 == 0) ? 10 : $i % 10,
         'topic_id' => ($i % 33 == 0) ? 33 : $i % 33,
       ]);
+
+      $topic = Topic::where('id', ($i % 33 == 0) ? 33 : $i % 33)->first();
+      $topic->follower += 1;
+      $topic->update();
     }
 
     // Pertanyaan

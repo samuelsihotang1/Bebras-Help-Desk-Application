@@ -25,7 +25,7 @@ class ProfileController extends Controller
     } else {
       $user->load(['employment', 'education', 'location']);
       if ($user->employment) {
-        $year_or_currently = $user->employment->currently ? 'present' : $user->employment->end_year;
+        $year_or_currently = $user->employment->currently ? 'sekarang' : $user->employment->end_year;
         $year_or_null = $year_or_currently ? ' (' . $user->employment->start_year . ' - ' . $year_or_currently . ')' : ' (' . $user->employment->start_year . ')';
         return $user->employment->position . ' at ' . $user->employment->company . $year_or_null;
       } else {
@@ -34,7 +34,7 @@ class ProfileController extends Controller
           return $user->education->degree_type . $user->education->primary . ', ' . $user->education->school . $year;
         } else {
           if ($user->location) {
-            $year_or_currently = $user->location->currently ? 'present' : $user->location->end_year;
+            $year_or_currently = $user->location->currently ? 'sekarang' : $user->location->end_year;
             $year_or_null = $year_or_currently ? ' (' . $user->location->start_year . ' - ' . $year_or_currently . ')' : ' (' . $user->location->start_year . ')';
 
             return 'Bertempat Tinggal di ' . $user->location->location . $year_or_null;
@@ -49,7 +49,7 @@ class ProfileController extends Controller
   //set credential
   public function employment_credential($user)
   {
-    $year_or_currently = $user->employment->currently ? 'present' : $user->employment->end_year;
+    $year_or_currently = $user->employment->currently ? 'sekarang' : $user->employment->end_year;
     $year_or_null = $year_or_currently ? ' (' . $user->employment->start_year . ' - ' . $year_or_currently . ')' : ' (' . $user->employment->start_year . ')';
 
     return [
@@ -69,7 +69,7 @@ class ProfileController extends Controller
 
   public function location_credential($user)
   {
-    $year_or_currently = $user->location->currently ? 'present' : $user->location->end_year;
+    $year_or_currently = $user->location->currently ? 'sekarang' : $user->location->end_year;
     $year_or_null = $year_or_currently ? ' (' . $user->location->start_year . ' - ' . $year_or_currently . ')' : ' (' . $user->location->start_year . ')';
 
     return [
