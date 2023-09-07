@@ -73,10 +73,18 @@ class CheckUserController extends Controller
 
   public function update(Request $request)
   {
+    if ($request->input('email') != User::where('id', $request->input('user_id'))->first()->email) {
+      $request->validate([
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+      ]);
+    }
+    if ($request->input('password') != NULL) {
+      $request->validate([
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+      ]);
+    }
     $request->validate([
       'name' => ['required', 'string', 'max:255'],
-      'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-      'password' => ['required', 'string', 'min:8', 'confirmed'],
       'marker' => ['required'],
     ]);
 
@@ -86,13 +94,20 @@ class CheckUserController extends Controller
       $role = 'admin';
     }
 
-    User::where('id', $request['user_id'])->update([
-      'name' => $request['name'],
-      'email' => $request['email'],
-      'password' => Hash::make($request['password']),
-      'marker' => $request['marker'],
+    $userData = [
+      'name' => $request->input('name'),
+      'email' => $request->input('email'),
+      'password' => $request->input('password') ? Hash::make($request->input('password')) : null,
+      'marker' => $request->input('marker'),
       'role' => $role,
-    ]);
+    ];
+
+    // Hapus kolom dengan nilai null dari array
+    $userData = array_filter($userData, function ($value) {
+      return $value !== null;
+    });
+
+    User::where('id', $request->input('user_id'))->update($userData);
 
     return back()->with('message', ['text' =>  'Pengguna berhasil diperbarui!', 'class' => 'success']);
   }
