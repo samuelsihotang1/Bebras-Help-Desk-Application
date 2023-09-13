@@ -19,12 +19,15 @@ use App\Http\Controllers\Admin\CheckCommentController;
 use App\Http\Controllers\Admin\CheckQuestionController;
 use App\Http\Controllers\Admin\CheckUserController;
 use App\Http\Controllers\Admin\EditFaqController;
+use App\Http\Controllers\kirimEmailController;
 use App\Http\Controllers\User\AboutController;
 
 
 //api login provider
 Route::get('/auth/redirect/{provider}', [SocialiteController::class, 'redirect']);
 Route::get('/auth/callback/{provider}', [SocialiteController::class, 'callback']);
+
+Route::get('/test', [kirimEmailController::class, 'index']);
 
 Auth::routes();
 

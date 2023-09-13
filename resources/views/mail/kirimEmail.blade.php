@@ -1,0 +1,1 @@
+{!! $data_email['isi'] !!}
