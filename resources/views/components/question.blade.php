@@ -31,7 +31,7 @@
             
                     <div class="row mt-3">
                         <div class="col-sm-12">
-                            <input type="text" name="title" class="form-control" placeholder="Berikan pertanyaan" autocomplete="off" id="q-title">
+                            <input type="text" name="title" class="form-control" placeholder="Berikan pertanyaan" autocomplete="off" id="q-title" required>
                             @include('layouts.error', ['name' => 'title'])
                         </div>
                     </div>
