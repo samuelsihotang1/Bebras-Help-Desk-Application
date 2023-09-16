@@ -410,4 +410,31 @@ class ProfileController extends Controller
     $answers = $user->answers()->with('question')->latest()->get();
     return response()->json(['data' => $answers]);
   }
+
+  public function follower(User $user)
+  {
+    return view(
+      'user.profile.follower',
+      [
+        'users' => $user->followers,
+        'profile' => $user->name
+      ]
+    );
+  }
+
+  public function following(User $user)
+  {
+    $users = [];
+    foreach ($user->followings as $value) {
+      $users[] = User::where('id', '=', $value->followable_id)->first();
+    }
+
+    return view(
+      'user.profile.following',
+      [
+        'users' => $users,
+        'profile' => $user->name
+      ]
+    );
+  }
 }

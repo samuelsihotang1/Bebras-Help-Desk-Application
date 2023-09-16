@@ -40,8 +40,16 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <span class="text-secondary" style="font-size: 13px">{{ $user->followers()->count() ?? 0 }} Pengikut<i
-                    class="bi bi-dot"></i>{{ $user->followings()->count() ?? 0 }} Mengikuti</span><br>
+                <span class="text-secondary" style="font-size: 13px">
+                  <a href="{{ route('profile.follower', $user->name_slug)}}" style="color: black; text-decoration: none;">
+                    {{ $user->followers()->count() ?? 0 }} Pengikut
+                  </a>
+                  <i class="bi bi-dot">
+                  </i>
+                  <a href="{{ route('profile.following', $user->name_slug)}}" style="color: black; text-decoration: none;">
+                    {{ $user->followings()->count() ?? 0 }} Mengikuti
+                  </a>
+                </span><br>
               </div>
             </div>
             <div class="row mb-2 mt-2">

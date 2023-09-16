@@ -33,7 +33,7 @@ Faq
         @endforeach
         @if (count($faqs) == 0)
         <div class="text-center mt-2">
-          No Faq
+          Tidak ada Faq
         </div>
         @endif
       </div>

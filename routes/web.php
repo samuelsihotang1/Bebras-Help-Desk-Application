@@ -128,6 +128,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
   Route::get('/profile/{user:name_slug}/topics', [ProfileController::class, 'show_topics'])->name('profile.topics.show');
   Route::get('/profile/{user:name_slug}/questions', [ProfileController::class, 'show_questions'])->name('profile.questions.show');
   Route::get('/profile/{user:name_slug}/answers', [ProfileController::class, 'show_answers'])->name('profile.answers.show');
+  Route::get('/profile/{user:name_slug}/follower', [ProfileController::class, 'follower'])->name('profile.follower');
+  Route::get('/profile/{user:name_slug}/following', [ProfileController::class, 'following'])->name('profile.following');
 
   //stats
   // Route::get('/stats', [StatController::class, 'index'])->name('stats.index');
