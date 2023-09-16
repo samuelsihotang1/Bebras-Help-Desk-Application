@@ -46,7 +46,18 @@
     .dmenu a {
       width: 250px;
     }
+
+    /* Sembunyikan scrollbar di browser WebKit */
+    .dropdown-menu::-webkit-scrollbar {
+      width: 0.5em;
+    }
+
+    .dropdown-menu::-webkit-scrollbar-thumb {
+      background-color: transparent;
+      /* Warna thumb scrollbar */
+    }
   </style>
+
   @livewireStyles
 </head>
 
@@ -83,12 +94,59 @@
                 class="{{ request()->route()->named('answer.index') ||request()->route()->named('question.show')? 'text-danger': 'text-dark' }}"><i
                   class="bi bi-pencil-square" style="font-size: 1.5rem;"></i></a>
             </li>
-            <li class="nav-item ml-4">
+            <li class="nav-item">
 
               @livewire('search-question')
 
               {{-- <input type="text" name="livesearch" class="form-control livesearch" style="width: 450px;"></input>
               --}}
+            </li>
+            <li class="nav-item ml-4 show">
+              <a id="notification" href="javascript: void(0)" class="text-dark" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" v-pre>
+                <i class="bi bi-bell" style="font-size: 1.5rem;"></i>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-right dmenu" aria-labelledby="notification"
+                style="right: 340px;top: 85px;max-height: 75vh; overflow-y: auto;">
+
+                <span class="dropdown-item font-weight-bold mb-n1" style="pointer-events: none;">
+                  Pemberitahuan
+                </span>
+
+                <div class="dropdown-divider"></div>
+
+                <a href="http://127.0.0.1:8000/admin/answers/latest" class="dropdown-item" style="white-space:unset">
+                  <i class="bi bi-pencil-square mr-2 text-dark"></i>
+                  <span>
+                    List Jawaban List Jawaban List Jawaban List Jawaban List Jawaban List Jawaban List Jawaban
+                  </span>
+                </a>
+
+                <a href="http://127.0.0.1:8000/admin/questions/latest" class="dropdown-item" style="white-space:unset">
+                  <i class="bi bi-newspaper mr-2 text-dark"></i>
+                  List Pertanyaan List Pertanyaan List Pertanyaan List Pertanyaan List Pertanyaan List Pertanyaan List
+                  Pertanyaan
+                </a>
+
+                <a href="http://127.0.0.1:8000/admin/comments/latest" class="dropdown-item" style="white-space:unset">
+                  <i class="bi bi-chat mr-2 text-dark"></i>
+                  List Komentar List Komentar List Komentar List Komentar List Komentar List Komentar List Komentar
+                </a>
+
+                <a href="http://127.0.0.1:8000/admin/users/unapproved" class="dropdown-item" style="white-space:unset">
+                  <i class="bi bi-people mr-2 text-dark"></i>
+                  List Pengguna List Pengguna List Pengguna List Pengguna List
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <a href="http://127.0.0.1:8000/admin/users/unapproved" class="dropdown-item" style="white-space:unset">
+                  <i class="bi bi-question-circle mr-2 text-dark"></i>
+                  Others
+                </a>
+                <div class="dropdown-divider"></div>
+              </div>
             </li>
 
           </ul>
@@ -109,7 +167,7 @@
             </li>
             @endif
             @else
-            <li class="nav-item dropdown px-4">
+            <li class="nav-item dropdown pr-4">
               <a id="navbarDropdown" class="nav-link ml-4" href="javascript: void(0)" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 <img
