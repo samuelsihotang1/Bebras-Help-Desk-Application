@@ -196,7 +196,7 @@
                     </div>
                     <div class="col-9">
                       <input type="text" class="form-control" placeholder="Tambahkan komentar anda..." name="comment"
-                        autocomplete="off">
+                        autocomplete="off" required>
                       <input type="hidden" name="answer_id" value="{{ $answers[0]->id }}" id="answer_id">
                     </div>
                     <div class="col-2">
