@@ -122,31 +122,6 @@ class DatabaseSeeder extends Seeder
       'Kebugaran',
       'Pakaian',
       'Film',
-      'Penulis',
-      'Buku',
-      'Ilmu Pengetahuan',
-      'Biologi',
-      'Merek',
-      'Branding',
-      'Kamera',
-      'Komputer',
-      'Kartu',
-      'Motor',
-      'Mesin',
-      'Web',
-      'Digital',
-      'Pemasaran',
-      'Musik',
-      'Hewan Peliharaan',
-      'Kedokteran',
-      'Mimpi',
-      'Resep',
-      'Pengalaman',
-      'Bahasa Inggris',
-      'Sastra',
-      'Fakta',
-      'Makanan',
-      'Ilmu Data'
     ];
 
     for ($i = 0; $i < count($topics); $i++) {
@@ -159,13 +134,13 @@ class DatabaseSeeder extends Seeder
     }
 
     // Topik User
-    for ($i = 1; $i <= 165; $i++) {
+    for ($i = 1; $i <= 40; $i++) {
       DB::table('user_topics')->insert([
         'user_id' => ($i % 10 == 0) ? 10 : $i % 10,
-        'topic_id' => ($i % 33 == 0) ? 33 : $i % 33,
+        'topic_id' => ($i % 8 == 0) ? 8 : $i % 8,
       ]);
 
-      $topic = Topic::where('id', ($i % 33 == 0) ? 33 : $i % 33)->first();
+      $topic = Topic::where('id', ($i % 8 == 0) ? 8 : $i % 8)->first();
       $topic->follower += 1;
       $topic->update();
     }
@@ -238,7 +213,7 @@ class DatabaseSeeder extends Seeder
     for ($i = 1; $i <= 165; $i++) {
       DB::table('question_topics')->insert([
         'question_id' => ($i % 50 == 0) ? 50 : $i % 50,
-        'topic_id' => ($i % 33 == 0) ? 33 : $i % 33,
+        'topic_id' => ($i % 8 == 0) ? 8 : $i % 8,
       ]);
     }
 

@@ -1,6 +1,6 @@
 <div class="card" style="position: sticky; top: 120px">
   <div class="card-header">
-    Topik
+    <span style="pointer-events: none;">Topik</span>
     @can('isAdmin')
     <button class="btn btn-sm btn-outline-primary float-right" id="btnTopic">Tambah Topik</button>
     @endcan
