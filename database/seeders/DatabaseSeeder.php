@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\about;
+use App\Models\Notifikasi;
 use App\Models\Topic;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -138,6 +139,8 @@ class DatabaseSeeder extends Seeder
       DB::table('user_topics')->insert([
         'user_id' => ($i % 10 == 0) ? 10 : $i % 10,
         'topic_id' => ($i % 8 == 0) ? 8 : $i % 8,
+        'created_at' => now(),
+        'updated_at' => now(),
       ]);
 
       $topic = Topic::where('id', ($i % 8 == 0) ? 8 : $i % 8)->first();
@@ -214,6 +217,8 @@ class DatabaseSeeder extends Seeder
       DB::table('question_topics')->insert([
         'question_id' => ($i % 50 == 0) ? 50 : $i % 50,
         'topic_id' => ($i % 8 == 0) ? 8 : $i % 8,
+        'created_at' => now(),
+        'updated_at' => now(),
       ]);
     }
 

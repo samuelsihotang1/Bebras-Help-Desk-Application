@@ -7,10 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserTopic extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $guarded = [];
+  protected $guarded = [];
 
-    public $timestamps = false;
+  public function user()
+  {
+    return $this->belongsTo(User::class);
+  }
 
+  public function topic()
+  {
+    return $this->belongsTo(Topic::class);
+  }
 }

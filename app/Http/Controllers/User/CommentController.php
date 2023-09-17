@@ -7,6 +7,7 @@ use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Models\ReportComment;
 use App\Http\Controllers\Controller;
+use App\Models\Notifikasi;
 
 class CommentController extends Controller
 {
@@ -18,6 +19,17 @@ class CommentController extends Controller
 
     $answer = Answer::find($request->answer_id);
     $answer->comments()->save($comment);
+
+    // Notifikasi
+    $answer = Answer::where('id', '=', $request->answer_id)->first();
+
+    if (strlen($answer->text) > 20) {
+      $text = substr($answer->text, 0, 20) . '...';
+    } else {
+      $text = $answer->text;
+    }
+
+    Notifikasi::n_comment($answer, $text);
 
     return back()->with('message', ['text' => 'Komentar berhasil ditambahkan!', 'class' => 'success']);
   }

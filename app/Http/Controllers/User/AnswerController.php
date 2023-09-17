@@ -9,6 +9,7 @@ use App\Models\Question;
 use App\Models\ReportAnswer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Notifikasi;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
@@ -55,6 +56,8 @@ class AnswerController extends Controller
       'text' => $request->text,
       'image' => $imageName,
     ]);
+
+    Notifikasi::n_answer($question);
 
     return redirect()->route('question.show', $question->title_slug)->with('message', ['text' => 'Jawaban berhasil ditambahkan!', 'class' => 'success']);
   }

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Notifikasi;
 
 class ProfileController extends Controller
 {
@@ -139,7 +140,9 @@ class ProfileController extends Controller
 
         UserTopic::create([
           'user_id' => $user->id,
-          'topic_id' => $request->topic_id[$i]
+          'topic_id' => $request->topic_id[$i],
+          'created_at' => now(),
+          'updated_at' => now(),
         ]);
 
         $topic = Topic::find($request->topic_id[$i]);
@@ -387,6 +390,7 @@ class ProfileController extends Controller
       $authUser->unfollow($user);
     } else {
       $authUser->follow($user);
+      Notifikasi::n_user($user->id);
     }
 
     return back();

@@ -12,6 +12,9 @@ use App\Models\QuestionTopic;
 use App\Models\ReportComment;
 use App\Models\ReportQuestion;
 use App\Http\Controllers\Controller;
+use App\Models\Notifikasi;
+use App\Models\UserTopic;
+use Illuminate\Support\Facades\Cache;
 
 class QuestionController extends Controller
 {
@@ -59,7 +62,7 @@ class QuestionController extends Controller
         'desc' => 'Menjual barang ilegal, penipuan uang, dll.'
       ]
     ];
-    
+
     $report_answer_types = [
       [
         'name' => 'Pelecehan',
@@ -166,9 +169,23 @@ class QuestionController extends Controller
         }
         QuestionTopic::create([
           'question_id' => $question->id,
-          'topic_id' => $request->topic_id[$i]
+          'topic_id' => $request->topic_id[$i],
+          'created_at' => now(),
+          'updated_at' => now(),
         ]);
+
+        if (!Cache::has('topic_notification_' . $request->topic_id[$i])) {
+          foreach (UserTopic::where('topic_id', '=', $request->topic_id[$i])->get() as $key) {
+            $total = QuestionTopic::where('created_at', '>=', now()->subSeconds(86400))->where('topic_id', '=', $request->topic_id[$i])->count();
+            Notifikasi::n_topic($key->user->id, $key->topic, $total);
+          }
+          Cache::put('topic_notification_' . $request->topic_id[$i], true, 86400);
+        }
       }
+    }
+
+    foreach (auth()->user()->followers as $user) {
+      Notifikasi::n_question($user->id, $question);
     }
 
     return redirect()->route('question.show', $title_slug)->with('message', ['text' => 'Pertanyaan berhasil ditambahkan!', 'class' => 'success']);
@@ -206,7 +223,9 @@ class QuestionController extends Controller
       for ($i = 0; $i < count($request->topic_id); $i++) {
         QuestionTopic::create([
           'question_id' => $question->id,
-          'topic_id' => $request->topic_id[$i]
+          'topic_id' => $request->topic_id[$i],
+          'created_at' => now(),
+          'updated_at' => now(),
         ]);
       }
 
@@ -261,7 +280,6 @@ class QuestionController extends Controller
     }
 
     $question->delete();
-
-    return redirect()->route('content.index')->with('message', ['text' => 'Pertanyaan berhasil dihapus dengan sukses!', 'class' => 'success']);
+    return redirect()->route('home')->with('message', ['text' => 'Pertanyaan berhasil dihapus dengan sukses!', 'class' => 'success']);
   }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Topic;
 use App\Models\Answer;
+use App\Models\Notifikasi;
 use App\Models\Question;
 use Illuminate\Http\Request;
 

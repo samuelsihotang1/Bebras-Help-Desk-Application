@@ -17,6 +17,7 @@ class CreateQuestionTopicsTable extends Migration
             $table->id();
             $table->foreignId('question_id')->constrained()->onDelete('CASCADE');
             $table->foreignId('topic_id')->constrained()->onDelete('CASCADE');
+            $table->timestamps();
         });
     }
 

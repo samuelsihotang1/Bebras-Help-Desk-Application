@@ -49,7 +49,7 @@
 
     /* Sembunyikan scrollbar di browser WebKit */
     .dropdown-menu::-webkit-scrollbar {
-      width: 0.5em;
+      width: 0px;
     }
 
     .dropdown-menu::-webkit-scrollbar-thumb {
@@ -115,37 +115,50 @@
                 </span>
 
                 <div class="dropdown-divider"></div>
-
-                <a href="http://127.0.0.1:8000/admin/answers/latest" class="dropdown-item" style="white-space:unset">
+                @php
+                $notifikasis = App\Models\Notifikasi::where('user_id', '=', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+                @endphp
+                @forelse ($notifikasis as $notifikasi)
+                @if ($notifikasi->type == 'answer')
+                <a href="{{ route('question.show', $notifikasi->slug_link) }}" class="dropdown-item" style="white-space:unset">
                   <i class="bi bi-pencil-square mr-2 text-dark"></i>
-                  <span>
-                    List Jawaban List Jawaban List Jawaban List Jawaban List Jawaban List Jawaban List Jawaban
-                  </span>
+                  {{ $notifikasi->text }}
                 </a>
-
-                <a href="http://127.0.0.1:8000/admin/questions/latest" class="dropdown-item" style="white-space:unset">
+                @elseif($notifikasi->type == 'question')
+                <a href="{{ route('question.show', $notifikasi->slug_link) }}" class="dropdown-item"
+                  style="white-space:unset">
                   <i class="bi bi-newspaper mr-2 text-dark"></i>
-                  List Pertanyaan List Pertanyaan List Pertanyaan List Pertanyaan List Pertanyaan List Pertanyaan List
-                  Pertanyaan
+                  {{ $notifikasi->text }}
                 </a>
-
-                <a href="http://127.0.0.1:8000/admin/comments/latest" class="dropdown-item" style="white-space:unset">
+                @elseif($notifikasi->type == 'comment')
+                <a href="{{ route('question.show', $notifikasi->slug_link) }}" class="dropdown-item" style="white-space:unset">
                   <i class="bi bi-chat mr-2 text-dark"></i>
-                  List Komentar List Komentar List Komentar List Komentar List Komentar List Komentar List Komentar
+                  {{ $notifikasi->text }}
                 </a>
-
-                <a href="http://127.0.0.1:8000/admin/users/unapproved" class="dropdown-item" style="white-space:unset">
+                @elseif($notifikasi->type == 'user')
+                <a href="{{ route('profile.show', $notifikasi->slug_link) }}" class="dropdown-item" style="white-space:unset">
                   <i class="bi bi-people mr-2 text-dark"></i>
-                  List Pengguna List Pengguna List Pengguna List Pengguna List
+                  {{ $notifikasi->text }}
                 </a>
-
-                <div class="dropdown-divider"></div>
-
+                @elseif($notifikasi->type == 'topic')
+                <a href="{{ route('topic.show', $notifikasi->slug_link) }}" class="dropdown-item" style="white-space:unset">
+                  <i class="bi bi-journal mr-2 text-dark"></i>
+                  {{ $notifikasi->text }}
+                </a>
+                {{-- @elseif($notifikasi->type == 'others')
                 <a href="http://127.0.0.1:8000/admin/users/unapproved" class="dropdown-item" style="white-space:unset">
                   <i class="bi bi-question-circle mr-2 text-dark"></i>
-                  Others
-                </a>
+                  {{ $notifikasi->text }}
+                </a> --}}
+                @endif
+                @if(!$loop->last)
                 <div class="dropdown-divider"></div>
+                @endif
+                @empty
+                <span class="dropdown-item" style="white-space:unset;pointer-events: none;">
+                  Tidak ada pemberitahuan
+                </span>
+                @endforelse
               </div>
             </li>
 

@@ -32,7 +32,7 @@
           <div class="row">
             <div class="col-12">
               <textarea name="text" cols="30" rows="10" class="form-control" placeholder="Tulis jawaban anda"
-                autocomplete="off" autofocus id="text"></textarea>
+                autocomplete="off" autofocus id="text" required></textarea>
               @include('layouts.error', ['name' => 'text'])
               <div id="img">
                 <img id="output" class="img-fluid mt-2 rounded">

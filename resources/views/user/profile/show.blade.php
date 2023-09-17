@@ -100,12 +100,12 @@
         </div>
         <hr>
         <div class="row">
-          <div class="col-4">
+          <div class="col-6">
             <a href="javascript:void(0)" class="text-dark" id="showAnswers"
               data-href="{{ route('profile.answers.show',$user->name_slug) }}">{{ $user->answers->count() ?? 0}}
               Jawaban</a>
           </div>
-          <div class="col-4">
+          <div class="col-6">
             <a href="javascript:void(0)" class="text-dark" id="showQuestions"
               data-href="{{ route('profile.questions.show',$user->name_slug) }}">{{ $user->questions->count() ?? 0}}
               Pertanyaan</a>
@@ -113,16 +113,16 @@
           {{-- <div class="col-3">
             0 Bagikan
           </div> --}}
-          <div class="col-4">
+          {{-- <div class="col-4">
             <a href="javascript:void(0)" class="text-dark" id="showTopics"
               data-href="{{ route('profile.topics.show',$user->name_slug) }}">{{ $user->topics->count() ?? 0 }}
               Topik</a>
-          </div>
+          </div> --}}
         </div>
         <hr>
         <div class="row" id="showAnswersHtml"></div>
         <div class="row" id="showQuestionsHtml"></div>
-        <div class="row" id="showTopicsHtml"></div>
+        {{-- <div class="row" id="showTopicsHtml"></div> --}}
         <span id="noData"><b>
             Tidak Ada Data</b></span>
         <div class="text-center">

@@ -17,6 +17,7 @@ class CreateUserTopicsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
             $table->foreignId('topic_id')->constrained()->onDelete('CASCADE');
+            $table->timestamps();
         });
     }
 

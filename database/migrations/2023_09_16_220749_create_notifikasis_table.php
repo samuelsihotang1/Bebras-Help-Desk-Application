@@ -14,9 +14,10 @@ return new class extends Migration
     Schema::create('notifikasis', function (Blueprint $table) {
       $table->id();
       $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
-      $table->enum('type', ['question', 'answer', 'comment', 'user', 'others'])->default('others');
+      $table->enum('type', ['question', 'answer', 'comment', 'user', 'others', 'topic'])->default('others');
       $table->string('text', 100);
       $table->enum('viewed', ['true', 'false'])->default('false');
+      $table->string('slug_link', 100);
       $table->timestamps();
     });
   }
