@@ -28,11 +28,12 @@
       <span class="float-right">
         @if ($user->approved == 'false')
         <a href="{{ route('admin.user.status',['user' => $user->id,'status' => 'approved']) }}"
-          onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-check-circle text-success"></i></a>
+          onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-check-circle text-success">Setujui</i></a>
         @endif
-        <a href="" class="mr-2" data-toggle="modal" data-target="#edit-user{{ $loop->iteration }}Modal"><i class="bi bi-pencil"></i></a>
+        <a href="" class="mr-2" data-toggle="modal" data-target="#edit-user{{ $loop->iteration }}Modal"><i
+            class="bi bi-pencil">Edit</i></a>
         <a href="{{ route('admin.user.status',['user' => $user->id,'status' => 'deleted_by_admin']) }}"
-          onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger"></i></a>
+          onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger">Hapus</i></a>
       </span>
     </div>
   </div>
@@ -167,11 +168,12 @@
     <span class="float-right">
       @if ($user->approved == 'false')
       <a href="{{ route('admin.user.status',['user' => $user->id,'status' => 'approved']) }}"
-        onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-check-circle text-success"></i></a>
+        onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-check-circle text-success">Setujui</i></a>
       @endif
-      <a href="" class="mr-2" data-toggle="modal" data-target="#edit-user{{ $loop->iteration }}Modal"><i class="bi bi-pencil"></i></a>
+      <a href="" class="mr-2" data-toggle="modal" data-target="#edit-user{{ $loop->iteration }}Modal"><i
+          class="bi bi-pencil">Edit</i></a>
       <a href="{{ route('admin.user.status',['user' => $user->id,'status' => 'deleted_by_admin']) }}"
-        onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger"></i></a>
+        onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger">Hapus</i></a>
     </span>
   </div>
 </div>

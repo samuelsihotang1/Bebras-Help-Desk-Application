@@ -29,9 +29,10 @@ Faq
               {{ $faq->title }}
             </b>
             <span class="float-right">
-              <a href="" class="mr-2" data-toggle="modal" data-target="#edit-faq{{ $loop->iteration }}Modal"><i class="bi bi-pencil"></i></a>
+              <a href="" class="mr-2" data-toggle="modal" data-target="#edit-faq{{ $loop->iteration }}Modal"><i
+                  class="bi bi-pencil">Edit</i></a>
               <a href="{{ route('admin.faqs.delete',['faq' => $faq->id]) }}"
-                onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger"></i></a>
+                onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger">Hapus</i></a>
             </span>
           </div>
           <div class="mt-n4 card-body">
@@ -60,7 +61,8 @@ Faq
                       <input type="hidden" name="faq" value="{{ $faq->id }}">
                       <input type="text" name="title" value="{{ $faq->title }}" class="form-control" autocomplete="off">
                       @include('layouts.error', ['name' => 'title'])
-                      <input type="text" name="text" value="{{ $faq->text }}" class="mt-2 form-control" autocomplete="off">
+                      <input type="text" name="text" value="{{ $faq->text }}" class="mt-2 form-control"
+                        autocomplete="off">
                       @include('layouts.error', ['name' => 'text'])
                     </div>
                   </div>

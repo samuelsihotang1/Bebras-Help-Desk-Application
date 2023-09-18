@@ -15,7 +15,7 @@
       </a>
       <span class="float-right">
         <a href="{{ route('admin.topic.status',['topic' => $topic->id,'status' => 'deleted_by_admin']) }}"
-          onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger"></i></a>
+          onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger">Hapus</i></a>
       </span>
     </div>
   </div>

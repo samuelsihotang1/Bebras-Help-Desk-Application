@@ -15,9 +15,10 @@
       </a>
       <span class="float-right">
         <a href="{{ route('admin.answer.status',['answer' => $answer->id,'status' => 'viewed_by_admin']) }}"
-          class="mr-2" onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-check-circle text-success"></i></a>
+          class="mr-2" onclick="return confirm('Apakah Anda yakin?')"><i
+            class="bi bi-check-circle text-success">Izinkan</i></a>
         <a href="{{ route('admin.answer.status',['answer' => $answer->id,'status' => 'deleted_by_admin']) }}"
-          onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger"></i></a>
+          onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger">Hapus</i></a>
       </span>
     </div>
   </div>
@@ -26,7 +27,7 @@
   @endphp
   @empty
   <div class="text-center mt-2">
-      Tidak ada jawaban
+    Tidak ada jawaban
   </div>
   @endforelse
 
@@ -47,9 +48,10 @@
 
       <span class="float-right">
         <a href="{{ route('admin.answer.status',['answer' => $answer->id,'status' => 'viewed_by_admin']) }}"
-          class="mr-2" onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-check-circle text-success"></i></a>
+          class="mr-2" onclick="return confirm('Apakah Anda yakin?')"><i
+            class="bi bi-check-circle text-success">Izinkan</i></a>
         <a href="{{ route('admin.answer.status',['answer' => $answer->id,'status' => 'deleted_by_admin']) }}"
-          onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger"></i></a>
+          onclick="return confirm('Apakah Anda yakin?')"><i class="bi bi-x-circle text-danger">Hapus</i></a>
       </span>
       <br>
 
@@ -78,11 +80,10 @@
   @endif
 
   @if ($answers->count() > 0 )
-  @if ($page < $count)
-  <div class="text-center" wire:click="morePage">
+  @if ($page < $count) <div class="text-center" wire:click="morePage">
     <button class="btn btn-secondary btn-sm moreHome mt-2 rounded-pill">Lebih lanjut</button>
-  </div>
-  @endif
-  @endif
+</div>
+@endif
+@endif
 
 </div>
