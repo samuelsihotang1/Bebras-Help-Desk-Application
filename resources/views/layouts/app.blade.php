@@ -239,19 +239,6 @@
                           <i class="bi bi-journal mr-2 text-dark"></i>
                           @endif
                           List Topik
-                          @if (!$topics == 0)
-                          <span class="badge badge-danger badge-pill">
-                            @if ($topics)
-                            @if ($topics > 9)
-                            9+
-                            @else
-                            {{ $topics }}
-                            @endif
-                            @else
-                            0
-                            @endif
-                          </span>
-                          @endif
                         </a>
 
                         @if (request()->route()->named('admin.users.latest') ||
