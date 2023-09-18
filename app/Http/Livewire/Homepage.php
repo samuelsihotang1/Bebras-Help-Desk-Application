@@ -44,16 +44,6 @@ class Homepage extends Component
     //   //   ->latest()->get());
     // } //work
 
-    $answers2 = Answer::where('user_id', '!=', auth()->id())
-      ->where(function ($query) use ($follow) {
-        foreach ($follow as $value) {
-          if ($value != null) {
-            $query->orWhere('user_id', '=', $value->followable_id);
-          }
-        }
-      })->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
-      ->latest()->get();
-
     // $answers = Answer::where('user_id', '!=', auth()->id())
     //   ->where(function ($query) use ($follow) {
     //     foreach ($follow as $value) {
@@ -63,8 +53,21 @@ class Homepage extends Component
     //     }
     //   })->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
     //   ->latest()->get();
+    if (count($follow) > 0) {
+      $answers2 = Answer::where('user_id', '!=', auth()->id())
+        ->where(function ($query) use ($follow) {
+          foreach ($follow as $value) {
+            if ($value != null) {
+              $query->where('user_id', '=', $value->followable_id);
+            }
+          }
+        })->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
+        ->latest()->get();
+      $answers = $answers2->concat($answers1)->sortByDesc('created_at');
+    } else {
+      $answers = $answers1->sortByDesc('created_at');
+    }
 
-    $answers = $answers2->concat($answers1)->sortByDesc('created_at')->take($this->total_page);
     // \dd($answers);
 
     // foreach ($answers as $key => $value) {
