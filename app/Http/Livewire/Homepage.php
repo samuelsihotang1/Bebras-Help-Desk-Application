@@ -58,21 +58,18 @@ class Homepage extends Component
         ->where(function ($query) use ($follow) {
           foreach ($follow as $value) {
             if ($value != null) {
-              $query->where('user_id', '=', $value->followable_id);
+              $query->orWhere('user_id', '=', $value->followable_id);
             }
           }
         })->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
         ->latest()->get();
-      $answers = $answers2->concat($answers1)->sortByDesc('created_at');
+      $answers = $answers2->concat($answers1)->sortByDesc('created_at')->take($this->total_page);
     } else {
-      $answers = $answers1->sortByDesc('created_at');
+      $answers = $answers1->sortByDesc('created_at')->take($this->total_page);
     }
 
     // \dd($answers);
 
-    // foreach ($answers as $key => $value) {
-    //   # code...
-    // }
     $count = $answers->count();
     return view('livewire.homepage', compact('answers', 'count'));
   }
