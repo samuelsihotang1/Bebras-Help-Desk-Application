@@ -25,16 +25,16 @@ class AnsweredQuestion extends Component
       ->take($this->total_page)
       ->get();
 
+    if ($this->question->pin_answer) {
+      $answers->prepend(Answer::where('id', $this->question->pin_answer)->first());
+    }
+
     // $answers = Answer::with('user');
     // foreach $tokens as token 
     // {
     //   $answers->OrWhere('title', $this->question->id);
     // }
     // $answers->get
-
-    if ($this->question->pin_answer) {
-      $answers->prepend(Answer::where('id', $this->question->pin_answer)->first());
-    }
 
     $count = Answer::with('user')->where('question_id', $this->question->id)->count();
 

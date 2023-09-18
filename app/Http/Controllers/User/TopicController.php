@@ -38,7 +38,7 @@ class TopicController extends Controller
       $query->whereHas('topics', function ($q) use ($topic_id) {
         $q->where('topic_id', $topic_id);
       });
-    })->latest()->get();
+    })->where('user_id', '!=', auth()->user()->id)->latest()->get();
 
     return view('user.topic.show', compact('answers', 'topic', 'status'));
   }

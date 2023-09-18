@@ -14,7 +14,8 @@
           <div>
             <b class="d-inline-block">{{ $topic->name }}</b>
 
-            <form class="d-inline-block" action="{{ route('profile.topics.update',auth()->user()->name_slug) }}" method="POST">
+            <form class="d-inline-block" action="{{ route('profile.topics.update',auth()->user()->name_slug) }}"
+              method="POST">
               @csrf
               @method('PUT')
               <input type="hidden" name="{{ ($status=='Ikuti' ? 'topic_id[]' : '' ) }}" value="{{ $topic->id }}">
@@ -86,7 +87,16 @@
                         $answer->user->name }} </b></a> &#183;
                     <a href="{{ route('follow',$answer->user->name_slug) }}">{{ $status }}</a>
                     <div class="text-secondary">
-                      {{ $credential }} &#183; {{ $answer->created_at->format('M d Y') }}
+                      @if ($answer->user->marker == 'biro')
+                      Pengurus Bebras Biro
+                      @elseif ($answer->user->marker == 'pusat')
+                      Pengurus Bebras Pusat
+                      @elseif ($answer->user->marker == 'guru')
+                      Pengajar
+                      @elseif ($answer->user->marker == 'super-admin')
+                      Pengurus Website
+                      @endif
+                      &#183; {{ $answer->created_at->format('M d Y') }}
                     </div>
                   </div>
                 </div>
@@ -101,8 +111,7 @@
                   <div class="col-12">
                     {{ $answer->text }}<br>
                     @if ($answer->image)
-                    <img src="{{ asset('img/' . $answer->image) }}" class="img-fluid mt-2 mb-2"
-                      style="height: 300px;">
+                    <img src="{{ asset('img/' . $answer->image) }}" class="img-fluid mt-2 mb-2" style="height: 300px;">
                     @else
                     <div class="mb-2"></div>
                     @endif
@@ -131,7 +140,8 @@
                         <i class="bi bi-share"></i></a>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="javascript: void(0)" onclick="copy()" id="copyLink"
-                          data-attr="{{ $answer->question->title_slug ." #". $answer->user->name_slug }}">Salin tautan</a>
+                          data-attr="{{ $answer->question->title_slug ." #". $answer->user->name_slug }}">Salin
+                          tautan</a>
                       </div>
                     </div> --}}
                   </div>

@@ -116,7 +116,7 @@
 
                 <div class="dropdown-divider"></div>
                 @php
-                $notifikasis = App\Models\Notifikasi::where('user_id', '=', Auth::user()->id)->orderBy('created_at', 'desc')->get();
+                $notifikasis = App\Models\Notifikasi::where('user_id', '=', Auth::user()->id)->latest()->get();
                 @endphp
                 @forelse ($notifikasis as $notifikasi)
                 @if ($notifikasi->type == 'answer')

@@ -417,9 +417,7 @@ class ProfileController extends Controller
 
   public function follower(User $user)
   {
-    return view(
-      'user.profile.follower',
-      [
+    return view('user.profile.follower',[
         'users' => $user->followers,
         'profile' => $user->name
       ]

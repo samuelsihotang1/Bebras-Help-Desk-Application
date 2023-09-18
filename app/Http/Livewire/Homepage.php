@@ -21,13 +21,56 @@ class Homepage extends Component
       return view('livewire.homepage', compact('answers', 'count'));
     }
 
-    $answers = Answer::with(['user', 'question'])->where('user_id', '!=', auth()->id())
-      ->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
-      ->latest()->take($this->total_page)->get();
+    $follow = auth()->user()->followings;
+    $answers1 = Answer::where('user_id', '!=', auth()->id())
+      ->where(function ($query) use ($follow) {
+        foreach ($follow as $value) {
+          if ($value != null) {
+            $query->where('user_id', '!=', $value->followable_id);
+          }
+        }
+      })->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
+      ->latest()->get();
 
-    $count = Answer::with(['user', 'question'])->where('user_id', '!=', auth()->id())
-      ->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
-      ->latest()->count();
+    // foreach ($follow as $value) {
+    //   $n_answeeer = Answer::where('user_id', '!=', auth()->id())->where('user_id', '=', $value->followable_id)
+    //     ->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
+    //     ->latest()->get();
+    //     foreach ($n_answeeer as $key) {
+    //       $answers->prepend($key);
+    //     }
+    //   // $answers->prepend(Answer::where('user_id', '!=', auth()->id())->where('user_id', '=', $value->followable_id)
+    //   //   ->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
+    //   //   ->latest()->get());
+    // } //work
+
+    $answers2 = Answer::where('user_id', '!=', auth()->id())
+      ->where(function ($query) use ($follow) {
+        foreach ($follow as $value) {
+          if ($value != null) {
+            $query->orWhere('user_id', '=', $value->followable_id);
+          }
+        }
+      })->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
+      ->latest()->get();
+
+    // $answers = Answer::where('user_id', '!=', auth()->id())
+    //   ->where(function ($query) use ($follow) {
+    //     foreach ($follow as $value) {
+    //       if ($value != null) {
+    //         $query->orWhere('user_id', '=', $value->followable_id);
+    //       }
+    //     }
+    //   })->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
+    //   ->latest()->get();
+
+    $answers = $answers2->concat($answers1)->sortByDesc('created_at')->take($this->total_page);
+    // \dd($answers);
+
+    // foreach ($answers as $key => $value) {
+    //   # code...
+    // }
+    $count = $answers->count();
     return view('livewire.homepage', compact('answers', 'count'));
   }
 

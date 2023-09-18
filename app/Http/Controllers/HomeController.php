@@ -22,7 +22,7 @@ class HomeController extends Controller
     //jika user belum disetujui
     if (auth()->check() && auth()->user()->approved == 'false') {
       auth()->logout();
-      return redirect()->route('login')->with('message', ['text' => 'Akun anda belum disetujui', 'class' => 'danger']);
+      return redirect()->route('login')->with('message', ['text' => 'Akun anda belum disetujui oleh admin', 'class' => 'danger']);
     } elseif (auth()->check() && auth()->user()->approved == 'true') {
       $answers = Answer::with(['user', 'question'])->where('user_id', '!=', auth()->id())
         ->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
