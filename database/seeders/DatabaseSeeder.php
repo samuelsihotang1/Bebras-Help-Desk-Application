@@ -115,14 +115,14 @@ class DatabaseSeeder extends Seeder
 
     // Topik
     $topics = [
-      'Pemrograman Web',
-      'Belajar',
-      'Seni Rupa',
-      'Aktor',
-      'Anime',
-      'Kebugaran',
-      'Pakaian',
-      'Film',
+      'Metode Pengajaran',
+      'Kurikulum',
+      'Evaluasi dan Penilaian',
+      'Teknologi dalam Pendidikan',
+      'Pendidikan Inklusif',
+      'Pendidikan Karakter',
+      'Pendidikan Global',
+      'Isu-isu Pendidikan Terkini',
     ];
 
     for ($i = 0; $i < count($topics); $i++) {
