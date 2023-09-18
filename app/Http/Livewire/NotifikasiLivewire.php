@@ -42,4 +42,10 @@ class NotifikasiLivewire extends Component
       $this->aria_expanded = 'true';
     }
   }
+
+  public $isElementClicked = false;
+  public function toggleElementClicked()
+  {
+    $this->isElementClicked = !$this->isElementClicked;
+  }
 }
