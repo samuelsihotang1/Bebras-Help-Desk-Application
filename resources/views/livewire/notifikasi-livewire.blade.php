@@ -1,5 +1,5 @@
 <div>
-  <li class="nav-item ml-4" wire:click="toggleElementClicked">
+  <li class="nav-item ml-4{{ $dmenn }}">
     <a id="notification" href="javascript: void(0)" class="text-dark" role="button" data-toggle="dropdown"
       wire:click="viewedeeeee" aria-haspopup="true" aria-expanded="{{ $aria_expanded }}" v-pre
       style="position: relative;">
@@ -61,12 +61,4 @@
       @endforelse
     </div>
   </li>
-  <script>
-    document.addEventListener('click', function(event) {
-      var element = document.querySelector('[wire\\:click="toggleElementClicked"]');
-      if (element && !element.contains(event.target)) {
-          @this.call('viewedeeeee');
-      }
-  });
-  </script>
 </div>

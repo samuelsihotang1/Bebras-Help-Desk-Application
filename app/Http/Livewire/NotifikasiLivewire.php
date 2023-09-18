@@ -10,6 +10,7 @@ class NotifikasiLivewire extends Component
 {
   public $vieeew = 0;
   public $show = '';
+  public $dmenn = ' show';
   public $aria_expanded = 'false';
   public $notifikasis;
 
@@ -41,11 +42,5 @@ class NotifikasiLivewire extends Component
       $this->show = ' show';
       $this->aria_expanded = 'true';
     }
-  }
-
-  public $isElementClicked = false;
-  public function toggleElementClicked()
-  {
-    $this->isElementClicked = !$this->isElementClicked;
   }
 }

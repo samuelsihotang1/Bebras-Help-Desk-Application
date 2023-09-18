@@ -43,7 +43,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     @foreach ($topics as $topic)
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value="{{ $topic->id }}" name="topic_id[]" id="{{ $topic->id }}" id="q-topic">
                                             <label class="form-check-label" for="{{ $topic->id }}">
