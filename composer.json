@@ -20,7 +20,9 @@
         "laravel/ui": "^4.2",
         "livewire/livewire": "^2.12",
         "overtrue/laravel-follow": "^5.1",
-        "samuelsihotang1/laravel-vote": "dev-master"
+        "samuelsihotang1/laravel-vote": "dev-master",
+        "symfony/http-client": "^6.3",
+        "symfony/mailgun-mailer": "^6.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
