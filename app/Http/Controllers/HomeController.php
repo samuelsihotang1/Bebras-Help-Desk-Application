@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\kirimEmail;
 use App\Models\User;
 use App\Models\Topic;
 use App\Models\Answer;
+use App\Models\Notifikasi;
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -26,6 +30,18 @@ class HomeController extends Controller
       $answers = Answer::with(['user', 'question'])->where('user_id', '!=', auth()->id())
         ->whereNull('status')->orWhere('status', 'viewed_by_admin')->orWhere('status', 'updated_by_user')
         ->latest()->get();
+
+      if (!Cache::has('email_notification_' . auth()->user()->id)) {
+        $notif = Notifikasi::where('user_id', '=', auth()->id())->where('viewed', '=', 'false')->get();
+        if (count($notif) > 0) {
+          Mail::to(auth()->user()->email)->send(new kirimEmail([
+            'subject' => 'Notifikasi dari Bebras Help Desk',
+            'sender_name' => 'bebras@bebrasindonesia.org',
+            'isi' => $notif
+          ]));
+          Cache::put('email_notification_' . auth()->user()->id, true, 86400);
+        }
+      }
       return view('home', compact('answers'));
     }
 

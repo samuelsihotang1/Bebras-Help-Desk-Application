@@ -12,11 +12,9 @@ use App\Models\QuestionTopic;
 use App\Models\ReportComment;
 use App\Models\ReportQuestion;
 use App\Http\Controllers\Controller;
-use App\Mail\kirimEmail;
 use App\Models\Notifikasi;
 use App\Models\UserTopic;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Mail;
 
 class QuestionController extends Controller
 {
@@ -176,19 +174,12 @@ class QuestionController extends Controller
           'updated_at' => now(),
         ]);
 
-        if (!Cache::has('topic_notification_' . $request->topic_id[$i])) {
+        if (!Cache::has('topic_notification_' . $request->topic_id[$i] . auth()->user()->id)) {
           foreach (UserTopic::where('topic_id', '=', $request->topic_id[$i])->get() as $key) {
             $total = QuestionTopic::where('created_at', '>=', now()->subSeconds(86400))->where('topic_id', '=', $request->topic_id[$i])->count();
             Notifikasi::n_topic($key->user->id, $key->topic, $total);
-            if (count(Notifikasi::where('user_id', '=', auth()->id())->where('viewed', '=', 'false')->get()) > 0) {
-              Mail::to($key->user->email)->send(new kirimEmail([
-                'subject' => 'Notifikasi',
-                'sender_name' => 'bebras@bebrasindonesia.org',
-                'isi' => Notifikasi::where('user_id', '=', auth()->id())->where('viewed', '=', 'false')->get()
-              ]));
-            }
           }
-          Cache::put('topic_notification_' . $request->topic_id[$i], true, 86400);
+          Cache::put('topic_notification_' . $request->topic_id[$i] . auth()->user()->id, true, 86400);
         }
       }
     }
