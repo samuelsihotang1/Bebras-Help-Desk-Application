@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
-use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
@@ -66,12 +65,9 @@ class RegisterController extends Controller
    */
   protected function create(array $data)
   {
-    $name_slug = Str::of($data['name'])->slug('-');
     $avatar = 'https://ui-avatars.com/api/?name=' . $data['name'] . '&background=868e96&color=fff';
-
     return User::create([
       'name' => $data['name'],
-      'name_slug' => $name_slug,
       'email' => $data['email'],
       'password' => Hash::make($data['password']),
       'avatar' => $avatar,

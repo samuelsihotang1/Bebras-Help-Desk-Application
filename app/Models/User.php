@@ -9,6 +9,7 @@ use Overtrue\LaravelFollow\Traits\Follower;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -19,7 +20,17 @@ class User extends Authenticatable implements MustVerifyEmail
   protected static function booted()
   {
     static::creating(function ($user) {
-      $user->name_slug = strtolower(str_replace(' ', '-', $user->name));
+      $name_slug = Str::of($user->name)->slug('-');
+      $counter = 0;
+      while (User::where('name_slug', '=', $name_slug)->count() > 0) {
+        if ($counter == 0) {
+          $name_slug = $name_slug . '-' . rand(0, 9);
+          $counter++;
+        } else {
+          $name_slug = $name_slug . rand(0, 9);
+        }
+      }
+      $user->name_slug = $name_slug;
       $user->avatar = 'https://ui-avatars.com/api/?name=' . $user->name . '&background=868e96&color=fff';
     });
   }

@@ -37,9 +37,20 @@ class SocialiteController extends Controller
             return $authUser;
         }
 
+        $name_slug = Str::of($data->name)->slug('-');
+        $counter = 0;
+        while (User::where('name_slug', '=', $name_slug)->count() > 0) {
+          if ($counter == 0) {
+            $name_slug = $name_slug . '-' . rand(0, 9);
+            $counter++;
+          } else {
+            $name_slug = $name_slug . rand(0, 9);
+          }
+        }
+
         return User::create([
             'name' => $data->name,
-            'name_slug' => Str::of($data->name)->slug('-'),
+            'name_slug' => $name_slug,
             'email' => $data->email,
             'provider_id' => $data->id,
             'avatar' => $data->avatar
