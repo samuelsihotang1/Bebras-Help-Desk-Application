@@ -16,8 +16,8 @@ class CreateQuestionsTable extends Migration
     Schema::create('questions', function (Blueprint $table) {
       $table->id();
       $table->foreignId('user_id')->constrained()->onDelete('CASCADE');
-      $table->string('title', 120)->unique();
-      $table->string('title_slug');
+      $table->string('title', 120);
+      $table->string('title_slug')->unique();
       $table->string('status')->nullable();
       $table->string('pin_answer')->nullable();
       $table->timestamps();

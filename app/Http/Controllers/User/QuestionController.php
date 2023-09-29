@@ -150,12 +150,21 @@ class QuestionController extends Controller
 
     $title = $this->edit_title($request->title);
 
+    $title_slug = Str::of($title)->slug('-');
+    $counter = 0;
+    while (Question::where('title_slug', '=', $title_slug)->count() > 0) {
+      if ($counter == 0) {
+        $title_slug = $title_slug . '-' . rand(0, 9);
+        $counter++;
+      } else {
+        $title_slug = $title_slug . rand(0, 9);
+      }
+    }
+
     $question = $user->questions()->create([
       'title' => $title,
-      'title_slug' => Str::of($title)->slug('-'),
+      'title_slug' => $title_slug,
     ]);
-
-    $title_slug = Str::of($title)->slug('-');
 
     if ($request->topic_id) {
 
