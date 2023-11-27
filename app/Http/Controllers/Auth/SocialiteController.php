@@ -6,38 +6,47 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\SocialAccount;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialiteController extends Controller
 {
-    public function redirect($provider){
-        return Socialite::driver($provider)->redirect();
+  public function redirect($provider)
+  {
+    return Socialite::driver($provider)->redirect();
+  }
+
+  public function callback($provider)
+  {
+    try {
+      $user = Socialite::driver($provider)->user();
+    } catch (Exception $e) {
+      // \dd('asd');
+      return redirect()->route('login');
     }
 
-    public function callback($provider){
-        try{
-            $user = Socialite::driver($provider)->user();
+    $authUser = $this->checkLogin($user, $provider);
 
-        }catch(\Exception $e){
-            return redirect()->route('login');
-        }
+    Auth::login($authUser);
 
-        $authUser = $this->checkLogin($user);
+    return redirect()->route('home');
+  }
 
-        Auth::login($authUser);
+  public function checkLogin($data, $provider)
+  {
+    $socialAccount = SocialAccount::where('provider_id', $data->getId())
+      ->where('provider_name', $provider)
+      ->first();
 
-        return redirect()->route('home');
-    }
+    if ($socialAccount) {
+      return $socialAccount->user;
+    } else {
+      $user = User::where('email', $data->getEmail())->first();
 
-    public function checkLogin($data){
-        $authUser = User::where('provider_id',$data->id)->first();
-
-        if($authUser){
-            return $authUser;
-        }
-
-        $name_slug = Str::of($data->name)->slug('-');
+      if (!$user) {
+        $name_slug = Str::of($data->getName())->slug('-');
         $counter = 0;
         while (User::where('name_slug', '=', $name_slug)->count() > 0) {
           if ($counter == 0) {
@@ -47,13 +56,47 @@ class SocialiteController extends Controller
             $name_slug = $name_slug . rand(0, 9);
           }
         }
-
-        return User::create([
-            'name' => $data->name,
-            'name_slug' => $name_slug,
-            'email' => $data->email,
-            'provider_id' => $data->id,
-            'avatar' => $data->avatar
+        $user = User::create([
+          'name' => $data->getName(),
+          'name_slug' => $name_slug,
+          'email' => $data->getEmail(),
+          'provider_id' => $data->getId(),
+          'avatar' => $data->getAvatar()
         ]);
+      }
+
+      $user->socialAccounts()->create([
+        'provider_id' => $data->getId(),
+        'provider_name' => $provider
+      ]);
+
+      return $user;
     }
+
+    //////
+    // $authUser = User::where('provider_id', $data->id)->first();
+
+    // if ($authUser) {
+    //   return $authUser;
+    // }
+
+    // $name_slug = Str::of($data->name)->slug('-');
+    // $counter = 0;
+    // while (User::where('name_slug', '=', $name_slug)->count() > 0) {
+    //   if ($counter == 0) {
+    //     $name_slug = $name_slug . '-' . rand(0, 9);
+    //     $counter++;
+    //   } else {
+    //     $name_slug = $name_slug . rand(0, 9);
+    //   }
+    // }
+
+    // return User::create([
+    //   'name' => $data->name,
+    //   'name_slug' => $name_slug,
+    //   'email' => $data->email,
+    //   'provider_id' => $data->id,
+    //   'avatar' => $data->avatar
+    // ]);
+  }
 }

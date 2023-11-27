@@ -22,6 +22,7 @@ class HomeController extends Controller
 
   public function index(Request $request)
   {
+    dd(Question::get());
     //jika user belum disetujui
     if (auth()->check() && auth()->user()->approved == 'false') {
       auth()->logout();

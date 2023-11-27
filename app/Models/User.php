@@ -103,4 +103,9 @@ class User extends Authenticatable implements MustVerifyEmail
   {
     return $this->belongsToMany(Comment::class, 'report_comments');
   }
+
+  public function socialAccounts()
+  {
+    return $this->hasMany(SocialAccount::class);
+  }
 }
