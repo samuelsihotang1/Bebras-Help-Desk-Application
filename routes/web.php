@@ -19,9 +19,7 @@ use App\Http\Controllers\Admin\CheckCommentController;
 use App\Http\Controllers\Admin\CheckQuestionController;
 use App\Http\Controllers\Admin\CheckUserController;
 use App\Http\Controllers\Admin\EditFaqController;
-use App\Http\Controllers\kirimEmailController;
 use App\Http\Controllers\User\AboutController;
-
 
 //api login provider
 Route::get('/auth/redirect/{provider}', [SocialiteController::class, 'redirect']);
@@ -80,7 +78,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
   Route::get('/', [HomeController::class, 'index'])->name('home');
   Route::get('/search', [HomeController::class, 'search'])->name('search');
 
-
   //about developer
   Route::get('/about', [AboutController::class, 'index'])->name('about');
 
@@ -97,6 +94,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
   //setting
   Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
   Route::put('/settings/password/{user}', [SettingController::class, 'update_password'])->name('settings.password');
+  Route::put('/settings/phone/{user}', [SettingController::class, 'update_phone'])->name('settings.phone');
 
   //content
   Route::get('/content', [ContentController::class, 'index'])->name('content.index');

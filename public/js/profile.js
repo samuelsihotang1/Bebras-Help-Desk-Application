@@ -22,7 +22,7 @@ $(document).on("click", "#showQuestions", function (e) {
         showAnswers.innerHTML = showAnswers.textContent;
     });
 
-    let site_url = $(this).attr("data-href");
+    let site_url = $(this).attr("data-href").replace(/^http:/, 'https:');
     let html2 = "";
     $.ajax({
         url: site_url,
@@ -72,7 +72,7 @@ $(document).on("click", "#showAnswers", function (e) {
         showQuestions.innerHTML = showQuestions.textContent;
     });
 
-    let site_url = $(this).attr("data-href");
+    let site_url = $(this).attr("data-href").replace(/^http:/, 'https:');
     let html3 = "";
     $.ajax({
         url: site_url,
@@ -120,7 +120,7 @@ $(document).on("click", "#showAnswers", function (e) {
 //   $("#showAnswersHtml").hide();
 //   $("#showTopicsHtml").show();
 //   e.preventDefault();
-//   let site_url = $(this).attr("data-href");
+//   let site_url = $(this).attr("data-href").replace(/^http:/, 'https:');
 //   let html = "";
 //   $.ajax({
 //       url: site_url,

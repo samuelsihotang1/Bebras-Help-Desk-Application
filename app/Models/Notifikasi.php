@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Netflie\WhatsAppCloudApi\WhatsAppCloudApi;
 
 class Notifikasi extends Model
 {
@@ -17,6 +18,17 @@ class Notifikasi extends Model
     return $this->belongsTo(User::class);
   }
 
+  public static function whatsappApi()
+  {
+    // Instantiate the WhatsAppCloudApi super class.
+    $whatsapp_cloud_api = new WhatsAppCloudApi([
+      'from_phone_number_id' => env('FROM_PHONE_NUMBER_ID'),
+      'access_token' => env('ACCESS_TOKEN_FB'),
+    ]);
+
+    return $whatsapp_cloud_api;
+  }
+
   public static function n_user($user)
   {
     DB::table('notifikasis')->insert([
@@ -27,6 +39,13 @@ class Notifikasi extends Model
       'created_at' => now(),
       'updated_at' => now(),
     ]);
+
+    $userAll = User::where('id', '=', $user)->first();
+    if (isset($userAll->phone_number)) {
+      static::whatsappApi()->sendTextMessage($userAll->phone_number, auth()->user()->name . ' mengikuti anda
+
+' . route('profile.show', auth()->user()->name_slug));
+    }
   } //done
 
   public static function n_question($user, $question)
@@ -39,6 +58,13 @@ class Notifikasi extends Model
       'created_at' => now(),
       'updated_at' => now(),
     ]);
+
+    $userAll = User::where('id', '=', $user)->first();
+    if (isset($userAll->phone_number)) {
+      static::whatsappApi()->sendTextMessage($userAll->phone_number, auth()->user()->name . ' telah mengajukan sebuah pertanyaan "' . $question->title . '"
+
+' . route('question.show', $question->title_slug));
+    }
   } //done
 
   public static function n_answer($question)
@@ -51,6 +77,13 @@ class Notifikasi extends Model
       'created_at' => now(),
       'updated_at' => now(),
     ]);
+
+    $userAll = User::where('id', '=', $question->user->id)->first();
+    if (isset($userAll->phone_number)) {
+      static::whatsappApi()->sendTextMessage($userAll->phone_number, auth()->user()->name . ' menjawab pertanyaan anda "' . $question->title . '"
+
+' . route('question.show', $question->title_slug));
+    }
   } //done
 
   public static function n_topic($user, $topic, $total)
@@ -63,6 +96,13 @@ class Notifikasi extends Model
       'created_at' => now(),
       'updated_at' => now(),
     ]);
+
+    $userAll = User::where('id', '=', $user)->first();
+    if (isset($userAll->phone_number)) {
+      static::whatsappApi()->sendTextMessage($userAll->phone_number, 'Telah ada ' . $total . ' pertanyaan baru dengan topik "' . $topic->name . '"
+
+' . route('topic.show', $topic->name_slug));
+    }
   } //done
 
   public static function n_comment($answer, $text)
@@ -75,5 +115,12 @@ class Notifikasi extends Model
       'created_at' => now(),
       'updated_at' => now(),
     ]);
+
+    $userAll = User::where('id', '=', $answer->user->id)->first();
+    if (isset($userAll->phone_number)) {
+      static::whatsappApi()->sendTextMessage($userAll->phone_number, auth()->user()->name . ' memberikan komentar pada jawaban anda "' . $text . '"
+
+' . route('question.show', $answer->question->title_slug));
+    }
   } //done
 }

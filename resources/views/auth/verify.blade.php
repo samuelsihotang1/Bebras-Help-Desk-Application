@@ -40,7 +40,8 @@
           {{ __('Sebelum melanjutkan, harap periksa email Anda untuk tautan verifikasi.') }}
           <br>
           <br>
-          {{ __('Jika Anda tidak menerima email tersebut') }},
+          {{ __('Jika Anda tidak menerima email tersebut, mohon cek bagian pesan SPAM atau klik tombol di bawah ini')
+          }},
           <form class="space-y-6" method="POST" action="{{ route('verification.resend') }}">
             @csrf
             <button type="submit"

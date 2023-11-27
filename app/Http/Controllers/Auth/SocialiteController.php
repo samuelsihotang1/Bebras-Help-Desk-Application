@@ -23,7 +23,6 @@ class SocialiteController extends Controller
     try {
       $user = Socialite::driver($provider)->user();
     } catch (Exception $e) {
-      // \dd('asd');
       return redirect()->route('login');
     }
 
@@ -56,10 +55,12 @@ class SocialiteController extends Controller
             $name_slug = $name_slug . rand(0, 9);
           }
         }
+
         $user = User::create([
           'name' => $data->getName(),
           'name_slug' => $name_slug,
           'email' => $data->getEmail(),
+          'email_verified_at' => now(),
           'provider_id' => $data->getId(),
           'avatar' => $data->getAvatar()
         ]);

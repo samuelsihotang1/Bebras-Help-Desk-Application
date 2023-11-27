@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\ApiQuestionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+  return $request->user();
 });
+
+// Route::apiResource('questions', ApiQuestionController::class);
+Route::get('questions', [ApiQuestionController::class, 'index']);
+Route::get('search', [ApiQuestionController::class, 'search']);

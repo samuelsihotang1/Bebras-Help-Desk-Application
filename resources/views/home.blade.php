@@ -11,17 +11,18 @@
             <div class="col-sm-12">
               @if (auth()->check())
               <img
-                src="{{ (strpos(Auth::user()->avatar, 'https') === 0) ? Auth::user()->avatar : asset('img/' . Auth::user()->avatar) }}"
+                src="{{ (strpos(Auth::user()->avatar, 'https') === 0) ? Auth::user()->avatar : secure_asset('img/' . Auth::user()->avatar) }}"
                 alt="avatar" class="rounded-circle mr-3" width="45px" height="45px">
               <b>{{ Auth::user()->name }}</b>
               @endif
             </div>
             <div class="col-sm-12 mt-3">
               @if (auth()->check())
-              <a href="" class="form-control text-dark" data-toggle="modal" data-target="#add-questionModal">Apa yang ingin anda 
+              <a href="" class="form-control text-dark" data-toggle="modal" data-target="#add-questionModal">Apa yang
+                ingin anda
                 tanyakan ?</a>
               @else
-              <a href="/login" class="form-control text-dark">Apa yang ingin anda 
+              <a href="/login" class="form-control text-dark">Apa yang ingin anda
                 tanyakan ?</a>
               @endif
             </div>

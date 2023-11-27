@@ -19,10 +19,61 @@ class HomeController extends Controller
     $this->middleware(['auth', 'verified']);
   }
 
+  // public function sendMessage()
+  // {
+  //   try {
+  //     // Send Template
+  //     $whatsapp_cloud_api->sendTemplate('62895612360693', 'hello_world', 'en_US');
+
+  //     // Send Text Message
+  //     $whatsapp_cloud_api->sendTextMessage('62895612360693', 'hello its workinng ? test');
+
+  //     // Send Document by link
+  //     $document_link = 'https://i.ytimg.com/vi/0jIQK3GvmDk/hqdefault.jpg';
+  //     $link_id = new LinkID($document_link);
+  //     $whatsapp_cloud_api->sendDocument('62895612360693', $link_id, "Document", "caption of document");
+
+  //     // Send Image by link
+  //     $link_id = new LinkID('https://i.ytimg.com/vi/0jIQK3GvmDk/hqdefault.jpg');
+  //     $whatsapp_cloud_api->sendImage('62895612360693', $link_id);
+
+  //     // Contact
+  //     $name = new ContactName('Sajid', 'Ali');
+  //     $phone = new Phone('7065221377', PhoneType::CELL());
+  //     $whatsapp_cloud_api->sendContact('62895612360693', $name, $phone);
+
+  //     // List
+  //     $rows = [
+  //       new Row('1', '⭐️', "Experience wasn't good enough"),
+  //       new Row('2', '⭐⭐️', "Experience could be better"),
+  //       new Row('3', '⭐⭐⭐️', "Experience was ok"),
+  //       new Row('4', '⭐⭐️⭐⭐', "Experience was good"),
+  //       new Row('5', '⭐⭐️⭐⭐⭐️', "Experience was excellent"),
+  //     ];
+  //     $sections = [new Section('Stars', $rows)];
+  //     $action = new Action('Submit', $sections);
+
+  //     $whatsapp_cloud_api->sendList(
+  //       '62895612360693',
+  //       'Rate your experience',
+  //       'Please consider rating your shopping experience in our website',
+  //       'Thanks for your time',
+  //       $action
+  //     );
+
+  //     // Media messages accept as identifiers an Internet URL pointing to a public resource (image, video, audio, etc.). When you try to send a media message from a URL you must instantiate the LinkID object.
+  //     $response = $whatsapp_cloud_api->uploadMedia('1.jpeg');
+  //     $media_id = new MediaObjectID($response->decodedBody()['id']);
+  //     $whatsapp_cloud_api->sendImage('62895612360693', $media_id);
+  //   } catch (\Netflie\WhatsAppCloudApi\Response\ResponseException $e) {
+  //     echo "<pre>";
+  //     print_r($e->response()); // You can still check the Response returned from Meta servers
+  //     echo "</pre>";
+  //   }
+  // }
 
   public function index(Request $request)
   {
-    dd(Question::get());
     //jika user belum disetujui
     if (auth()->check() && auth()->user()->approved == 'false') {
       auth()->logout();

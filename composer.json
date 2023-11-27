@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.2",
         "livewire/livewire": "^2.12",
+        "netflie/whatsapp-cloud-api": "^2.0",
         "overtrue/laravel-follow": "^5.1",
         "samuelsihotang1/laravel-vote": "dev-master",
         "symfony/http-client": "^6.3",
