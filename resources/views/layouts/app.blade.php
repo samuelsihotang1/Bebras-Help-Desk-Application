@@ -19,10 +19,10 @@
   <link rel="manifest" href="/icon/site.webmanifest">
 
   <!-- Scripts -->
-  <script src="{{ secure_asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/app.js') }}" defer></script>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script src="{{ secure_asset('js/share.js') }}"></script>
+  <script src="{{ asset('js/share.js') }}"></script>
   <script src="//unpkg.com/alpinejs" defer></script>
 
   <!-- Fonts -->
@@ -31,7 +31,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
   @yield('link')
@@ -125,14 +125,14 @@
               <a id="navbarDropdown" class="nav-link ml-4" href="javascript: void(0)" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 <img
-                  src="{{ strpos(Auth::user()->avatar, 'https') === 0 ? Auth::user()->avatar : secure_asset('img/' . Auth::user()->avatar) }}"
+                  src="{{ strpos(Auth::user()->avatar, 'https') === 0 ? Auth::user()->avatar : asset('img/' . Auth::user()->avatar) }}"
                   alt="avatar" class="rounded-circle" width="35px" height="35px">
               </a>
 
               <div class="dropdown-menu dropdown-menu-right dmenu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{{ route('profile.index', Auth::user()->name_slug) }}" class="text-dark">
                   <img
-                    src="{{ strpos(Auth::user()->avatar, 'https') === 0 ? Auth::user()->avatar : secure_asset('img/' . Auth::user()->avatar) }}"
+                    src="{{ strpos(Auth::user()->avatar, 'https') === 0 ? Auth::user()->avatar : asset('img/' . Auth::user()->avatar) }}"
                     alt="Profile Image" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 8px;">
                   <b style="font-size: 15px">{{ Auth::user()->name }} <i class="bi bi-chevron-right ml-2"></i></b>
                 </a>

@@ -213,5 +213,5 @@
 </div>
 @endsection
 @section('script')
-<script src="{{ secure_asset('js/profile.js') }}"></script>
+<script src="{{ asset('js/profile.js') }}"></script>
 @endsection

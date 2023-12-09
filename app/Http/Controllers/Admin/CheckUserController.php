@@ -102,7 +102,6 @@ class CheckUserController extends Controller
       'role' => $role,
     ];
 
-    // Hapus kolom dengan nilai null dari array
     $userData = array_filter($userData, function ($value) {
       return $value !== null;
     });

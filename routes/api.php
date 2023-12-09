@@ -21,4 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // Route::apiResource('questions', ApiQuestionController::class);
 Route::get('questions', [ApiQuestionController::class, 'index']);
-Route::get('search', [ApiQuestionController::class, 'search']);
+Route::get('questions/{id}', [ApiQuestionController::class, 'search']);

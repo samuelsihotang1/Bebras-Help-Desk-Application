@@ -7,19 +7,43 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ApiQuestionResource;
 use App\Models\Question;
+use Illuminate\Http\JsonResponse;
+
 
 class ApiQuestionController extends Controller
 {
-  public function index()
+  // public function index()
+  // {
+  //   $questions = Question::all();
+  //   return response()->json([
+  //     'questions' => $questions,
+  //     'links' => $questions->getLinks(),
+  //   ]);
+  // }
+
+  public function index(): JsonResponse
   {
     $questions = Question::all();
-    return ApiQuestionResource::collection($questions);
+    $formattedQuestions = $questions->map(function ($questions) {
+      return [
+        'question' => $questions,
+        'links' => $questions->getLinks(),
+      ];
+    });
+    return response()->json([
+      'questions' => $formattedQuestions,
+    ]);
   }
 
-  public function search(Request $request)
+
+
+
+  public function search($id): JsonResponse
   {
-    $searchQuery = $request->q;
-    $questions = Question::where('title', 'LIKE', '%' . $searchQuery . '%')->get();
-    return ApiQuestionResource::collection($questions);
+    $questions = Question::findOrFail($id);
+    return response()->json([
+      'product' => $questions,
+      'links' => $questions->getLinks(),
+    ]);
   }
 }

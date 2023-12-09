@@ -669,7 +669,7 @@
 </div>
 @endsection
 @section('script')
-<script src="{{ secure_asset('js/profile.js') }}"></script>
+<script src="{{ asset('js/profile.js') }}"></script>
 <script>
   //script for hide & show button edit profile name
     $("#btneditName").hide();
