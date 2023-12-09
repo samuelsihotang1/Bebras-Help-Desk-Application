@@ -10,8 +10,10 @@ A website-based forum that assists educators in discussing various topics, shari
 - HTML
 - CSS
 - PHP
-- JavaScript
 - Laravel
+- JavaScript
+- Livewire
+- Alpine JS
 - Tailwind
 
 ### Give a star please
