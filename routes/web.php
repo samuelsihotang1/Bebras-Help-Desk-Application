@@ -27,9 +27,9 @@ Route::get('/auth/callback/{provider}', [SocialiteController::class, 'callback']
 
 // Route::get('/test', [kirimEmailController::class, 'index']);
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 
-Route::group(['middleware' => ['auth', 'verified']], function () {
+Route::group(['middleware' => 'auth'], function () {
   Route::group(['middleware' => ['can:isAdmin']], function () {
     Route::prefix('admin')->group(function () {
       Route::name('admin.')->group(function () {
