@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Str;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
   use HasFactory, Notifiable, Follower, Followable, Voter;
 
@@ -32,6 +32,7 @@ class User extends Authenticatable implements MustVerifyEmail
       }
       $user->name_slug = $name_slug;
       $user->avatar = 'https://ui-avatars.com/api/?name=' . $user->name . '&background=868e96&color=fff';
+      $user->approved = 'true';
     });
   }
   protected $guarded = [];
